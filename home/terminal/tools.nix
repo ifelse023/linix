@@ -7,8 +7,10 @@
     deadnix
     statix
 
-    # grep replacement
     ripgrep
+    pkg-config
+    zlib
+    gnumake
 
     fzf
     bash
