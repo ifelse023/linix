@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     impermanence.url = "github:nix-community/impermanence";
 
     nix-index-db = {

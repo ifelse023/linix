@@ -5,12 +5,16 @@
   lib,
   ...
 }: {
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
     enableCompletion = true;
     enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
+    autocd = true;
     sessionVariables = {LC_ALL = "en_US.UTF-8";};
 
     history = {
@@ -91,42 +95,18 @@
       zstyle ':completion:*:eza' sort false
       zstyle ':completion:files' sort false
 
-      # fzf-tab
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
-      zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
-      zstyle ':fzf-tab:complete:kill:*' popup-pad 0 3
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-      zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
-      zstyle ':fzf-tab:*' switch-group ',' '.'
     '';
 
     initExtraFirst = ''
+
+      # C-right / C-left for word skips
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+
+      bindkey "^H" backward-kill-word
+
       # set my zsh options, first things first
       source ${./opts.zsh}
-
-      set -k
-      export FZF_DEFAULT_OPTS="
-      --color gutter:-1
-      --color bg:-1
-      --color bg+:-1
-      --color fg:"#a9b1d6";
-      --color fg+:"#c0caf5";
-      --color hl:"#41a6b5";
-      --color hl+:"#41a6b5";
-      --color header:"#41a6b5";
-      --color info:"#e0af68";
-      --color marker:"#1abc9c";
-      --color pointer:"#1abc9c";
-      --color prompt:"#e0af68";
-      --color spinner:"#1abc9c";
-      --color preview-bg:"#1f2335";
-      --color preview-fg:"#41a6b5";
-      --prompt ' '
-      --pointer ''
-      --layout=reverse
-      -m --bind ctrl-space:toggle,pgup:preview-up,pgdn:preview-down
-      "
 
       zmodload zsh/zle
       zmodload zsh/zpty
@@ -176,6 +156,7 @@
       build = "nix build $@ --builders \"\"";
 
       cat = "${lib.getExe bat} --style=plain";
+      cd = "z";
       grep = "${lib.getExe ripgrep}";
       du = "${lib.getExe du-dust}";
       ps = "${lib.getExe procs}";

@@ -18,6 +18,7 @@
       gnumake
       tree-sitter
       gcc
+      nil
     ];
   };
 }
