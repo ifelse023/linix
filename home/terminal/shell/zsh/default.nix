@@ -33,7 +33,6 @@
       ignoreSpace = true;
       ignorePatterns = ["rm *" "pkill *" "kill *"];
     };
-
     dirHashes = {
       docs = "$HOME/Documents";
       dev = "$HOME/dev";
@@ -162,9 +161,9 @@
       ps = "${lib.getExe procs}";
       mp = "mkdir -p";
       fcd = "cd $(find -type d | fzf)";
-      ls = "${lib.getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
-      la = "${lib.getExe eza} -a -h --git --icons --color=auto --group-directories-first -s extension";
-      l = "ls -lF --time-style=long-iso --icons";
+      # ls = "${lib.getExe eza} -h --git --icons --color=auto -s extension";
+      # la = "${lib.getExe eza} -a -h --git --icons --color=auto -s extension";
+      # l = "ls -lF --time-style=long-iso --icons";
       # system aliases
       sc = "sudo systemctl";
       jc = "sudo journalctl -b -p err";

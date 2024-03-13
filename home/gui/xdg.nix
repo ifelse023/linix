@@ -40,10 +40,11 @@ in {
     userDirs = {
       enable = true;
       createDirectories = true;
-      documents = "${config.home.homeDirectory}/other";
+      documents = "${config.home.homeDirectory}/Documents";
+      download = "$HOME/Downloads/";
       videos = "${config.home.homeDirectory}/other";
       music = "${config.home.homeDirectory}/other";
-      pictures = "${config.home.homeDirectory}/pics";
+      pictures = "${config.home.homeDirectory}/other";
       desktop = "${config.home.homeDirectory}/other";
       publicShare = "${config.home.homeDirectory}/other";
       templates = "${config.home.homeDirectory}/other";

@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   boot = {
     kernelModules = ["tls" "tcp_bbr"];
     kernel.sysctl = {
@@ -69,16 +65,5 @@
       "net.netfilter.nf_conntrack_tcp_timeout_established" = 600;
       "net.netfilter.nf_conntrack_tcp_timeout_time_wait" = 1;
     };
-  };
-
-  security = {
-    # allow wayland lockers to unlock the screen
-    #pam.services.swaylock.text = "auth include login";
-
-    # userland niceness
-    rtkit.enable = true;
-
-    # don't ask for password for wheel group
-    sudo.wheelNeedsPassword = false;
   };
 }

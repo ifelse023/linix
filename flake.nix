@@ -27,10 +27,6 @@
     };
 
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

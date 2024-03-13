@@ -30,10 +30,6 @@
     # syncthnig for acoustic people
     rsync
 
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoringecho nvim_get_runtime_file('parser', v:true
-
     lsof # list open files
 
     psmisc # killall/pstree/prtstat/fuser/...
@@ -56,10 +52,6 @@
       ];
     };
     dircolors = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-    zoxide = {
       enable = true;
       enableZshIntegration = true;
     };

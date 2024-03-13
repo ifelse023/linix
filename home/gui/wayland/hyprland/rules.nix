@@ -2,12 +2,12 @@
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      layers = "^(eww-.+|notifications|system-menu|anyrun|kitty|wezterm|gtk-layer-shell|osd[0-9])$";
+      layers = "^(eww-.+|notifications|system-menu|tofi|kitty|wezterm|gtk-layer-shell|osd[0-9])$";
     in [
       "blur, ${layers}"
       "xray 1, ^(bar|gtk-layer-shell)$"
       "ignorealpha 0.2, ${layers}"
-      "ignorealpha 0.5, ^(system-menu|anyrun)$"
+      "ignorealpha 0.5, ^(system-menu|tofi)$"
     ];
 
     # window rules

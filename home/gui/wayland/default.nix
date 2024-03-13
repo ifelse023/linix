@@ -2,13 +2,11 @@
 # Wayland config
 {
   imports = [
-    ./anyrun
+    ./tofi
     ./hyprland
     ./mako.nix
     ./environment.nix
     #./hyprpaper.nix
-    #./swayidle.nix
-    #./swaylock.nix
   ];
 
   home.packages = with pkgs; [

@@ -5,6 +5,5 @@
     ./user.nix
     ./fonts.nix
     ./nix.nix
-    ./blacklist.nix
   ];
 }

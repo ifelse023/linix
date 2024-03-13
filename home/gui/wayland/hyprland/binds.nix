@@ -42,7 +42,7 @@ in {
         # terminal
         "$mod, Return, exec, kitty"
 
-        "$mod, D, exec, anyrun"
+        "$mod, D, exec, tofi-drun --drun-launch=true"
         # logout menu
         "$mod, Escape, exec, wlogout -p layer-shell"
         # lock screen
