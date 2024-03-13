@@ -1,11 +1,7 @@
-{
-  inputs,
-  system,
-  ...
-}: {
+{...}: {
   imports = [
+    ./zsh
     #./yazi
-    ./shell
 
     ./nix-index.nix
     ./btop.nix

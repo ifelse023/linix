@@ -5,6 +5,8 @@
   lib,
   ...
 }: {
+  imports = [./starship.nix];
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
