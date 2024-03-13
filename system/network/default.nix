@@ -1,9 +1,21 @@
-{pkgs, ...}:
+{
+  pkgs,
+  lib,
+  ...
+}:
 # networking configuration
 {
   imports = [./security.nix ./networkmanager.nix];
 
-  systemd.network.wait-online.enable = false;
+  systemd.network.wait-online.enable = lib.mkForce false;
+
+  networking = {
+    useDHCP = lib.mkForce false;
+
+    useNetworkd = lib.mkForce true;
+  };
+
+  hardware.wirelessRegulatoryDatabase = true;
 
   environment.systemPackages = with pkgs; [
     ethtool

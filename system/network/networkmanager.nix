@@ -2,6 +2,9 @@
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
+
+    wifi = {
+    };
   };
 
   # wifi = {

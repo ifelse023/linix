@@ -1,6 +1,4 @@
 {
-  pkgs,
-  lib,
   inputs,
   outputs,
   self,
@@ -13,7 +11,7 @@
     ./services
     ./core
     ./network
-    #./impermanence.nix
+    ./impermanence.nix
   ];
 
   home-manager = {

@@ -36,14 +36,9 @@ in {
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      [
-        {
-          directory = "/var/lib/iwd";
-          mode = "u=rwx,g=,o=";
-        }
-      ]
-      ++ forEach ["NetworkManager/system-connections" "systemd" "nix" "ssh"] (x: "/etc/${x}")
-      ++ forEach ["pipewire" "sudo" "systemd"] (x: "/var/lib/${x}");
+      []
+      ++ forEach ["NetworkManager" "nix" "ssh"] (x: "/etc/${x}")
+      ++ forEach ["pipewire"] (x: "/var/lib/${x}");
     files = ["/etc/machine-id"];
   };
 

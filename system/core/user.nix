@@ -26,11 +26,16 @@
   security = {
     # userland niceness
     rtkit.enable = true;
-
     polkit.enable = true;
 
     # don't ask for password for wheel group
-    sudo.wheelNeedsPassword = false;
+    sudo = {
+      wheelNeedsPassword = false;
+      # only allow members of the wheel group to execute sudo
+      # by setting the executable’s permissions accordingly
+      execWheelOnly = lib.mkForce true;
+    };
   };
+
   systemd.enableUnifiedCgroupHierarchy = lib.mkForce true;
 }
