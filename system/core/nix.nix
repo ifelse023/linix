@@ -1,5 +1,4 @@
 {
-  outputs,
   inputs,
   config,
   lib,
@@ -42,8 +41,6 @@
       keep-outputs = true;
 
       log-lines = 25;
-
-      sandbox = true;
 
       # whether to accept nix configuration from a flake without prompting
       accept-flake-config = true;

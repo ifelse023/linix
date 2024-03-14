@@ -36,6 +36,4 @@
       execWheelOnly = lib.mkForce true;
     };
   };
-
-  systemd.enableUnifiedCgroupHierarchy = lib.mkForce true;
 }

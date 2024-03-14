@@ -1,9 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./binds.nix
@@ -13,7 +8,6 @@
 
   systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
 
-  # enable hyprland
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;

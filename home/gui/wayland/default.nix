@@ -1,16 +1,15 @@
-{pkgs, ...}:
-# Wayland config
-{
+{pkgs, ...}: {
   imports = [
     ./tofi
     ./hyprland
     ./mako.nix
     ./environment.nix
-    #./hyprpaper.nix
+    ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
     wl-clipboard
+    wl-screenrec
     libnotify
     cliphist
   ];
