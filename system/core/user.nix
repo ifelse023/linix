@@ -5,7 +5,6 @@
 }: {
   programs = {
     fuse.userAllowOther = true;
-    zsh.enable = true;
     dconf.enable = true;
   };
 

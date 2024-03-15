@@ -5,6 +5,7 @@
     imv
     libcaca
     pavucontrol
+    vesktop
   ];
 
   programs = {

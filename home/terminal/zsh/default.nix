@@ -14,7 +14,7 @@
     enable = true;
     dotDir = ".config/zsh";
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     autocd = true;
     sessionVariables = {LC_ALL = "en_US.UTF-8";};
 
@@ -102,8 +102,6 @@
       # C-right / C-left for word skips
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
-
-      bindkey "^H" backward-kill-word
 
       # set my zsh options, first things first
       source ${./opts.zsh}

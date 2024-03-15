@@ -12,7 +12,6 @@
       ripgrep
       fd
       stylua
-      clang-tools
       lua-language-server
       alejandra
       gnumake
