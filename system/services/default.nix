@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./keyd.nix
     ./location.nix

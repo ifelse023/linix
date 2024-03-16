@@ -1,4 +1,4 @@
-{default, ...}: let
+let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList
     (

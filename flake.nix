@@ -38,11 +38,10 @@
 
   outputs = {
     self,
-    nixpkgs,
     flake-parts,
     ...
   } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+    flake-parts.lib.mkFlake {inherit inputs;} ({...}: {
       systems = [
         "x86_64-linux"
       ];
@@ -55,11 +54,7 @@
         inputs.flake-parts.flakeModules.easyOverlay
       ];
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
         devShells.default = pkgs.mkShell {
           name = "dotfiles";

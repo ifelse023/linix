@@ -20,6 +20,8 @@
     inputs.neovim-nightly-overlay.overlay
   ];
 in {
+  time.timeZone = nixpkgs.lib.mkDefault "Europe/Berlin";
+
   # desktop
   linix = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";

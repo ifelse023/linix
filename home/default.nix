@@ -1,9 +1,4 @@
 {
-  inputs,
-  outputs,
-  pkgs,
-  ...
-}: {
   imports = [
     ./gui
     ./services
