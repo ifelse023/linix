@@ -3,7 +3,6 @@
     ./intel.nix
     ./hardware-configuration.nix
     ./kernel.nix
-    ./blacklist.nix
   ];
   time.timeZone = lib.mkDefault "Europe/Berlin";
   hardware.bluetooth = {

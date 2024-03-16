@@ -1,6 +1,12 @@
-{
+{pkgs, ...}: {
   # enable completions for system packages
   # and other stuff
+  #
+  #
+  environment.systemPackages = with pkgs; [
+    dbus
+  ];
+
   environment.pathsToLink = [
     "/share/zsh" # zsh completions
     "/share/bash-completion" # bash completions

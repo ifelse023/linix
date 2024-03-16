@@ -4,9 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [
-    deadnix
-    statix
-
     ripgrep
     pkg-config
     zlib

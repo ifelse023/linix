@@ -2,6 +2,11 @@
   description = "nix config";
 
   inputs = {
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     impermanence.url = "github:nix-community/impermanence";
@@ -34,32 +39,41 @@
   outputs = {
     self,
     nixpkgs,
+    flake-parts,
     ...
-  } @ inputs: let
-    overlays = [
-      inputs.neovim-nightly-overlay.overlay
-    ];
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+      systems = [
+        "x86_64-linux"
+      ];
 
-    system = "x86_64-linux";
+      imports = [
+        {
+          config._module.args._inputs = inputs // {inherit (inputs) self;};
+        }
 
-    pkgs = import nixpkgs {
-      inherit system overlays;
-    };
+        inputs.flake-parts.flakeModules.easyOverlay
+      ];
 
-    inherit (self) outputs;
-  in {
-    nixosConfigurations = {
-      linix = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs outputs pkgs;};
-        modules = [
-          ({...}: {
-            nixpkgs.overlays = overlays;
-          })
-          ./host
-          ./system
-        ];
+      perSystem = {
+        config,
+        pkgs,
+        ...
+      }: {
+        formatter = pkgs.alejandra;
+        devShells.default = pkgs.mkShell {
+          name = "dotfiles";
+          packages = with pkgs; [
+            nil # nix ls
+            alejandra # nix formatter
+            statix # lints and suggestions
+            deadnix # clean up unused nix code
+          ];
+        };
       };
-    };
-  };
+
+      flake = {
+        nixosConfigurations = import ./hosts inputs;
+      };
+    });
 }

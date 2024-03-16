@@ -1,11 +1,5 @@
 {
-  inputs,
-  outputs,
-  self,
-  ...
-}: {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     # Include the results of the hardware scan.
     ./hardware
     ./services
@@ -14,15 +8,6 @@
     ./impermanence.nix
   ];
 
-  home-manager = {
-    verbose = true;
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs outputs self;};
-    users = {
-      wasd = import ../home;
-    };
-  };
   boot.tmp = {
     cleanOnBoot = true;
     useTmpfs = false;

@@ -11,13 +11,7 @@
     extraPackages = with pkgs; [
       ripgrep
       fd
-      stylua
-      lua-language-server
-      alejandra
-      gnumake
-      tree-sitter
       gcc
-      nil
     ];
   };
 }
