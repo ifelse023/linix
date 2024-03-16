@@ -36,8 +36,7 @@ in {
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      []
-      ++ forEach ["NetworkManager" "nix" "ssh"] (x: "/etc/${x}")
+      forEach ["NetworkManager" "nix" "ssh"] (x: "/etc/${x}")
       ++ forEach ["pipewire"] (x: "/var/lib/${x}");
     files = ["/etc/machine-id"];
   };

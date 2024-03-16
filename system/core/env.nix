@@ -3,25 +3,27 @@
   # and other stuff
   #
   #
-  environment.systemPackages = with pkgs; [
-    dbus
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      dbus
+    ];
 
-  environment.pathsToLink = [
-    "/share/zsh" # zsh completions
-    "/share/bash-completion" # bash completions
-    "/share/nix-direnv" # direnv completions
-  ];
+    pathsToLink = [
+      "/share/zsh" # zsh completions
+      "/share/bash-completion" # bash completions
+      "/share/nix-direnv" # direnv completions
+    ];
 
-  environment.variables = {
-    FLAKE = "/home/wasd/linix";
-    SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
+    variables = {
+      FLAKE = "/home/wasd/linix";
+      SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
 
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    SUDO_EDITOR = "nvim";
-    SYSTEMD_PAGERSECURE = "true";
-    PAGER = "less -FR";
-    MANPAGER = "nvim +Man!";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      SUDO_EDITOR = "nvim";
+      SYSTEMD_PAGERSECURE = "true";
+      PAGER = "less -FR";
+      MANPAGER = "nvim +Man!";
+    };
   };
 }
