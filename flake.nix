@@ -59,23 +59,10 @@
         {
           config._module.args._inputs = inputs // {inherit (inputs) self;};
         }
+        ./shell.nix
 
         inputs.flake-parts.flakeModules.easyOverlay
       ];
-
-      perSystem = {pkgs, ...}: {
-        formatter = pkgs.alejandra;
-        devShells.default = pkgs.mkShell {
-          name = "dotfiles";
-          packages = with pkgs; [
-            nil # nix ls
-            alejandra # nix formatter
-            statix # lints and suggestions
-            deadnix # clean up unused nix code
-          ];
-        };
-      };
-
       flake = {
         nixosConfigurations = import ./hosts inputs;
       };
