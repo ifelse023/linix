@@ -12,6 +12,7 @@
     enable = true;
     xwayland.enable = true;
     systemd = {
+      enable = true;
       variables = ["--all"];
       extraCommands = [
         "systemctl --user stop graphical-session.target"

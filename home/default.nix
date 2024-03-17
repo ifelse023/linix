@@ -3,7 +3,6 @@
     ./programs
     ./shell
     ./wm
-    ./services
     ./terminals
     ./editors
   ];

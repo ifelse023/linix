@@ -4,9 +4,9 @@
   #
   #
   environment = {
-    systemPackages = with pkgs; [
-      dbus
-    ];
+    # systemPackages = with pkgs; [
+    #   dbus
+    # ];
 
     pathsToLink = [
       "/share/zsh" # zsh completions

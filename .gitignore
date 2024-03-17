@@ -1,0 +1,5 @@
+result/
+nixos.*
+nixpkgs/
+.direnv
+.pre-commit-config.yaml

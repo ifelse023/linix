@@ -4,6 +4,10 @@
     ./brillo.nix
   ];
 
+  services.fwupd = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     #sof-firmware
     lm_sensors

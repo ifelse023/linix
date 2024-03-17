@@ -20,6 +20,7 @@
     XDG_SESSION_TYPE = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
+    XDG_SESSION_DESKTOP = "Hyprland";
 
     XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
     XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";

@@ -30,6 +30,7 @@ in {
     );
   in {
     enable = true;
+    enableZshIntegration = true;
 
     settings = {
       scan_timeout = 2;

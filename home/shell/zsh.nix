@@ -142,6 +142,9 @@
       # make sudo use aliases
       sudo = "sudo ";
 
+      vim = "neovide ";
+      nv = "neovide ";
+
       # nix specific aliases
       cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
       bloat = "nix path-info -Sh /run/current-system";

@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
@@ -6,6 +6,7 @@ _: {
     wifi = {
     };
   };
+  services.resolved.enable = true;
 
   # wifi = {
   #   macAddress = "random";

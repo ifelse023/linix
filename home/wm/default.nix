@@ -12,10 +12,13 @@
     wl-screenrec
     libnotify
     cliphist
+    polkit_gnome
+    xdg-utils
   ];
 
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
     config.common.default = "*";
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
@@ -23,12 +26,30 @@
     ];
   };
 
-  # fake a tray to let apps start
-  # https://github.com/nix-community/home-manager/issues/2064
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = ["graphical-session-pre.target"];
+  systemd.user = {
+    # fake a tray to let apps start
+    # https://github.com/nix-community/home-manager/issues/2064
+    targets.tray = {
+      Unit = {
+        Description = "Home Manager System Tray";
+        Requires = ["graphical-session-pre.target"];
+      };
+    };
+
+    services.polkit-gnome-authentication-agent-1 = {
+      Unit.Description = "polkit-gnome-authentication-agent-1";
+      Install = {
+        WantedBy = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+      };
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
   };
 }
