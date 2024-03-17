@@ -6,8 +6,8 @@
   ...
 }: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${theme.nixos-wallpaper}
-    wallpaper = , ${theme.nixos-wallpaper}
+    preload = ${theme.wallpaper}
+    wallpaper = , ${theme.wallpaper}
   '';
 
   systemd.user.services.hyprpaper = {

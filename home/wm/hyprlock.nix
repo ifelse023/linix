@@ -31,7 +31,7 @@ in {
     backgrounds = [
       {
         monitor = "";
-        path = "${theme.wallpaper}";
+        path = "${theme.wallpaper-lock}";
       }
     ];
 
