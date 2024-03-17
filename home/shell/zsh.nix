@@ -151,7 +151,8 @@
       run = "nix run";
       search = "nix search";
       shell = "nix shell";
-      build = "nix build $@ --builders \"\"";
+      get-drv = "nix eval --raw '.#nixosConfigurations.linix.config.system.build.toplevel.drvPath'";
+      build = "nix build .#nixosConfigurations.linix.config.system.build.toplevel";
 
       cat = "${lib.getExe bat} --style=plain";
       cd = "z";

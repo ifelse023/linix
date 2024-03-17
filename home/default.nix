@@ -1,8 +1,10 @@
 {
   imports = [
-    ./gui
+    ./programs
+    ./shell
+    ./wm
     ./services
-    ./terminal
+    ./terminals
     ./editors
   ];
 

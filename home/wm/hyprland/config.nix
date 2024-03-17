@@ -10,7 +10,6 @@
     exec-once = [
       # set cursor for HL itself
       "hyprctl setcursor pointer 24"
-      "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland"
     ];
 
     general = {
