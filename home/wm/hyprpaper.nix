@@ -2,13 +2,12 @@
   pkgs,
   inputs,
   lib,
+  theme,
   ...
-}: let
-  wallpaper = ./nixos-wallpaper.png;
-in {
+}: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ${wallpaper}
-    wallpaper = , ${wallpaper}
+    preload = ${theme.nixos-wallpaper}
+    wallpaper = , ${theme.nixos-wallpaper}
   '';
 
   systemd.user.services.hyprpaper = {

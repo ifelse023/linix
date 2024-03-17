@@ -5,6 +5,7 @@
     ./mako.nix
     ./environment.nix
     ./hyprpaper.nix
+    ./hyprlock.nix
   ];
 
   home.packages = with pkgs; [
@@ -27,6 +28,20 @@
   };
 
   systemd.user = {
+    services.cliphist = {
+      Unit = {
+        Description = "Clipboard history service";
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+      };
+
+      Service = {
+        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+        Restart = "always";
+      };
+
+      Install.WantedBy = ["graphical-session.target"];
+    };
     # fake a tray to let apps start
     # https://github.com/nix-community/home-manager/issues/2064
     targets.tray = {

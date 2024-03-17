@@ -9,13 +9,17 @@
   hmModule = inputs.home-manager.nixosModules.home-manager;
 
   home-manager = {
-    verbose = true;
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = {inherit inputs self;};
-    users.wasd = import ../home;
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit self;
+    };
+    users.wasd = {
+      imports = [../home];
+      _module.args.theme = import ../theme;
+    };
   };
-
   overlays = [
     inputs.neovim-nightly-overlay.overlay
   ];
