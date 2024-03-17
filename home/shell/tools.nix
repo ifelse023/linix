@@ -3,7 +3,6 @@
     ripgrep
     pkg-config
     zlib
-    gnumake
 
     fzf
     bash
