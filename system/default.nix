@@ -1,12 +1,21 @@
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware
-    ./services
-    ./core
     ./network
+    ./services
+    ./zsh.nix
+    ./sound.nix
+    ./user.nix
+    ./fonts.nix
+    ./nix.nix
+    ./env.nix
     ./impermanence.nix
   ];
+  # enable location service
+  location.provider = "geoclue2";
+
+  # provide location
+  services.geoclue2.enable = true;
 
   boot.tmp = {
     cleanOnBoot = true;

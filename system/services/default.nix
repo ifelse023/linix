@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./keyd.nix
-    ./location.nix
     ./power.nix
     ./openssh.nix
     ./seatd.nix
