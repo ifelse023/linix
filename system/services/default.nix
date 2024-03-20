@@ -4,6 +4,7 @@
     ./power.nix
     ./openssh.nix
     ./seatd.nix
+    ./location.nix
   ];
 
   services = {

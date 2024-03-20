@@ -116,6 +116,18 @@
       # Autosuggest
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
+      # Vi mode
+      bindkey -v
+
+      # Use vim keys in tab complete menu:
+      bindkey -M menuselect 'h' vi-backward-char
+      bindkey -M menuselect 'k' vi-up-line-or-history
+      bindkey -M menuselect 'l' vi-forward-char
+      bindkey -M menuselect 'j' vi-down-line-or-history
+
+      bindkey "^A" vi-beginning-of-line
+      bindkey "^E" vi-end-of-line
+
       # If this is an xterm set the title to user@host:dir
       case "$TERM" in
       xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty|kitty*)
@@ -129,9 +141,6 @@
     shellAliases = with pkgs; {
       # make sudo use aliases
       sudo = "sudo ";
-
-      vim = "neovide ";
-      nv = "neovide ";
 
       # nix specific aliases
       cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
@@ -178,6 +187,11 @@
         name = "zsh-nix-shell";
         src = zsh-nix-shell;
         file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+      }
+      {
+        name = "zsh-vi-mode";
+        src = zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
       {
         name = "fast-syntax-highlighting";

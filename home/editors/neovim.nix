@@ -14,8 +14,4 @@
       gcc
     ];
   };
-
-  home.packages = with pkgs; [
-    neovide
-  ];
 }
