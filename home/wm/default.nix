@@ -5,7 +5,7 @@
     ./mako.nix
     ./environment.nix
     ./hyprpaper.nix
-    ./hyprlock.nix
+    #./hyprlock.nix
   ];
 
   home.packages = with pkgs; [
