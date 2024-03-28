@@ -9,7 +9,7 @@
     ./fonts.nix
     ./nix.nix
     ./env.nix
-    ./impermanence.nix
+    #./impermanence.nix
   ];
 
   boot.tmp = {
