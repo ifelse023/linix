@@ -52,7 +52,7 @@
   };
   qt = {
     enable = true;
-    platformTheme = "qtct";
+    platformTheme.name = "qtct";
     style = {
       name = "Catppuccin-Mocha-Dark";
       package = pkgs.catppuccin-kde.override {
