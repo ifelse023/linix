@@ -1,11 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     playerctl
     # images
     imv
     libcaca
-    pavucontrol
-    vesktop
+    pwvucontrol
   ];
 
   programs = {

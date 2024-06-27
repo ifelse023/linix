@@ -1,14 +1,19 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+let
+  cfg = config.programs.git;
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWEtAFNo93vd9lGDPeMhVFuX4lF/aMGqMaImyyzcJXj wasd";
+in
+{
   home.packages = with pkgs; [ lazygit ];
   programs = {
     gh = {
       enable = true;
       gitCredentialHelper.enable = false;
-      extensions = with pkgs; [
-        gh-dash # dashboard with pull requests and issues
-        gh-eco # explore the ecosystem
-        gh-cal # contributions calender terminal viewer
-      ];
+      # extensions = with pkgs; [
+      #   gh-dash # dashboard with pull requests and issues
+      #   gh-eco # explore the ecosystem
+      #   gh-cal # contributions calender terminal viewer
+      # ];
       settings = {
         git_protocol = "ssh";
         prompt = "enabled";
@@ -69,12 +74,24 @@
         "result-*"
       ];
 
-      #signing = {
-      #key = "CE16E2CA94DC8D6A";
-      #signByDefault = true;
-      # };
+      signing = {
+        key = "${config.home.homeDirectory}/.ssh/id_ed25519";
+        signByDefault = true;
+      };
 
-      extraConfig.gpg.format = "ssh";
+      extraConfig = {
+        gpg = {
+          format = "ssh";
+          ssh.allowedSignersFile =
+            config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+        };
+
+        pull.rebase = true;
+      };
     };
   };
+
+  xdg.configFile."git/allowed_signers".text = ''
+    ${cfg.userEmail} namespaces="git" ${key}
+  '';
 }

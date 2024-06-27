@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     ripgrep
     pkg-config
@@ -37,13 +38,15 @@
       enable = true;
       nix-direnv.enable = true;
       enableZshIntegration = true;
-      enableBashIntegration = true;
     };
 
     eza = {
       enable = true;
       icons = true;
-      extraOptions = [ "--group-directories-first" "--header" ];
+      extraOptions = [
+        "--group-directories-first"
+        "--header"
+      ];
     };
     dircolors = {
       enable = true;
@@ -68,7 +71,9 @@
           compact = false;
           use_pager = true;
         };
-        updates = { auto_update = true; };
+        updates = {
+          auto_update = true;
+        };
       };
     };
   };

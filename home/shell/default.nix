@@ -1,11 +1,11 @@
 {
   imports = [
-    ./zsh.nix
+    ./zsh
     ./bat.nix
     ./git.nix
     ./btop.nix
     ./tools.nix
-    ./starship.nix
     ./nix-index.nix
+    ./bash.nix
   ];
 }
