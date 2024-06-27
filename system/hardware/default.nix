@@ -1,12 +1,7 @@
-{pkgs, ...}: {
-  imports = [
-    ./bluetooth.nix
-    ./brillo.nix
-  ];
+{ pkgs, ... }: {
+  imports = [ ./bluetooth.nix ./brillo.nix ];
 
-  services.fwupd = {
-    enable = true;
-  };
+  services.fwupd = { enable = true; };
 
   environment.systemPackages = with pkgs; [
     #sof-firmware

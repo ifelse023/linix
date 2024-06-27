@@ -1,8 +1,5 @@
-{
-  nixpkgs,
-  self,
-  ...
-}: let
+{ nixpkgs, self, ... }:
+let
   inherit (self) inputs;
   system = ../system;
   #hw = inputs.nixos-hardware.nixosModules;
@@ -16,12 +13,12 @@
       inherit self;
     };
     users.wasd = {
-      imports = [../home];
+      imports = [ ../home ];
       _module.args.theme = import ../theme;
     };
   };
   overlays = [
-   # inputs.neovim-nightly-overlay.overlay
+    # inputs.neovim-nightly-overlay.overlay
   ];
 in {
   # desktop
@@ -36,8 +33,8 @@ in {
       ./dell
       system
       hmModule
-      {inherit home-manager;}
+      { inherit home-manager; }
     ];
-    specialArgs = {inherit inputs;};
+    specialArgs = { inherit inputs; };
   };
 }

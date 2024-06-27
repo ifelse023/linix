@@ -26,7 +26,7 @@
     "nfsv3" # " (v3)
     "nilfs2" # New Implementation of a Log-structured File System
     "omfs" # Optimized MPEG Filesystem
-    "qnx4" #  extent-based file system used by the QNX4 and QNX6 OSes
+    "qnx4" # extent-based file system used by the QNX4 and QNX6 OSes
     "qnx6" # "
     "squashfs" # compressed read-only file system (used by live CDs)
     "sysv" # implements all of Xenix FS, SystemV/386 FS and Coherent FS.

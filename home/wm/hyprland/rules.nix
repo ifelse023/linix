@@ -2,12 +2,13 @@
   wayland.windowManager.hyprland.settings = {
     # layer rules
     layerrule = let
-      layers = "^(eww-.+|notifications|system-menu|tofi|kitty|wezterm|gtk-layer-shell|osd[0-9])$";
+      layers =
+        "^(eww-.+|notifications|system-menu|tofi|kitty|wezterm|gtk-layer-shell|osd[0-9])$";
     in [
       "blur, ${layers}"
       "xray 1, ^(bar|gtk-layer-shell)$"
       "ignorealpha 0.2, ${layers}"
-      "ignorealpha 0.5, ^(system-menu|tofi)$"
+      "ignorealpha 0.5, ^(system-menu|anyrun)$"
     ];
 
     # window rules
@@ -27,7 +28,7 @@
 
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-      "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+      "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
 
       "workspace 4, title:^(.*(Disc|WebC)ord.*)$"
       "workspace 2, class:^(firefox)$"

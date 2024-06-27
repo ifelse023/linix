@@ -1,10 +1,5 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  imports = [./starship.nix];
+{ config, pkgs, lib, ... }: {
+  imports = [ ./starship.nix ];
 
   programs.zoxide = {
     enable = true;
@@ -16,7 +11,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     autocd = true;
-    sessionVariables = {LC_ALL = "en_US.UTF-8";};
+    sessionVariables = { LC_ALL = "en_US.UTF-8"; };
 
     history = {
       # share history between different zsh sessions
@@ -32,7 +27,7 @@
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true;
-      ignorePatterns = ["rm *" "pkill *" "kill *"];
+      ignorePatterns = [ "rm *" "pkill *" "kill *" ];
     };
     dirHashes = {
       docs = "$HOME/Documents";
@@ -143,16 +138,21 @@
       sudo = "sudo ";
 
       # nix specific aliases
-      cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
+      cleanup =
+        "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
       bloat = "nix path-info -Sh /run/current-system";
-      curgen = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-      gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\w+-system|\{memory|/proc)\"";
+      curgen =
+        "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+      gc-check = ''
+        nix-store --gc --print-roots | egrep -v "^(/nix/var|/run/w+-system|{memory|/proc)"'';
       repair = "nix-store --verify --check-contents --repair";
       run = "nix run";
       search = "nix search";
       shell = "nix shell";
-      get-drv = "nix eval --raw '.#nixosConfigurations.linix.config.system.build.toplevel.drvPath'";
-      build = "nix build .#nixosConfigurations.linix.config.system.build.toplevel";
+      get-drv =
+        "nix eval --raw '.#nixosConfigurations.linix.config.system.build.toplevel.drvPath'";
+      build =
+        "nix build .#nixosConfigurations.linix.config.system.build.toplevel";
 
       cat = "${lib.getExe bat} --style=plain";
       cd = "z";

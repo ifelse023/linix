@@ -1,10 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";
 
-    wifi = {
-    };
+    wifi = { };
   };
   services.resolved.enable = true;
 

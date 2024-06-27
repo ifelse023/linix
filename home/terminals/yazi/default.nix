@@ -1,15 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./icons.nix
-    ./manager.nix
-    ./status.nix
-  ];
+{ config, pkgs, ... }: {
+  imports = [ ./icons.nix ./manager.nix ./status.nix ];
 
-  home.packages = [pkgs.exiftool];
+  home.packages = [ pkgs.exiftool ];
 
   programs.yazi = {
     enable = true;
@@ -19,7 +11,7 @@
 
     settings = {
       manager = {
-        layout = [1 4 3];
+        layout = [ 1 4 3 ];
         sort_by = "alphabetical";
         sort_sensitive = true;
         sort_reverse = false;

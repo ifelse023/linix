@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, lib, ... }: {
   boot = {
     kernelParams = lib.mkAfter [
       # Disable all mitigations
@@ -15,7 +11,7 @@
 
     initrd = {
       systemd.enable = true;
-      supportedFilesystems = ["ext4" "btrfs" "vfat"];
+      supportedFilesystems = [ "ext4" "btrfs" "vfat" ];
     };
 
     # use latest kernel

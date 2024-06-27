@@ -1,10 +1,7 @@
-{theme, ...}: {
+{ theme, ... }: {
   wayland.windowManager.hyprland = with theme.colors; {
     settings = {
-      monitor = [
-        "eDP-1, 1920x1080, 0x0, 1"
-        "HDMI-A-1, 1920x1080, 1920x0, 1"
-      ];
+      monitor = [ "eDP-1, 1920x1080, 0x0, 1" "HDMI-A-1, 1920x1080, 1920x0, 1" ];
 
       "$mod" = "SUPER";
 
@@ -22,7 +19,6 @@
         resize_on_border = true;
         "layout" = "dwindle";
         no_border_on_floating = false;
-        no_cursor_warps = false;
 
         sensitivity = 0.6;
       };

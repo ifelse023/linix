@@ -1,11 +1,5 @@
-{
-  pkgs,
-  lib,
-  config,
-  theme,
-  inputs,
-  ...
-}: let
+{ pkgs, lib, config, theme, inputs, ... }:
+let
   suspendScript = pkgs.writeShellScript "suspend-script" ''
     ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
     # only suspend if audio isn't running
@@ -28,64 +22,57 @@ in {
       no_fade_in = true;
     };
 
-    backgrounds = [
-      {
-        monitor = "";
-        path = "${theme.wallpaper-lock}";
-      }
-    ];
+    backgrounds = [{
+      monitor = "";
+      path = "${theme.wallpaper-lock}";
+    }];
 
-    input-fields = [
-      {
-        monitor = "eDP-1";
+    input-fields = [{
+      monitor = "eDP-1";
 
-        size = {
-          width = 300;
-          height = 50;
-        };
+      size = {
+        width = 300;
+        height = 50;
+      };
 
-        outline_thickness = 2;
+      outline_thickness = 2;
 
-        outer_color = "rgb(${accent})";
-        inner_color = "rgb(${base})";
-        font_color = "rgb(${text})";
+      outer_color = "rgb(${accent})";
+      inner_color = "rgb(${base})";
+      font_color = "rgb(${text})";
 
-        fade_on_empty = false;
-        placeholder_text = ''<span font_family="${font_family}" foreground="##${subtext1}">Password...</span>'';
+      fade_on_empty = false;
+      placeholder_text = ''
+        <span font_family="${font_family}" foreground="##${subtext1}">Password...</span>'';
 
-        dots_spacing = 0.3;
-        dots_center = true;
-      }
-    ];
+      dots_spacing = 0.3;
+      dots_center = true;
+    }];
 
-    labels = [
-      {
-        monitor = "";
-        text = "$TIME";
-        inherit font_family;
-        font_size = 64;
-        color = "rgba(${base}bf)";
+    labels = [{
+      monitor = "";
+      text = "$TIME";
+      inherit font_family;
+      font_size = 64;
+      color = "rgba(${base}bf)";
 
-        position = {
-          x = 0;
-          y = 80;
-        };
+      position = {
+        x = 0;
+        y = 80;
+      };
 
-        valign = "center";
-        halign = "center";
-      }
-    ];
+      valign = "center";
+      halign = "center";
+    }];
   };
   services.hypridle = {
     enable = true;
     beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
     lockCmd = lib.getExe config.programs.hyprlock.package;
 
-    listeners = [
-      {
-        timeout = 330;
-        onTimeout = suspendScript.outPath;
-      }
-    ];
+    listeners = [{
+      timeout = 330;
+      onTimeout = suspendScript.outPath;
+    }];
   };
 }

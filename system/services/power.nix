@@ -1,12 +1,6 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{ lib, config, ... }: {
   services = {
-    thermald = {
-      enable = lib.mkDefault true;
-    };
+    thermald = { enable = lib.mkDefault true; };
 
     power-profiles-daemon.enable = true;
 
@@ -22,7 +16,7 @@
     };
   };
   boot = {
-    kernelModules = ["acpi_call"];
+    kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [
       acpi_call
       cpupower

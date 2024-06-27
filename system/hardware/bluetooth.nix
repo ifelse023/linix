@@ -4,5 +4,5 @@
     powerOnBoot = false;
   };
 
-  boot.blacklistedKernelModules = ["bluetooth" "btusb"];
+  boot.blacklistedKernelModules = [ "bluetooth" "btusb" ];
 }

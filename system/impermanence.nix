@@ -1,9 +1,5 @@
-{
-  inputs,
-  lib,
-  config,
-  ...
-}: let
+{ inputs, lib, config, ... }:
+let
   inherit (lib) forEach;
   wipeScript = ''
 
@@ -31,30 +27,25 @@
   '';
   phase1Systemd = config.boot.initrd.systemd.enable;
 in {
-  imports = [inputs.impermanence.nixosModule];
+  imports = [ inputs.impermanence.nixosModule ];
 
   environment.persistence."/persist" = {
     hideMounts = true;
-    directories =
-      forEach ["NetworkManager" "nix" "ssh"] (x: "/etc/${x}")
-      ++ forEach ["pipewire"] (x: "/var/lib/${x}");
-    files = ["/etc/machine-id"];
+    directories = forEach [ "NetworkManager" "nix" "ssh" ] (x: "/etc/${x}")
+      ++ forEach [ "pipewire" ] (x: "/var/lib/${x}");
+    files = [ "/etc/machine-id" ];
   };
 
   boot.initrd = {
     systemd.enable = true;
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = [ "btrfs" ];
     postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
     systemd.services.restore-root = lib.mkIf phase1Systemd {
       description = "Rollback btrfs rootfs";
-      wantedBy = ["initrd.target"];
-      requires = [
-        "dev-disk-by\\x2dlabel-NIXOS.device"
-      ];
-      after = [
-        "dev-disk-by\\x2dlabel-NIXOS.device"
-      ];
-      before = ["sysroot.mount"];
+      wantedBy = [ "initrd.target" ];
+      requires = [ "dev-disk-by\\x2dlabel-NIXOS.device" ];
+      after = [ "dev-disk-by\\x2dlabel-NIXOS.device" ];
+      before = [ "sysroot.mount" ];
       unitConfig.DefaultDependencies = "no";
       serviceConfig.Type = "oneshot";
       script = wipeScript;

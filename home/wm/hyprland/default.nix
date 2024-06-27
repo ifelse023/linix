@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{ inputs, ... }: {
   imports = [
     inputs.hyprland.homeManagerModules.default
     ./binds.nix
@@ -6,14 +6,15 @@
     ./config.nix
   ];
 
-  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
+  systemd.user.targets.hyprland-session.Unit.Wants =
+    [ "xdg-desktop-autostart.target" ];
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd = {
       enable = true;
-      variables = ["--all"];
+      variables = [ "--all" ];
       extraCommands = [
         "systemctl --user stop graphical-session.target"
         "systemctl --user start hyprland-session.target"

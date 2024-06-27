@@ -1,11 +1,7 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 # networking configuration
 {
-  imports = [./security.nix ./networkmanager.nix];
+  imports = [ ./security.nix ./networkmanager.nix ];
 
   systemd.network.wait-online.enable = lib.mkForce false;
 

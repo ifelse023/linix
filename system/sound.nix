@@ -14,7 +14,7 @@
   };
 
   systemd.user.services = {
-    pipewire.wantedBy = ["default.target"];
-    pipewire-pulse.wantedBy = ["default.target"];
+    pipewire.wantedBy = [ "default.target" ];
+    pipewire-pulse.wantedBy = [ "default.target" ];
   };
 }

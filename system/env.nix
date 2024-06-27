@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # enable completions for system packages
   # and other stuff
   #

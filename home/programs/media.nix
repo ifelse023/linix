@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     playerctl
     # images
@@ -12,7 +12,7 @@
     mpv = {
       enable = true;
       #defaultProfiles = [ "gpu-hq" ];
-      scripts = [pkgs.mpvScripts.mpris];
+      scripts = [ pkgs.mpvScripts.mpris ];
       config = {
         vo = "sdl";
         hwdec = "auto";

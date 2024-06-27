@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{ pkgs, lib, ... }: {
   programs = {
     fuse.userAllowOther = true;
     dconf.enable = true;
@@ -18,7 +14,18 @@
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYw95sYKrLZ3B/OFytcoISEe0CMX6vcRE72VhIruOdC ifelse023@gmail.com"
         ];
-        extraGroups = ["input" "libvirtd" "networkmanager" "plugdev" "transmission" "video" "wheel" "systemd-journal" "power" "nix"];
+        extraGroups = [
+          "input"
+          "libvirtd"
+          "networkmanager"
+          "plugdev"
+          "transmission"
+          "video"
+          "wheel"
+          "systemd-journal"
+          "power"
+          "nix"
+        ];
       };
     };
   };

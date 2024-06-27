@@ -1,15 +1,7 @@
 {
-  imports = [
-    ./programs
-    ./shell
-    ./wm
-    ./terminals
-    ./editors
-  ];
+  imports = [ ./programs ./shell ./wm ./terminals ./editors ];
 
-  programs = {
-    home-manager.enable = true;
-  };
+  programs = { home-manager.enable = true; };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

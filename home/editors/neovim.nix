@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -8,10 +8,6 @@
     #plugins = with pkgs.vimPlugins; [
     #];
 
-    extraPackages = with pkgs; [
-      ripgrep
-      fd
-      gcc
-    ];
+    extraPackages = with pkgs; [ ripgrep fd gcc ];
   };
 }

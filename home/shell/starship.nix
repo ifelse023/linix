@@ -1,33 +1,26 @@
-{
-  config,
-  lib,
-  ...
-}: let
+{ config, lib, ... }:
+let
   inherit (builtins) map;
   inherit (lib.strings) concatStrings;
 in {
   home = {
-    sessionVariables = {
-      STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
-    };
+    sessionVariables = { STARSHIP_CACHE = "${config.xdg.cacheHome}/starship"; };
   };
 
   programs.starship = let
-    elemsConcatted = concatStrings (
-      map (s: "\$${s}") [
-        "hostname"
-        "username"
-        "directory"
-        "shell"
-        "nix_shell"
-        "git_branch"
-        "git_commit"
-        "git_state"
-        "git_status"
-        "jobs"
-        "cmd_duration"
-      ]
-    );
+    elemsConcatted = concatStrings (map (s: "\$${s}") [
+      "hostname"
+      "username"
+      "directory"
+      "shell"
+      "nix_shell"
+      "git_branch"
+      "git_commit"
+      "git_state"
+      "git_status"
+      "jobs"
+      "cmd_duration"
+    ]);
   in {
     enable = true;
     enableZshIntegration = true;
@@ -38,12 +31,15 @@ in {
       add_newline = false;
       line_break.disabled = false;
 
-      format = "${elemsConcatted}\n$character";
+      format = ''
+        ${elemsConcatted}
+        $character'';
 
       hostname = {
         ssh_only = true;
         disabled = false;
-        format = "@[$hostname](bold blue) "; # the whitespace at the end is actually important
+        format =
+          "@[$hostname](bold blue) "; # the whitespace at the end is actually important
       };
 
       # configure specific elements
@@ -54,9 +50,7 @@ in {
         format = "$symbol [|](bold bright-black) ";
       };
 
-      username = {
-        format = "[$user]($style) in ";
-      };
+      username = { format = "[$user]($style) in "; };
 
       directory = {
         truncation_length = 2;

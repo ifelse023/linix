@@ -1,5 +1,6 @@
-{config, ...}: let
-  browser = ["firefox.desktop"];
+{ config, ... }:
+let
+  browser = [ "firefox.desktop" ];
 
   associations = {
     "text/html" = browser;
@@ -15,12 +16,12 @@
     "application/x-extension-xhtml" = browser;
     "application/x-extension-xht" = browser;
 
-    "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
-    "image/*" = ["imv.desktop"];
+    "audio/*" = [ "mpv.desktop" ];
+    "video/*" = [ "mpv.dekstop" ];
+    "image/*" = [ "imv.desktop" ];
     "application/json" = browser;
 
-    "text/plain" = ["nvim"];
+    "text/plain" = [ "nvim" ];
     #"inode/directory" = ["yazi"];
   };
 in {

@@ -1,4 +1,4 @@
-{lib, ...}:
+{ lib, ... }:
 # networking configuration
 {
   networking = {
@@ -13,18 +13,14 @@
       iwd = {
         enable = true;
         settings = {
-          Settings = {
-            AutoConnect = true;
-          };
+          Settings = { AutoConnect = true; };
           General = {
             AddressRandomization = "network";
             AddressRandomizationRange = "full";
             EnableNetworkConfiguration = true;
             RoamRetryInterval = 15;
           };
-          Network = {
-            EnableIPv6 = true;
-          };
+          Network = { EnableIPv6 = true; };
         };
       };
     };
