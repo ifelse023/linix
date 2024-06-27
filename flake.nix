@@ -1,7 +1,9 @@
 {
   description = "nix config";
-
   inputs = {
+
+    systems.url = "github:nix-systems/default-linux";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -45,16 +47,26 @@
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
-  outputs = { self, flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } ({ ... }: {
-      systems = [ "x86_64-linux" ];
+  outputs =
+    { self, flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { ... }:
+      {
+        systems = [ "x86_64-linux" ];
 
-      imports = [
-        { config._module.args._inputs = inputs // { inherit (inputs) self; }; }
-        ./shell.nix
-
-        inputs.flake-parts.flakeModules.easyOverlay
-      ];
-      flake = { nixosConfigurations = import ./hosts inputs; };
-    });
+        imports = [
+          {
+            config._module.args._inputs = inputs // {
+              inherit (inputs) self;
+            };
+          }
+          ./pkgs
+          ./shell.nix
+          inputs.flake-parts.flakeModules.easyOverlay
+        ];
+        flake = {
+          nixosConfigurations = import ./hosts inputs;
+        };
+      }
+    );
 }

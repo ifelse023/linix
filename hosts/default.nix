@@ -20,7 +20,8 @@ let
   overlays = [
     # inputs.neovim-nightly-overlay.overlay
   ];
-in {
+in
+{
   # desktop
   linix = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
@@ -35,6 +36,8 @@ in {
       hmModule
       { inherit home-manager; }
     ];
-    specialArgs = { inherit inputs; };
+    specialArgs = {
+      inherit inputs;
+    };
   };
 }

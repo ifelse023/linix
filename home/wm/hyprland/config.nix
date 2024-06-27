@@ -1,15 +1,27 @@
-{ theme, ... }: {
+{ theme, config, ... }:
+let
+  pointer = config.home.pointerCursor;
+  cursorName = "HyprBibataModernClassicSVG";
+in
+{
   wayland.windowManager.hyprland = with theme.colors; {
     settings = {
-      monitor = [ "eDP-1, 1920x1080, 0x0, 1" "HDMI-A-1, 1920x1080, 1920x0, 1" ];
+      monitor = [
+        "eDP-1, 1920x1080, 0x0, 1"
+        "HDMI-A-1, 1920x1080, 1920x0, 1"
+      ];
 
       "$mod" = "SUPER";
 
       exec-once = [
         # set cursor for HL itself
-        "hyprctl setcursor pointer 24"
+        "hyprctl setcursor ${cursorName} ${toString pointer.size}"
       ];
 
+      env = [
+        "HYPRCURSOR_THEME,${cursorName}"
+        "HYPRCURSOR_SIZE,${toString pointer.size}"
+      ];
       general = {
         gaps_in = 4;
         gaps_out = 6;

@@ -1,13 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped {
       extraPolicies = {
         DisableFirefoxStudies = true;
-
+        DontCheckDefaultBrowser = true;
         DisablePocket = true;
         DisableTelemetry = true;
         PromptForDownloadLocation = true;
+        DisableAppUpdate = true;
       };
     };
     profiles.default = {
@@ -15,6 +17,9 @@
       name = "dev-edition-default";
       search.force = true;
       settings = {
+        # Allow svgs to take on theme colors
+        "svg.context-properties.content.enabled" = true;
+
         "layers.acceleration.force-enabled" = true;
         # GFX
         "gfx.webrender.all" = true;
@@ -45,10 +50,8 @@
         # SECUREFOX
         # TRACKING PROTECTION
         "browser.contentblocking.category" = "strict";
-        "urlclassifier.trackingSkipURLs" =
-          "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
-        "urlclassifier.features.socialtracking.skipURLs" =
-          "*.instagram.com, *.twitter.com, *.twimg.com";
+        "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
+        "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
         "network.cookie.sameSite.noneRequiresSecure" = true;
         "browser.download.start_downloads_in_tmp_dir" = true;
         "browser.helperApps.deleteTempFileOnExit" = true;
@@ -107,8 +110,7 @@
         # MOZILLA
         "permissions.default.desktop-notification" = 2;
         "permissions.default.geo" = 2;
-        "geo.provider.network.url" =
-          "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+        "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
         "permissions.manager.defaultsUrl" = "";
         "webchannel.allowObject.urlWhitelist" = "";
         # TELEMETRY
@@ -148,10 +150,8 @@
         "extensions.htmlaboutaddons.recommendations.enabled" = false;
         "browser.discovery.enabled" = false;
         "browser.shell.checkDefaultBrowser" = false;
-        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" =
-          false;
-        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" =
-          false;
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+        "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
         "browser.preferences.moreFromMozilla" = false;
         "browser.tabs.tabmanager.enabled" = false;
         "browser.aboutConfig.showWarning" = false;
