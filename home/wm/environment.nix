@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   home.sessionVariables = {
     FLAKE = "/home/wasd/linix";
     NIXOS_OZONE_WL = "1";
