@@ -44,11 +44,15 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     #
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
   };
 
   outputs =
-    { self, flake-parts, ... }@inputs:
+    {
+      self,
+      flake-parts,
+      nixpkgs,
+      ...
+    }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
       { ... }:
       {
@@ -60,10 +64,10 @@
               inherit (inputs) self;
             };
           }
-          ./pkgs
           ./shell.nix
           inputs.flake-parts.flakeModules.easyOverlay
         ];
+
         flake = {
           nixosConfigurations = import ./hosts inputs;
         };

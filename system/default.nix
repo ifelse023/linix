@@ -9,7 +9,7 @@
     ./fonts.nix
     ./nix.nix
     ./env.nix
-    ./hyprland.nix
+    ./xdg.nix
     #./impermanence.nix
   ];
 

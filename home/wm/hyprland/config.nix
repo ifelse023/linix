@@ -1,8 +1,5 @@
-{ theme, config, ... }:
-let
-  pointer = config.home.pointerCursor;
-  cursorName = "HyprBibataModernClassicSVG";
-in
+{ theme, ... }:
+
 {
   wayland.windowManager.hyprland = with theme.colors; {
     settings = {
@@ -13,15 +10,13 @@ in
 
       "$mod" = "SUPER";
 
-      exec-once = [
-        # set cursor for HL itself
-        "hyprctl setcursor ${cursorName} ${toString pointer.size}"
-      ];
+      exec-once = [ "hyprctl setcursor Bibata-modern-Classic 24" ];
+      env = [ "HYPRCURSOR_SIZE,24" ];
 
-      env = [
-        "HYPRCURSOR_THEME,${cursorName}"
-        "HYPRCURSOR_SIZE,${toString pointer.size}"
-      ];
+      cursor = {
+        no_warps = true;
+      };
+
       general = {
         gaps_in = 4;
         gaps_out = 6;

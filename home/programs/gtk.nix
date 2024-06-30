@@ -33,11 +33,10 @@
 
   home = {
     pointerCursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 16;
       gtk.enable = true;
-      x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-classic";
+      size = 24;
     };
 
     packages = with pkgs; [
@@ -47,10 +46,7 @@
       libsForQt5.qt5ct
       breeze-icons
     ];
-    sessionVariables = {
-      XCURSOR_SIZE = "24";
-      GTK_USE_PORTAL = "1";
-    };
+
   };
   qt = {
     enable = true;

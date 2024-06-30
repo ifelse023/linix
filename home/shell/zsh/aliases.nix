@@ -14,6 +14,7 @@ in
   programs.zsh.shellAliases = {
     # make sudo use aliases
     sudo = "sudo ";
+    cd = "z";
 
     # nix specific aliases
     cleanup = "sudo nix-collect-garbage --delete-older-than 3d && nix-collect-garbage -d";
@@ -42,7 +43,7 @@ in
     scu = "systemctl --user ";
     jcu = "journalctl --user";
     errors = "journalctl -p err..alert";
-    la = "${getExe eza} -lah --tree";
+    la = "${getExe eza} -ah --git --icons --color=auto --group-directories-first -s extension";
     tree = "${getExe eza} --tree --icons=always";
     burn = "pkill -9";
     diff = "diff --color=auto";
