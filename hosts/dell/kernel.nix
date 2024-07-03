@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   boot = {
     kernelParams = lib.mkAfter [
       # Disable all mitigations
@@ -11,11 +12,16 @@
 
     initrd = {
       systemd.enable = true;
-      supportedFilesystems = [ "ext4" "btrfs" "vfat" ];
+      supportedFilesystems = [
+        "ext4"
+        "btrfs"
+        "vfat"
+      ];
     };
 
     # use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
     loader = {
       # systemd-boot on UEFI
@@ -23,4 +29,6 @@
       systemd-boot.enable = true;
     };
   };
+
+  environment.systemPackages = [ pkgs.scx ];
 }

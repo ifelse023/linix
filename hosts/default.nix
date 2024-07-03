@@ -33,6 +33,7 @@ in
       }
       ./dell
       system
+      inputs.chaotic.nixosModules.default
       hmModule
       { inherit home-manager; }
     ];
