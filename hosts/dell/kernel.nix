@@ -20,8 +20,8 @@
     };
 
     # use latest kernel
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
     loader = {
       # systemd-boot on UEFI
@@ -30,5 +30,5 @@
     };
   };
 
-  environment.systemPackages = [ pkgs.scx ];
+  #environment.systemPackages = [ pkgs.scx ];
 }
