@@ -13,45 +13,45 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    device = "/dev/disk/by-uuid/c8475fda-8926-41d0-8a85-51e14fae6e64";
     fsType = "btrfs";
     options = [ "noatime" "discard" "subvol=root" "compress=zstd:1" ];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    device = "/dev/disk/by-uuid/c8475fda-8926-41d0-8a85-51e14fae6e64";
     fsType = "btrfs";
     options = [ "noatime" "discard" "subvol=home" "compress=zstd:1" ];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    device = "/dev/disk/by-uuid/c8475fda-8926-41d0-8a85-51e14fae6e64";
     fsType = "btrfs";
     options = [ "noatime" "discard" "subvol=nix" "compress=zstd:1" ];
   };
 
   fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    device = "/dev/disk/by-uuid/c8475fda-8926-41d0-8a85-51e14fae6e64";
     fsType = "btrfs";
     options = [ "noatime" "discard" "subvol=persist" "compress=zstd:1" ];
     neededForBoot = true;
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    device = "/dev/disk/by-uuid/c8475fda-8926-41d0-8a85-51e14fae6e64";
     fsType = "btrfs";
     options = [ "noatime" "discard" "subvol=log" "compress=zstd:1" ];
     neededForBoot = true;
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3A8E-8E8A";
+    device = "/dev/disk/by-uuid/6D77-1F22";
     fsType = "vfat";
     options = [ "noatime" ];
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9255285f-b7c9-4f06-b93b-25434a3447dc"; }
+    [ { device = "/dev/disk/by-uuid/662c0d6f-bfb6-406e-a4dd-79d6c835356e"; }
     ];
 
 
