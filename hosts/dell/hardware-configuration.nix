@@ -18,6 +18,12 @@
     options = [ "noatime" "discard" "subvol=root" "compress=zstd:1" ];
   };
 
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
+    fsType = "btrfs";
+    options = [ "noatime" "discard" "subvol=home" "compress=zstd:1" ];
+  };
+
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/19830548-bdc8-4ded-af2c-fb0725e07f53";
     fsType = "btrfs";
