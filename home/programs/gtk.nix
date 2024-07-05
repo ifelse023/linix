@@ -2,18 +2,18 @@
 {
   gtk = {
     enable = true;
+    font = {
+      name = "Inter";
+      package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
+      size = 11;
+    };
     theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "Andromeda";
+      package = pkgs.andromeda-gtk-theme;
     };
     iconTheme = {
-      package = pkgs.rose-pine-icon-theme;
-      name = "rose-pine";
-    };
-
-    font = {
-      name = "JetBrainsMono";
-      size = 11;
+      name = "BeautyLine";
+      package = pkgs.beautyline-icons;
     };
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
@@ -33,10 +33,11 @@
 
   home = {
     pointerCursor = {
-      gtk.enable = true;
       package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-classic";
-      size = 24;
+      name = "Bibata-Modern-Classic";
+      size = 16;
+      gtk.enable = true;
+      x11.enable = true;
     };
 
     packages = with pkgs; [

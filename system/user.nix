@@ -1,7 +1,9 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs = {
     fuse.userAllowOther = true;
     dconf.enable = true;
+    fish.enable = true;
   };
 
   users = {
@@ -10,9 +12,9 @@
       wasd = {
         isNormalUser = true;
         hashedPasswordFile = "/persist/secrets/wasd";
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIYw95sYKrLZ3B/OFytcoISEe0CMX6vcRE72VhIruOdC ifelse023@gmail.com"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILSsqE4dZjz5NPzSbm7y3tlUG6kEKFarMaEcXhhw9FZg wasd"
         ];
         extraGroups = [
           "input"
@@ -41,5 +43,8 @@
       # by setting the executable’s permissions accordingly
       execWheelOnly = lib.mkForce true;
     };
+  };
+  environment = {
+    shells = with pkgs; [ fish ];
   };
 }

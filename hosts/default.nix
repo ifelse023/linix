@@ -14,7 +14,6 @@ let
     };
     users.wasd = {
       imports = [ ../home ];
-      _module.args.theme = import ../theme;
     };
   };
   overlays = [

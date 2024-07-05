@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   cfg = config.programs.git;
-  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWEtAFNo93vd9lGDPeMhVFuX4lF/aMGqMaImyyzcJXj wasd";
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILSsqE4dZjz5NPzSbm7y3tlUG6kEKFarMaEcXhhw9FZg wasd";
 in
 {
   home.packages = with pkgs; [ lazygit ];

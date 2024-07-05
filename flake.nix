@@ -34,18 +34,17 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.hyprlang.follows = "hyprland/hyprlang";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+      inputs.systems.follows = "hyprland/systems";
+    };
 
-    hyprpaper.url = "github:hyprwm/hyprpaper";
-
-    # hyprlock = {
-    #   url = "github:hyprwm/hyprlock";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # hypridle = {
-    #   url = "github:hyprwm/hypridle";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
   };
 
   outputs =
@@ -55,24 +54,21 @@
       nixpkgs,
       ...
     }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } (
-      { ... }:
-      {
-        systems = [ "x86_64-linux" ];
+    flake-parts.lib.mkFlake { inherit inputs; } ({
+      systems = [ "x86_64-linux" ];
 
-        imports = [
-          {
-            config._module.args._inputs = inputs // {
-              inherit (inputs) self;
-            };
-          }
-          ./shell.nix
-          inputs.flake-parts.flakeModules.easyOverlay
-        ];
+      imports = [
+        {
+          config._module.args._inputs = inputs // {
+            inherit (inputs) self;
+          };
+        }
+        ./shell.nix
+        inputs.flake-parts.flakeModules.easyOverlay
+      ];
 
-        flake = {
-          nixosConfigurations = import ./hosts inputs;
-        };
-      }
-    );
+      flake = {
+        nixosConfigurations = import ./hosts inputs;
+      };
+    });
 }

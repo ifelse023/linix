@@ -1,11 +1,22 @@
-{ pkgs, ... }: {
-  imports = [ ./keyd.nix ./power.nix ./openssh.nix ./seatd.nix ./location.nix ];
+{ pkgs, ... }:
+{
+  imports = [
+    ./keyd.nix
+    ./power.nix
+    ./openssh.nix
+    ./seatd.nix
+    ./location.nix
+  ];
 
   services = {
     dbus = {
       enable = true;
       implementation = "broker";
-      packages = with pkgs; [ dconf gcr udisks2 ];
+      packages = with pkgs; [
+        dconf
+        gcr
+        udisks2
+      ];
     };
 
     journald.extraConfig = ''

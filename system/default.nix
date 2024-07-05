@@ -3,14 +3,13 @@
     ./hardware
     ./network
     ./services
-    ./zsh.nix
     ./sound.nix
     ./user.nix
     ./fonts.nix
     ./nix.nix
     ./env.nix
     ./xdg.nix
-    #./impermanence.nix
+    ./impermanence.nix
   ];
 
   boot.tmp = {

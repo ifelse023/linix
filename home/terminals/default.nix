@@ -1,1 +1,6 @@
-{ imports = [ ./kitty.nix ]; }
+{
+  imports = [
+    # ./kitty.nix
+    ./foot.nix
+  ];
+}

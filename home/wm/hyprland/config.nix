@@ -1,7 +1,5 @@
-{ theme, ... }:
-
 {
-  wayland.windowManager.hyprland = with theme.colors; {
+  wayland.windowManager.hyprland = {
     settings = {
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
@@ -10,19 +8,16 @@
 
       "$mod" = "SUPER";
 
-      exec-once = [ "hyprctl setcursor Bibata-modern-Classic 24" ];
-      env = [ "HYPRCURSOR_SIZE,24" ];
-
       cursor = {
         no_warps = true;
       };
 
       general = {
-        gaps_in = 4;
-        gaps_out = 6;
+        gaps_in = 3;
+        gaps_out = 3;
         border_size = 1;
-        "col.active_border" = " rgb(${mauve}) rgb(${lavender})";
-        "col.inactive_border" = "rgb(${surface0})";
+        "col.active_border" = " rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = true;
         "layout" = "dwindle";
         no_border_on_floating = false;
@@ -31,23 +26,28 @@
       };
 
       decoration = {
-        rounding = 7;
+        rounding = 5;
         blur = {
-          enabled = true;
-          size = 5;
-          passes = 3;
-          ignore_opacity = true;
-          new_optimizations = 1;
-          xray = true;
-          contrast = 0.7;
-          brightness = 0.8;
+          enabled = false;
+          brightness = 1.0;
+          contrast = 1.0;
+          noise = 1.0e-2;
+
           vibrancy = 0.2;
+          vibrancy_darkness = 0.5;
+
+          passes = 4;
+          size = 7;
+
+          popups = true;
+          popups_ignorealpha = 0.2;
         };
 
         drop_shadow = false;
-        shadow_range = 20;
-        shadow_render_power = 5;
-        "col.shadow" = "rgba(292c3cee)";
+        shadow_ignore_window = true;
+        shadow_range = 10;
+        shadow_render_power = 2;
+        "col.shadow" = "rgba(00000055)";
       };
 
       animations = {
@@ -59,7 +59,6 @@
           "workspaces, 1, 2, default, slide"
         ];
       };
-
       group = {
         groupbar = {
           font_size = 16;
@@ -85,7 +84,7 @@
       dwindle = {
         # keep floating dimentions while tiling
         no_gaps_when_only = 1;
-        pseudotile = false;
+        pseudotile = true;
         preserve_split = true;
       };
 
@@ -106,6 +105,8 @@
 
         mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
         key_press_enables_dpms = true; # enable dpms on keyboard action
+
+        no_direct_scanout = false;
       };
 
       # touchpad gestures
@@ -113,8 +114,6 @@
         workspace_swipe = true;
         workspace_swipe_forever = true;
       };
-
-      xwayland.force_zero_scaling = true;
 
       debug.disable_logs = false;
     };

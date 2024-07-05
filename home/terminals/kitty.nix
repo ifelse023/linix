@@ -3,9 +3,9 @@
     enable = true;
     font = {
       size = 15;
-      name = "JetBrainsMono Nerd Font";
+      name = "JetBrains Mono";
     };
-    shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableFishIntegration = true;
 
     settings = {
       font_family = "monospace";

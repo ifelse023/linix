@@ -1,12 +1,24 @@
 let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-  workspaces = builtins.concatLists (builtins.genList (x:
-    let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-    in [
-      "$mod, ${ws}, workspace, ${toString (x + 1)}"
-      "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-    ]) 10);
-in {
+  workspaces = builtins.concatLists (
+    builtins.genList (
+      x:
+      let
+        ws =
+          let
+            c = (x + 1) / 10;
+          in
+          builtins.toString (x + 1 - (c * 10));
+      in
+      [
+        "$mod, ${ws}, workspace, ${toString (x + 1)}"
+        "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+      ]
+    ) 10
+  );
+  runOnce = program: "pgrep ${program} || ${program}";
+in
+{
   wayland.windowManager.hyprland.settings = {
     # mouse movements
     bindm = [
@@ -17,6 +29,7 @@ in {
 
     # binds
     bind = [
+      "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
       # compositor commands
       "$mod SHIFT, E, exec, pkill Hyprland"
       "$mod SHIFT, E, exec, pkill Hyprland"
@@ -32,7 +45,7 @@ in {
 
       # utility
       # terminal
-      "$mod, Return, exec, kitty"
+      "$mod, Return, exec, foot"
 
       "$mod, D, exec, anyrun"
       # logout menu

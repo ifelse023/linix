@@ -1,6 +1,8 @@
 {
   imports = [
-    ./zsh
+    ./fish.nix
+    ./zellij.nix
+    ./starship.nix
     ./bat.nix
     ./git.nix
     ./btop.nix

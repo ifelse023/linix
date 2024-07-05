@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./anyrun
@@ -6,12 +6,14 @@
     ./mako.nix
     ./environment.nix
     ./hyprpaper.nix
-    #./hyprlock.nix
   ];
 
   home.packages = with pkgs; [
+    grim
+    slurp
     wl-clipboard
     wl-screenrec
+    wlr-randr
     libnotify
     cliphist
     polkit_gnome

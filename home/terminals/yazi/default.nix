@@ -7,7 +7,7 @@
     enable = true;
 
     enableBashIntegration = config.programs.bash.enable;
-    enableZshIntegration = config.programs.zsh.enable;
+    enableFishIntegration = config.programs.zsh.enable;
 
     settings = {
       manager = {
