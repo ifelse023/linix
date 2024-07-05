@@ -1,6 +1,7 @@
 {
   imports = [
     ./fish.nix
+    ./yazi
     ./zellij.nix
     ./starship.nix
     ./bat.nix

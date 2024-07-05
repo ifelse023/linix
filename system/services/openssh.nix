@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   services = {
     openssh = {
       enable = true;
@@ -10,7 +11,7 @@
         PasswordAuthentication = lib.mkForce false;
         KbdInteractiveAuthentication = false;
       };
-      openFirewall = true;
+      openFirewall = false;
       ports = [ 22 ];
       hostKeys = [
         {

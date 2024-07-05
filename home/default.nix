@@ -4,8 +4,8 @@
     ./programs
     ./shell
     ./wm
-    ./terminals
     ./editors
+    ./foot.nix
     inputs.chaotic.homeManagerModules.default
   ];
 

@@ -4,7 +4,7 @@
     pkg-config
     zlib
 
-    bash
+    pkgsx86_64_v3-core.bash
     telescope
 
     # profiling tool

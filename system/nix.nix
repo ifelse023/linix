@@ -1,8 +1,14 @@
-{ inputs, config, lib, ... }: {
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
+{
   documentation = {
-    dev.enable = true;
+    dev.enable = false;
     doc.enable = false;
-    nixos.enable = true;
+    nixos.enable = false;
     info.enable = false;
     man = {
       enable = lib.mkDefault false;
@@ -10,18 +16,23 @@
     };
   };
 
-  nixpkgs.config = { allowUnfree = lib.mkForce true; };
+  nixpkgs.config = {
+    allowUnfree = lib.mkForce true;
+  };
 
   nix = {
     # Register each flake input
-    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
+      (lib.filterAttrs (_: lib.isType "flake")) inputs
+    );
 
     # Specify a custom Nix path
     #nixPath = [ "/etc/nix/path" ];
 
     # Set Nix daemon settings
     settings = {
+
+      use-xdg-base-directories = true;
       flake-registry = "/etc/nix/registry.json";
 
       max-jobs = "auto";
@@ -39,11 +50,23 @@
       # execute builds inside cgroups
       use-cgroups = true;
 
-      allowed-users = [ "root" "@wheel" ];
+      allowed-users = [
+        "root"
+        "@wheel"
+      ];
       # only allow sudo users to manage the nix store
-      trusted-users = [ "root" "@wheel" "wasd" ];
+      trusted-users = [
+        "root"
+        "@wheel"
+        "wasd"
+      ];
 
-      system-features = [ "nixos-test" "kvm" "recursive-nix" "big-parallel" ];
+      system-features = [
+        "nixos-test"
+        "kvm"
+        "recursive-nix"
+        "big-parallel"
+      ];
 
       #keep-going = true;
 
@@ -70,11 +93,13 @@
       ];
 
       substituters = [
-        "https://cache.nixos.org?priority=10"
+        "https://cache.nixos.org"
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
         "https://anyrun.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
+        "https://yazi.cachix.org"
       ];
 
       trusted-public-keys = [
@@ -83,6 +108,8 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+        "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];
     };
   };

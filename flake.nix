@@ -45,6 +45,8 @@
       inputs.systems.follows = "hyprland/systems";
     };
 
+    yazi.url = "github:sxyazi/yazi";
+
   };
 
   outputs =

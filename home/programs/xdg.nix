@@ -22,7 +22,7 @@ let
     "application/json" = browser;
 
     "text/plain" = [ "nvim" ];
-    #"inode/directory" = ["yazi"];
+    "inode/directory" = [ "yazi" ];
   };
 in
 {
@@ -39,12 +39,12 @@ in
       createDirectories = true;
       documents = "${config.home.homeDirectory}/Documents";
       download = "$HOME/Downloads/";
-      videos = "${config.home.homeDirectory}/other";
-      music = "${config.home.homeDirectory}/other";
-      pictures = "${config.home.homeDirectory}/other";
-      desktop = "${config.home.homeDirectory}/other";
-      publicShare = "${config.home.homeDirectory}/other";
-      templates = "${config.home.homeDirectory}/other";
+      videos = "${config.home.homeDirectory}/misc";
+      music = "${config.home.homeDirectory}/misc";
+      pictures = "${config.home.homeDirectory}/misc";
+      desktop = "${config.home.homeDirectory}/misc";
+      publicShare = "${config.home.homeDirectory}/misc";
+      templates = "${config.home.homeDirectory}/misc";
     };
     mimeApps = {
       enable = true;

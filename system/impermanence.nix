@@ -8,7 +8,8 @@ in
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      forEach [
+      [ "/var/db/sudo" ]
+      ++ forEach [
         "NetworkManager"
         "nix"
         "ssh"
@@ -16,7 +17,9 @@ in
       ++ forEach [
         "nixos"
         "pipewire"
+        "/systemd"
         #"fail2ban"
+        "iwd"
       ] (x: "/var/lib/${x}");
     files = [ "/etc/machine-id" ];
   };

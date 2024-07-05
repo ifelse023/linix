@@ -1,15 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 # networking configuration
 {
-  imports = [ ./security.nix ./networkmanager.nix ];
-
-  systemd.network.wait-online.enable = lib.mkForce false;
-
-  networking = {
-    useDHCP = lib.mkForce false;
-
-    useNetworkd = lib.mkForce true;
-  };
+  imports = [
+    ./security.nix
+    ./iwd.nix
+  ];
 
   hardware.wirelessRegulatoryDatabase = true;
 

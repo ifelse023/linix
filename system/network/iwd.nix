@@ -1,6 +1,7 @@
 { lib, ... }:
-# networking configuration
 {
+
+  systemd.network.wait-online.enable = false;
   networking = {
     useDHCP = lib.mkForce false;
     #interfaces.wlan0.useDHCP = lib.mkForce true;
@@ -13,14 +14,21 @@
       iwd = {
         enable = true;
         settings = {
-          Settings = { AutoConnect = true; };
+          Settings = {
+            AutoConnect = true;
+          };
           General = {
             AddressRandomization = "network";
             AddressRandomizationRange = "full";
             EnableNetworkConfiguration = true;
-            RoamRetryInterval = 15;
+            # RoamRetryInterval = 15;
           };
-          Network = { EnableIPv6 = true; };
+          Network = {
+            RoutePriorityOffset = 300;
+            NameResolvingService = "resolvconf";
+            EnableIPv6 = true;
+          };
+          Scan.DisablePeriodicScan = true;
         };
       };
     };
