@@ -6,6 +6,8 @@
     imv
     libcaca
     pwvucontrol
+
+    obsidian
   ];
 
   programs = {

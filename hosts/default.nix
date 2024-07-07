@@ -16,20 +16,12 @@ let
       imports = [ ../home ];
     };
   };
-  overlays = [
-    # inputs.neovim-nightly-overlay.overlay
-  ];
 in
 {
-  # desktop
-  linix = nixpkgs.lib.nixosSystem {
+  light = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      {
-        networking.hostName = "linix";
-        nixpkgs.overlays = overlays;
-        time.timeZone = nixpkgs.lib.mkDefault "Europe/Berlin";
-      }
+      { networking.hostName = "light"; }
       ./dell
       system
       inputs.chaotic.nixosModules.default

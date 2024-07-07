@@ -37,7 +37,7 @@
       };
 
       floating.criteria = [
-        { app_id = "pavucontrol"; }
+        { app_id = "pwvucontrol"; }
         { app_id = "flameshot"; }
         { app_id = "^(.*) Indicator"; }
         { app_id = "Picture-in-Picture"; }

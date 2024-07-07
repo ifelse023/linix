@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./hardware
@@ -42,10 +43,13 @@
     };
 
   services.xserver = {
-    layout = "de";
-    xkbVariant = "us";
-    xkbOptions = "caps:escape";
+    xkb = {
+      layout = "de";
+      variant = "us";
+      options = "caps:escape";
+    };
   };
 
+  time.timeZone = lib.mkDefault "Europe/Berlin";
   console.keyMap = "us";
 }
