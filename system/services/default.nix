@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./keyd.nix
     ./power.nix
     ./openssh.nix
     ./seatd.nix
@@ -23,6 +22,9 @@
       SystemMaxUse=50M
       RuntimeMaxUse=10M
     '';
+
+    # Remove unused features.
+    lvm.enable = false;
 
     psd = {
       enable = true;

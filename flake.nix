@@ -15,9 +15,6 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    anyrun.url = "github:anyrun-org/anyrun";
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,26 +22,24 @@
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:nixos/nixos-hardware";
-
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.hyprlang.follows = "hyprland/hyprlang";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-      inputs.systems.follows = "hyprland/systems";
-    };
-
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland-contrib = {
+    #   url = "github:hyprwm/contrib";
+    #   inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    # };
+    # hyprpaper = {
+    #   url = "github:hyprwm/hyprpaper";
+    #   inputs.hyprlang.follows = "hyprland/hyprlang";
+    #   inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    #   inputs.systems.follows = "hyprland/systems";
+    # };
+    #
     yazi.url = "github:sxyazi/yazi";
 
   };
@@ -56,7 +51,7 @@
       nixpkgs,
       ...
     }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } ({
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
       imports = [
@@ -72,5 +67,5 @@
       flake = {
         nixosConfigurations = import ./hosts inputs;
       };
-    });
+    };
 }

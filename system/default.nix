@@ -40,4 +40,12 @@
         LC_TIME = de;
       };
     };
+
+  services.xserver = {
+    layout = "de";
+    xkbVariant = "us";
+    xkbOptions = "caps:escape";
+  };
+
+  console.keyMap = "us";
 }

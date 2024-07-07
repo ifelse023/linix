@@ -7,6 +7,8 @@
   ];
 
   hardware.wirelessRegulatoryDatabase = true;
+  # Disable the firewall.
+  networking.firewall.enable = false;
 
   environment.systemPackages = with pkgs; [
     ethtool

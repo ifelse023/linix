@@ -2,7 +2,7 @@
   imports = [
     ./fish.nix
     ./yazi
-    ./zellij.nix
+    ./zellij
     ./starship.nix
     ./bat.nix
     ./git.nix

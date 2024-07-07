@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 {
   boot = {
+
+    swraid.enable = false;
     kernelParams = lib.mkAfter [
       # Disable all mitigations
       "mitigations=off"

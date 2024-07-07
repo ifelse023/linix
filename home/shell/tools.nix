@@ -4,6 +4,8 @@
     pkg-config
     zlib
 
+    nix-tree
+
     pkgsx86_64_v3-core.bash
     telescope
 

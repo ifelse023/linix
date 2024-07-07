@@ -13,14 +13,14 @@ in
 {
   programs.fish = {
 
+    enable = true;
     interactiveShellInit = ''
       set fish_greeting ""
     '';
-    enable = true;
     plugins = [
       {
         name = "fifc";
-        src = pkgs.fishPlugins.fifc.src;
+        inherit (pkgs.fishPlugins.fzf-fish) src;
       }
     ];
     shellAliases = {
@@ -33,6 +33,9 @@ in
       run = "nix run";
       search = "nix search";
       shell = "nix shell";
+      nsp = "nix-shell -p";
+      nhs = "nh os switch -v";
+      nhb = "nh os boot -v";
 
       # quality of life aliases
       cat = "${getExe bat} --style=plain";
@@ -43,6 +46,8 @@ in
       fcd = "cd $(find -type d | fzf)";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       l = "ls -lF --time-style=long-iso --icons";
+
+      c = "yazi";
 
       # system aliases
       sc = "sudo systemctl";
@@ -56,6 +61,8 @@ in
       diff = "diff --color=auto";
       cpu = ''watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'';
       killall = "pkill";
+
+      py = "python";
 
       # faster navigation
       ".." = "cd ..";

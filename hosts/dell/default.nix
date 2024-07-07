@@ -1,1 +1,7 @@
-{ imports = [ ./intel.nix ./hardware-configuration.nix ./kernel.nix ]; }
+{
+  imports = [
+    ./intel.nix
+    ./hardware-configuration.nix
+    ./kernel.nix
+  ];
+}

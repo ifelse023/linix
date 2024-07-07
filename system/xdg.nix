@@ -2,18 +2,17 @@
 {
   xdg.portal = {
     enable = true;
-
     xdgOpenUsePortal = true;
     config = {
-      common.default = [ "gtk" ];
-      hyprland.default = [
+      common.default = [ "*" ];
+      sway.default = [
         "gtk"
-        "hyprland"
+        "wlr"
       ];
     };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-wlr_git
     ];
   };
 }

@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./bluetooth.nix
-    ./brillo.nix
-  ];
+  imports = [ ./bluetooth.nix ];
 
   services.fwupd = {
     enable = true;

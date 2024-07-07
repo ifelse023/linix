@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -21,6 +22,8 @@
   };
 
   nix = {
+
+    package = pkgs.nixVersions.nix_2_22;
     # Register each flake input
     registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
       (lib.filterAttrs (_: lib.isType "flake")) inputs
@@ -76,19 +79,14 @@
 
       warn-dirty = false;
 
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
 
-      extra-experimental-features = [
+      experimental-features = [
         "flakes" # flakes
+        "ca-derivations"
         "nix-command" # experimental nix commands
         "recursive-nix" # let nix invoke itself
-        "ca-derivations" # content addressed nix
-        "repl-flake" # allow passing installables to nix repl
-        "auto-allocate-uids" # allow nix to automatically pick UIDs, rather than creating nixbld* user accounts
         "cgroups" # allow nix to execute builds inside cgroups
       ];
 
@@ -97,7 +95,6 @@
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
-        "https://anyrun.cachix.org"
         "https://nixpkgs-wayland.cachix.org"
         "https://yazi.cachix.org"
       ];
@@ -107,7 +104,6 @@
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-        "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];

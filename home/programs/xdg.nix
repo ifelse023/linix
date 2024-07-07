@@ -38,13 +38,16 @@ in
       enable = true;
       createDirectories = true;
       documents = "${config.home.homeDirectory}/Documents";
-      download = "$HOME/Downloads/";
+      download = "${config.home.homeDirectory}/Downloads";
       videos = "${config.home.homeDirectory}/misc";
       music = "${config.home.homeDirectory}/misc";
       pictures = "${config.home.homeDirectory}/misc";
       desktop = "${config.home.homeDirectory}/misc";
       publicShare = "${config.home.homeDirectory}/misc";
       templates = "${config.home.homeDirectory}/misc";
+      extraConfig = {
+        dev = "${config.home.homeDirectory}/dev";
+      };
     };
     mimeApps = {
       enable = true;

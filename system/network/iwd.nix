@@ -25,7 +25,6 @@
           };
           Network = {
             RoutePriorityOffset = 300;
-            NameResolvingService = "resolvconf";
             EnableIPv6 = true;
           };
           Scan.DisablePeriodicScan = true;

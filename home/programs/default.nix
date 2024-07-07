@@ -1,1 +1,9 @@
-{ pkgs, ... }: { imports = [ ./firefox.nix ./xdg.nix ./media.nix ./gtk.nix ]; }
+{ pkgs, ... }:
+{
+  imports = [
+    ./firefox.nix
+    ./xdg.nix
+    ./media.nix
+    ./gtk.nix
+  ];
+}

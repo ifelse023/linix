@@ -1,11 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./anyrun
-    ./hyprland
     ./mako.nix
     ./environment.nix
-    ./hyprpaper.nix
+    ./sway
+    ./flameshot.nix
   ];
 
   home.packages = with pkgs; [
@@ -16,8 +15,8 @@
     wlr-randr
     libnotify
     cliphist
-    polkit_gnome
     xdg-utils
+    sway-launcher-desktop
   ];
 
   systemd.user = {
@@ -43,21 +42,5 @@
     #     Requires = [ "graphical-session-pre.target" ];
     #   };
     # };
-
-    services.polkit-gnome-authentication-agent-1 = {
-      Unit.Description = "polkit-gnome-authentication-agent-1";
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-        Wants = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
   };
 }
