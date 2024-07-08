@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./intel.nix
@@ -5,4 +6,5 @@
     ./kernel.nix
   ];
 
+  services.fstrim.enable = lib.mkDefault true;
 }

@@ -43,7 +43,7 @@ in
       du = "${getExe dust}";
       ps = "${getExe procs}";
       mp = "mkdir -p";
-      fcd = "cd $(find -type d | fzf)";
+      fcd = "cd $(fd -type d | fzf)";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       l = "ls -lF --time-style=long-iso --icons";
 

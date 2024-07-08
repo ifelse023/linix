@@ -2,9 +2,10 @@
 {
   home.packages = with pkgs; [
     pkg-config
-    zlib
 
     nix-tree
+
+    dust
 
     pkgsx86_64_v3-core.bash
     telescope

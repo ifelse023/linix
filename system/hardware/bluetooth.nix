@@ -7,5 +7,6 @@
   boot.blacklistedKernelModules = [
     "bluetooth"
     "btusb"
+    "ath3k"
   ];
 }

@@ -34,7 +34,7 @@
 
     # Set Nix daemon settings
     settings = {
-
+      extra-platforms = [ "aarch64-linux" ];
       use-xdg-base-directories = true;
       flake-registry = "/etc/nix/registry.json";
 

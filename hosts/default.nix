@@ -2,7 +2,6 @@
 let
   inherit (self) inputs;
   system = ../system;
-  #hw = inputs.nixos-hardware.nixosModules;
   hmModule = inputs.home-manager.nixosModules.home-manager;
 
   home-manager = {

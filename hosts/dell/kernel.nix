@@ -26,6 +26,8 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
+
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   environment.systemPackages = [ pkgs.scx ];
@@ -33,4 +35,5 @@
     enable = true;
     scheduler = "scx_rusty";
   };
+
 }
