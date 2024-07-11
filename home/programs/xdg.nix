@@ -37,8 +37,8 @@ in
     userDirs = {
       enable = true;
       createDirectories = true;
-      documents = "${config.home.homeDirectory}/Documents";
       download = "${config.home.homeDirectory}/Downloads";
+      documents = "${config.home.homeDirectory}/misc";
       videos = "${config.home.homeDirectory}/misc";
       music = "${config.home.homeDirectory}/misc";
       pictures = "${config.home.homeDirectory}/misc";
@@ -47,6 +47,7 @@ in
       templates = "${config.home.homeDirectory}/misc";
       extraConfig = {
         dev = "${config.home.homeDirectory}/dev";
+        books = "${config.home.homeDirectory}/misc/books";
       };
     };
     mimeApps = {

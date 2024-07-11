@@ -19,8 +19,8 @@
       ];
     };
 
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -30,10 +30,10 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
-  environment.systemPackages = [ pkgs.scx ];
-  chaotic.scx = {
-    enable = true;
-    scheduler = "scx_rusty";
-  };
-
+  # environment.systemPackages = [ pkgs.scx ];
+  # chaotic.scx = {
+  #   enable = true;
+  #   scheduler = "scx_rusty";
+  # };
+  #
 }

@@ -27,9 +27,6 @@
   home = {
     username = "wasd";
     homeDirectory = "/home/wasd";
-
-    #extraOutputsToInstall = ["doc" "devdoc"];
-
     stateVersion = "24.11";
   };
 }

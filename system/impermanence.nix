@@ -8,12 +8,7 @@ in
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      [ "/var/db/sudo" ]
-      ++ forEach [
-        "NetworkManager"
-        "nix"
-        "ssh"
-      ] (x: "/etc/${x}")
+      forEach [ "nix" ] (x: "/etc/${x}")
       ++ forEach [
         "nixos"
         "pipewire"
@@ -22,6 +17,32 @@ in
         "iwd"
       ] (x: "/var/lib/${x}");
     files = [ "/etc/machine-id" ];
+    users.wasd = {
+      directories =
+        [
+          "linix"
+          "Downloads"
+          "misc"
+          "dev"
+          ".cache"
+          {
+            directory = ".gnupg";
+            mode = "0700";
+          }
+          {
+            directory = ".ssh";
+            mode = "0700";
+          }
+          ".mozilla"
+        ]
+        ++ forEach [ "Vesktop" ] (x: ".config/${x}")
+        ++ forEach [
+          "atuin"
+          "fish"
+          "nvim"
+        ] (x: ".local/share/${x}")
+        ++ [ ];
+    };
   };
 
   boot.initrd.systemd.services.rollback = {
@@ -53,10 +74,4 @@ in
         umount /mnt
     '';
   };
-
-  systemd.tmpfiles.rules = [
-    "L /var/lib/NetworkManager/secret_key - - - - /persist/var/lib/NetworkManager/secret_key"
-    "L /var/lib/NetworkManager/seen-bssids - - - - /persist/var/lib/NetworkManager/seen-bssids"
-    "L /var/lib/NetworkManager/timestamps - - - - /persist/var/lib/NetworkManager/timestamps"
-  ];
 }

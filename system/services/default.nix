@@ -23,7 +23,6 @@
       RuntimeMaxUse=10M
     '';
 
-    # Remove unused features.
     lvm.enable = false;
 
     psd = {

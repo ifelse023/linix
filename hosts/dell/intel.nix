@@ -12,7 +12,6 @@
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  environment.systemPackages = with pkgs; [ intel-gpu-tools ];
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
   };

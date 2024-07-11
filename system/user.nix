@@ -4,7 +4,6 @@
     fuse.userAllowOther = true;
     dconf.enable = true;
     fish.enable = true;
-    command-not-found.enable = false;
   };
 
   users = {
