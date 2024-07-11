@@ -19,8 +19,8 @@ in
     '';
     plugins = [
       {
-        name = "fifc";
-        inherit (pkgs.fishPlugins.fzf-fish) src;
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish.src;
       }
     ];
     shellAliases = {

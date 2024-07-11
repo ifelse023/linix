@@ -27,7 +27,6 @@
     fzf
 
     lsof # list open files
-
     psmisc # killall/pstree/prtstat/fuser/...
   ];
 

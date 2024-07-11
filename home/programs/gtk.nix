@@ -7,6 +7,7 @@
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
       size = 11;
     };
+
     theme = {
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
@@ -35,16 +36,21 @@
     pointerCursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-      size = 24;
+      size = 16;
       gtk.enable = true;
       x11.enable = true;
     };
 
-    packages = with pkgs; [ qt6.qtwayland ];
+    packages = with pkgs; [
+      qt5.qttools
+      qt6Packages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5ct
+    ];
   };
   qt = {
     enable = true;
-    platformTheme.name = "adwaita";
+    platformTheme = "gnome";
     style.name = "adwaita-dark";
   };
 
