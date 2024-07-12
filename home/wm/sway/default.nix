@@ -21,16 +21,18 @@
       };
     wrapperFeatures.gtk = true;
     config = {
+      output = {
+        HDMI-A-1 = {
+          pos = "1920 0 res 1920x1080";
+          adaptive_sync = "off";
+        };
+        eDP-1 = {
+          pos = "0 0 res 1920x1080";
 
-      output =
-        lib.genAttrs
-          [
-            "eDP-1"
-            "HDMI-A-1"
-          ]
-          (_: {
-            adaptive_sync = "off";
-          });
+          adaptive_sync = "off";
+
+        };
+      };
       assigns = {
         "number 4" = [ { app_id = "firefox"; } ];
         "number 8" = [ { app_id = "discord"; } ];

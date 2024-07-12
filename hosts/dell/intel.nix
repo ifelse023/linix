@@ -21,17 +21,8 @@
     extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
-      mesa_git
-    ];
-  };
-
-  chaotic.mesa-git = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-compute-runtime
+      mesa
       vaapiIntel
     ];
   };
-
 }
