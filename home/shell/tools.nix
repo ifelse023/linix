@@ -7,7 +7,7 @@
 
     dust
 
-    pkgsx86_64_v3-core.bash
+    bash
     telescope
 
     # profiling tool
