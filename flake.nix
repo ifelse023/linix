@@ -9,7 +9,7 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 

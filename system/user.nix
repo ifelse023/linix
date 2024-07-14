@@ -14,7 +14,7 @@
         hashedPasswordFile = "/persist/secrets/wasd";
         shell = pkgs.fish;
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILSsqE4dZjz5NPzSbm7y3tlUG6kEKFarMaEcXhhw9FZg wasd"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFvLLdVK+G3HBsK6kKcVY4Ub98431EQLj0z9mo3CozUK light"
         ];
         extraGroups = [
           "input"

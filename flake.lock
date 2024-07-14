@@ -35,16 +35,14 @@
       "locked": {
         "lastModified": 1720897497,
         "narHash": "sha256-8iIDP5dIVa+gGYoXyid5jd9T7qK7W3bd7GnydU5BsD8=",
-        "owner": "chaotic-cx",
-        "repo": "nyx",
         "rev": "73b33413b5cf7f089512107c3babd89a1c825308",
-        "type": "github"
+        "revCount": 1256,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/chaotic-cx/nyx/0.1.1256%2Brev-73b33413b5cf7f089512107c3babd89a1c825308/0190ad86-55e5-78af-a7bd-5c9ec79ef209/source.tar.gz"
       },
       "original": {
-        "owner": "chaotic-cx",
-        "ref": "nyxpkgs-unstable",
-        "repo": "nyx",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/chaotic-cx/nyx/%2A.tar.gz"
       }
     },
     "compare-to": {
