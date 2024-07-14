@@ -3,20 +3,21 @@
   imports = [
     ./mako.nix
     ./environment.nix
-    ./sway
-    ./flameshot.nix
+    ./anyrun
+    ./hyprland
+    ./hyprpaper.nix
   ];
 
   home.packages = with pkgs; [
     grim
     slurp
+    brightnessctl
     wl-clipboard
     wl-screenrec
     wlr-randr
     libnotify
     cliphist
     xdg-utils
-    sway-launcher-desktop
   ];
 
   systemd.user = {
