@@ -19,8 +19,8 @@ in
     '';
     plugins = [
       {
-        name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish.src;
+        name = "fifc";
+        inherit (pkgs.fishPlugins.fifc) src;
       }
     ];
     shellAliases = {
@@ -34,8 +34,8 @@ in
       search = "nix search";
       shell = "nix shell";
       nsp = "nix-shell -p";
-      nhs = "nh os switch -v";
-      nhb = "nh os boot -v";
+      nhs = "nh os switch -- --impure";
+      nhb = "nh os boot -- --impure";
 
       # quality of life aliases
       cat = "${getExe bat} --style=plain";
@@ -63,6 +63,8 @@ in
       killall = "pkill";
 
       py = "python";
+
+      vim = "neovide";
 
       # faster navigation
       ".." = "cd ..";

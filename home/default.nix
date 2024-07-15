@@ -5,7 +5,7 @@
     ./shell
     ./wm
     ./editors
-    ./foot.nix
+    ./terminals
     inputs.chaotic.homeManagerModules.default
   ];
 

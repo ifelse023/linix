@@ -45,9 +45,9 @@ in
 
       # utility
       # terminal
-      "$mod, Return, exec, foot"
+      "$mod, Return, exec, kitty"
 
-      "$mod, D, exec, anyrun"
+      "$mod, D, exec, fuzzel"
       # logout menu
       "$mod, Escape, exec, wlogout -p layer-shell"
       # lock screen

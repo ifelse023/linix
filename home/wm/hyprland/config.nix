@@ -1,5 +1,10 @@
 {
   wayland.windowManager.hyprland = {
+    catppuccin = {
+      enable = true;
+      accent = "pink";
+      flavor = "mocha";
+    };
     settings = {
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
@@ -8,50 +13,41 @@
 
       "$mod" = "SUPER";
 
-      cursor = {
-        no_warps = true;
-      };
-
       general = {
         gaps_in = 3;
-        gaps_out = 3;
+        gaps_out = 1;
         border_size = 1;
-        "col.active_border" = " rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+        "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
         resize_on_border = true;
         "layout" = "dwindle";
         no_border_on_floating = false;
 
-        sensitivity = 0.6;
+        sensitivity = 0.9;
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 8;
         blur = {
-          enabled = false;
-          brightness = 1.0;
-          contrast = 1.0;
-          noise = 1.0e-2;
-
-          vibrancy = 0.2;
-          vibrancy_darkness = 0.5;
-
-          passes = 4;
-          size = 7;
-
-          popups = true;
-          popups_ignorealpha = 0.2;
+          enabled = true;
+          size = 6;
+          passes = 3;
+          new_optimizations = true;
+          ignore_opacity = true;
+          xray = false;
         };
 
-        drop_shadow = false;
+        drop_shadow = true;
+
         shadow_ignore_window = true;
-        shadow_range = 10;
-        shadow_render_power = 2;
+        shadow_offset = "0 2";
+        shadow_range = 20;
+        shadow_render_power = 3;
         "col.shadow" = "rgba(00000055)";
       };
 
       animations = {
-        enabled = true;
+        enabled = false;
         animation = [
           "border, 1, 2, default"
           "fade, 1, 4, default"
@@ -59,25 +55,12 @@
           "workspaces, 1, 2, default, slide"
         ];
       };
-      group = {
-        groupbar = {
-          font_size = 16;
-          gradients = false;
-        };
-
-        "col.border_active" = "rgba(88888888)";
-        "col.border_inactive" = "rgba(00000088)";
-
-        #"col.border_active" = "rgba (ca9ee6ff) rgba (f2d5cfff) 45 deg";
-        #"col.border_inactive" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
-      };
 
       input = {
         kb_layout = "de";
         kb_variant = "us";
+        kb_options = "ctrl:nocaps";
 
-        # focus change on cursor move
-        follow_mouse = 1;
         touchpad.natural_scroll = "no";
       };
 
@@ -115,7 +98,7 @@
         workspace_swipe_forever = true;
       };
 
-      debug.disable_logs = false;
+      debug.disable_logs = true;
     };
   };
 }

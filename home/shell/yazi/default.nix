@@ -5,12 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./theme/filetype.nix
-    ./theme/icons.nix
-    ./theme/manager.nix
-    ./theme/status.nix
-  ];
+  imports = [ ];
 
   # general file info
   home.packages = [ pkgs.exiftool ];

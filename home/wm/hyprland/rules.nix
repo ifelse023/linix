@@ -3,14 +3,31 @@
     # layer rules
     layerrule =
       let
-        layers = "^(notifications|system-menu|kitty|foot|gtk-layer-shell|osd[0-9])$";
+        layers = "^(notifications|system-menu|kitty|foot|gtk-layer-shell)$";
       in
       [
         "blur, ${layers}"
         "xray 1, ^(bar|gtk-layer-shell)$"
         "ignorealpha 0.2, ${layers}"
-        "ignorealpha 0.5, ^(system-menu|anyrun)$"
+        "ignorealpha 0.5, ^(system-menu|fuzzel)$"
       ];
+
+    windowrule = [
+      "float,title:^(Open File)(.*)$"
+      "float,title:^(Select a File)(.*)$"
+      "float,title:^(Open Folder)(.*)$"
+      "float,float,title:^(Save As)(.*)$"
+      "float,title:^(Save As)(.*)$"
+      "float,title:^(File Upload)(.*)$"
+
+      "center,title:^(Open File)(.*)$"
+      "center,title:^(Select a File)(.*)$"
+      "center,title:^(Open Folder)(.*)$"
+      "center,float,title:^(Save As)(.*)$"
+      "center,title:^(Save As)(.*)$"
+      "center,title:^(File Upload)(.*)$"
+
+    ];
 
     # window rules
     windowrulev2 = [
@@ -21,11 +38,10 @@
 
       "float,class:udiskie"
 
-      "float,class:pavucontrol"
+      "float,class:pwvucontrol"
       "float,title:^(Volume Control)$"
       "size 800 600,title:^(Volume Control)$"
       "move 75 44%,title:^(Volume Control)$"
-      "float, class:^(imv)$"
 
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
@@ -35,7 +51,8 @@
       "workspace 2, class:^(firefox)$"
       "workspace 4 , title:^(.*Firefox.*)$"
       "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
-      "workspace 1, title:^(.*(eovide.*)$"
+      "workspace 1 , class:^(.*neovide.*)$
+"
 
       # fix xwayland apps
       "rounding 0, xwayland:1"

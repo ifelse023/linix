@@ -1,20 +1,39 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+
+{
+
+  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    pointerCursor = {
+      enable = true;
+      accent = "dark";
+      flavor = "mocha";
+    };
+  };
+  programs.neovim.catppuccin.enable = lib.mkForce false;
+
   gtk = {
     enable = true;
+    catppuccin = {
+      enable = true;
+      accent = "pink";
+      flavor = "mocha";
+      icon.enable = true;
+      icon.accent = "pink";
+
+    };
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
       size = 11;
-    };
-
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
-    };
-    iconTheme = {
-      name = "BeautyLine";
-      package = pkgs.beautyline-icons;
     };
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
@@ -33,14 +52,6 @@
   };
 
   home = {
-    pointerCursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 16;
-      gtk.enable = true;
-      x11.enable = true;
-    };
-
     packages = with pkgs; [
       qt5.qttools
       qt6Packages.qtstyleplugin-kvantum
@@ -50,8 +61,8 @@
   };
   qt = {
     enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
 }

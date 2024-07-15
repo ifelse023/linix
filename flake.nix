@@ -27,22 +27,21 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-     hyprland-contrib = {
-       url = "github:hyprwm/contrib";
-       inputs.nixpkgs.follows = "hyprland/nixpkgs";
-     };
-     hyprpaper = {
-       url = "github:hyprwm/hyprpaper";
-       inputs.hyprlang.follows = "hyprland/hyprlang";
-       inputs.nixpkgs.follows = "hyprland/nixpkgs";
-       inputs.systems.follows = "hyprland/systems";
-     };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.hyprlang.follows = "hyprland/hyprlang";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+      inputs.systems.follows = "hyprland/systems";
+    };
 
-    anyrun.url = "github:anyrun-org/anyrun";
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    
     yazi.url = "github:sxyazi/yazi";
+
+    catppuccin.url = "github:catppuccin/nix";
 
   };
 

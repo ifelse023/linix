@@ -19,6 +19,10 @@
       ];
     };
 
+    kernel.sysctl = {
+      "dev.i915.perf_stream_paranoid" = 0;
+    };
+
     #kernelPackages = pkgs.linuxPackages_latest;
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
@@ -29,10 +33,10 @@
 
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
-   environment.systemPackages = [ pkgs.scx ];
-   chaotic.scx = {
-     enable = true;
-     scheduler = "scx_rusty";
-   };
-  
+  environment.systemPackages = [ pkgs.scx ];
+  chaotic.scx = {
+    enable = true;
+    scheduler = "scx_rusty";
+  };
+
 }

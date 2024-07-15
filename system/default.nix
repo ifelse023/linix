@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   imports = [
     ./hardware
@@ -12,7 +12,13 @@
     ./env.nix
     ./xdg.nix
     ./impermanence.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   boot.tmp = {
     cleanOnBoot = true;
@@ -42,14 +48,6 @@
         LC_TIME = de;
       };
     };
-
-  services.xserver = {
-    xkb = {
-      layout = "de";
-      variant = "us";
-      options = "caps:escape";
-    };
-  };
 
   time.timeZone = lib.mkDefault "Europe/Berlin";
   console.keyMap = "us";

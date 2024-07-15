@@ -3,6 +3,10 @@
   home.packages = with pkgs; [
     pkg-config
 
+    neovide
+
+    sccache
+
     nix-tree
 
     dust
@@ -34,20 +38,7 @@
 
     fzf = {
       enable = true;
-      colors = {
-        bg = "#1a1b26"; # background color
-        "bg+" = "#292e42"; # background color when highlighted
-        fg = "#c0caf5"; # foreground color
-        "fg+" = "#c0caf5"; # foreground color when highlighted
-        hl = "#ff9e64"; # highlight color for matching text
-        "hl+" = "#ff9e64"; # highlight color for selected matching text
-        info = "#7aa2f7"; # information text color
-        prompt = "#7dcfff"; # prompt text color
-        pointer = "#7dcfff"; # pointer color at match line
-        marker = "#9ece6a"; # marker color for selected items
-        spinner = "#9ece6a"; # spinner color
-        header = "#9ece6a"; # header color
-      };
+      colors = { };
     };
 
     ripgrep = {

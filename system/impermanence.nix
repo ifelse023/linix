@@ -8,7 +8,10 @@ in
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      forEach [ "nix" "ssh"] (x: "/etc/${x}")
+      forEach [
+        "nix"
+        "ssh"
+      ] (x: "/etc/${x}")
       ++ forEach [
         "nixos"
         "pipewire"
@@ -17,7 +20,7 @@ in
         "iwd"
       ] (x: "/var/lib/${x}");
     files = [ "/etc/machine-id" ];
- };
+  };
 
   boot.initrd.systemd.services.rollback = {
     description = "Rollback BTRFS root subvolume to a pristine state";

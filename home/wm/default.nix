@@ -3,12 +3,13 @@
   imports = [
     ./mako.nix
     ./environment.nix
-    ./anyrun
     ./hyprland
     ./hyprpaper.nix
+    ./fuzzel.nix
   ];
 
   home.packages = with pkgs; [
+    hyprcursor
     grim
     slurp
     brightnessctl
@@ -21,27 +22,39 @@
   ];
 
   systemd.user = {
-    services.cliphist = {
-      Unit = {
-        Description = "Clipboard history service";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
+    services = {
+      cliphist = {
+        Unit = {
+          Description = "Clipboard history service";
+          PartOf = [ "graphical-session.target" ];
+          After = [ "graphical-session.target" ];
+        };
+
+        Service = {
+          ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+          Restart = "always";
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
       };
 
-      Service = {
-        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
-        Restart = "always";
-      };
+      polkit-gnome-authentication-agent-1 = {
+        Unit.Description = "polkit-gnome-authentication-agent-1";
 
-      Install.WantedBy = [ "graphical-session.target" ];
+        Install = {
+          WantedBy = [ "graphical-session.target" ];
+          Wants = [ "graphical-session.target" ];
+          After = [ "graphical-session.target" ];
+        };
+
+        Service = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+      };
     };
-    # fake a tray to let apps start
-    # https://github.com/nix-community/home-manager/issues/2064
-    # targets.tray = {
-    #   Unit = {
-    #     Description = "Home Manager System Tray";
-    #     Requires = [ "graphical-session-pre.target" ];
-    #   };
-    # };
   };
 }
