@@ -12,6 +12,7 @@
           nixfmt-rfc-style
           statix # lints and suggestions
           deadnix # clean up unused nix code
+          just
         ];
       };
     };

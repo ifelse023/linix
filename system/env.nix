@@ -9,7 +9,6 @@
     variables = {
       FLAKE = "/home/wasd/linix";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
-
       EDITOR = "nvim";
       VISUAL = "nvim";
       SUDO_EDITOR = "nvim";

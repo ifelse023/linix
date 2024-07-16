@@ -5,8 +5,6 @@
 
     neovide
 
-    sccache
-
     nix-tree
 
     dust
