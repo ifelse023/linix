@@ -3,7 +3,6 @@
   imports = [
     ./power.nix
     ./openssh.nix
-    ./seatd.nix
     ./location.nix
   ];
 

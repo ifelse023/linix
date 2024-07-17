@@ -13,11 +13,10 @@
   # yazi file manager
   programs.yazi = {
     enable = true;
-
     package = inputs.yazi.packages.${pkgs.system}.default;
 
-    enableBashIntegration = config.programs.bash.enable;
-    enableFishIntegration = config.programs.zsh.enable;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
 
     settings = {
       manager = {
@@ -31,7 +30,7 @@
         sort_reverse = false;
         sort_dir_first = true;
         linemode = "none";
-        show_hidden = false;
+        show_hidden = true;
         show_symlink = true;
       };
 

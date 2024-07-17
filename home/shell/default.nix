@@ -8,5 +8,6 @@
     ./btop.nix
     ./tools.nix
     ./nix-index.nix
+    ./zellij
   ];
 }

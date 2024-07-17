@@ -12,7 +12,6 @@
 
   environment.systemPackages = with pkgs; [
     ethtool
-
     # dns client
     dogdns
 

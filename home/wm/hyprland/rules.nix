@@ -33,6 +33,7 @@
     windowrulev2 = [
       "noanim, class:(.*(eovide.*)$"
       "idleinhibit focus,class:kitty"
+      "idleinhibit focus,class:foot"
       "idleinhibit focus,class:wezterm"
       "idleinhibit fullscreen, class:^(firefox)$"
 

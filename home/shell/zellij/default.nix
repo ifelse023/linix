@@ -2,6 +2,7 @@
   programs.fish = {
     shellAliases = {
       zj = "zellij";
+      za = "zellij attach";
     };
   };
   xdg.configFile."zellij/config.kdl".source = ./config.kdl;

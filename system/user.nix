@@ -31,6 +31,8 @@
       };
     };
   };
+
+  services.getty.autologinUser = "wasd";
   security = {
     # userland niceness
     rtkit.enable = true;

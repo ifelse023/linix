@@ -12,10 +12,23 @@ let
 in
 {
   programs.fish = {
-
     enable = true;
+    loginShellInit = ''
+      set TTY1 (tty)
+      [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
+    '';
     interactiveShellInit = ''
       set fish_greeting ""
+      if not set -q ZELLIJ; and pgrep -x .Hyprland-wrapp >/dev/null; and not pgrep -x zellij >/dev/null
+          if set -q ZELLIJ_AUTO_ATTACH; and test "$ZELLIJ_AUTO_ATTACH" = true
+              zellij attach -c
+          else
+              zellij
+          end
+
+          # Auto exit the shell session when Zellij exits
+          set -q ZELLIJ_AUTO_EXIT; and test "$ZELLIJ_AUTO_EXIT" = true; and exit
+      end
     '';
     plugins = [
       {
@@ -23,6 +36,7 @@ in
         inherit (pkgs.fishPlugins.fifc) src;
       }
     ];
+
     shellAliases = {
       gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\w+-system|\{memory|/proc)\"";
       run = "nix run";
@@ -39,8 +53,6 @@ in
       fcd = "cd $(fd -type d | fzf)";
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       l = "ls -lF --time-style=long-iso --icons";
-
-      c = "yazi";
 
       # system aliases
       sc = "sudo systemctl";
