@@ -24,7 +24,7 @@
     };
 
     #kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;
 
     loader = {
       efi.canTouchEfiVariables = true;

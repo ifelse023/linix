@@ -56,6 +56,7 @@
       allowed-users = [
         "root"
         "@wheel"
+	"wasd"
       ];
       # only allow sudo users to manage the nix store
       trusted-users = [
@@ -90,7 +91,7 @@
         "cgroups" # allow nix to execute builds inside cgroups
       ];
 
-      substituters = [
+      trusted-substituters = [
         "https://cache.nixos.org"
         "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"

@@ -330,11 +330,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1721160190,
-        "narHash": "sha256-dnC7b/C8QRPoGs2H2cAYWmrTRVhN5m1xDpyrNTqV8r8=",
+        "lastModified": 1721248202,
+        "narHash": "sha256-VAhuQQ4EKbw/6z7K2IoR83+gXUdMksLWFQOhJNhSvQE=",
         "ref": "refs/heads/main",
-        "rev": "293e687389a19b369f312c5c335c9afe7c886be1",
-        "revCount": 4929,
+        "rev": "300228b503b36e5977b0d58713c5b4cf1f07b8a9",
+        "revCount": 4930,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -600,11 +600,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1721175028,
-        "narHash": "sha256-3iNMy+GUVaFVHv2U+g6cMJwouAJinDkT/TLqZpiwsU8=",
+        "lastModified": 1721281012,
+        "narHash": "sha256-km+EYinh23cAztAFDi2dX/Dqx9NN9jjmyFAII1CZB4Y=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "d0040404432ef2f6492d06284c556303262e5054",
+        "rev": "bc1d14af6c0834c68b09fdfd588b4e82bd8177d1",
         "type": "github"
       },
       "original": {
@@ -616,11 +616,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1721152134,
-        "narHash": "sha256-mKvJmYNz0d+irdQFtUrkFtHY6LgE1SxoT14Zmbn1OXU=",
+        "lastModified": 1721260040,
+        "narHash": "sha256-Aj1WC8RCOx000R97YPzocO3QGTaj0YVhGF1fDxWwqWo=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "1f2f460b4a77a8ff58872e03c071b5d0d882dd44",
+        "rev": "185b22720de9156393ddc22c2c59dc3eb46b8d97",
         "type": "github"
       },
       "original": {
@@ -916,11 +916,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721127012,
-        "narHash": "sha256-o3l/vF68Oyn1iNHxpzQO4KX+RB42SdmFC54RsxWgUqI=",
+        "lastModified": 1721286286,
+        "narHash": "sha256-dWRi03IEa1kBNlHsiXgwyGg3aScU66/0cB+AF70FaAI=",
         "owner": "sxyazi",
         "repo": "yazi",
-        "rev": "ed6ae000d646f94d32f6a14aff246bd6c479a9b0",
+        "rev": "f0cb365839c94690612a34ed9fd7edd71fde9fa1",
         "type": "github"
       },
       "original": {

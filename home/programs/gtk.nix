@@ -23,12 +23,13 @@
   gtk = {
     enable = true;
     catppuccin = {
-      enable = true;
-      accent = "pink";
-      flavor = "mocha";
-      icon.enable = true;
-      icon.accent = "pink";
+      enable = false;
 
+    };
+
+    theme = {
+      package = pkgs.dracula-theme;
+      name = "Dracula";
     };
     font = {
       name = "Inter";
