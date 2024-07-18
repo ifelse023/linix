@@ -15,7 +15,7 @@ in
       ++ forEach [
         "nixos"
         "pipewire"
-        "/systemd"
+        "systemd"
         #"fail2ban"
         "iwd"
       ] (x: "/var/lib/${x}");
