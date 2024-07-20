@@ -2,6 +2,7 @@
 {
   imports = [
     ./intel.nix
+    ./disko.nix
     ./hardware-configuration.nix
     ./kernel.nix
   ];
