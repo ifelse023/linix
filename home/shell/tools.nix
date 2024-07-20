@@ -90,7 +90,7 @@
 
     # man pages for tiktok attention span mfs
     tealdeer = {
-      enable = false;
+      enable = true;
       settings = {
         display = {
           compact = false;

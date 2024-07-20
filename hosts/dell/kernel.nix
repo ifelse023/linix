@@ -21,6 +21,8 @@
 
     kernel.sysctl = {
       "dev.i915.perf_stream_paranoid" = 0;
+      "kernel.nmi_watchdog" = 0;
+      "kernel.unprivileged_userns_clone" = 1;
     };
 
     #kernelPackages = pkgs.linuxPackages_latest;

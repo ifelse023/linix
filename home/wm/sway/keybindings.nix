@@ -19,12 +19,6 @@ in
       default_border pixel 1
       default_floating_border pixel 1
 
-      client.focused          #ea00d9 #ea00d9 #000b1e #ea00d9 #ea00d9 
-      client.focused_inactive	#000b1e #000b1e #0abdc6 #000b1e #000b1e
-      client.unfocused		#000b1e #000b1e #0abdc6 #000b1e #000b1e
-      client.urgent           #ff0000 #ff0000 #000b1e #ff0000 #ff0000
-      client.placeholder      #000b1e #000b1e #0abdc6 #000b1e #000b1e
-
       # Move your focus around
       #
       set $left h
@@ -52,8 +46,6 @@ in
       bindsym ${mod}+Shift+Up move up
       bindsym ${mod}+Shift+Right move right
 
-
-      for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
     '';
 
     config =
@@ -64,14 +56,12 @@ in
 
             XF86MonBrightnessUp = "exec ${getExe pkgs.brightnessctl} set 10%-";
             XF86MonBrightnessDown = "exec ${getExe pkgs.brightnessctl} set +10%";
-
-            "${mod}+g" = "exec ${getExe pkgs.pavucontrol}";
           }
 
           // {
             "${mod}+Return" = "exec ${getExe pkgs.foot}";
 
-            "${mod}+d" = "exec foot -a launcher -e ${getExe pkgs.sway-launcher-desktop}";
+            "${mod}+d" = "exec fuzzel";
 
             Print = "exec ${getExe pkgs.flameshot} gui";
 

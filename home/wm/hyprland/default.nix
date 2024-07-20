@@ -6,6 +6,7 @@
     ./binds.nix
     ./rules.nix
     ./config.nix
+    ./hyprpaper.nix
   ];
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   home.packages = [ inputs.hyprland-contrib.packages.${pkgs.system}.grimblast ];

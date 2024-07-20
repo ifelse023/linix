@@ -19,6 +19,7 @@
       "float,float,title:^(Save As)(.*)$"
       "float,title:^(Save As)(.*)$"
       "float,title:^(File Upload)(.*)$"
+      "float, title:^(.*Bitwarden Password Manager.*)$"
 
       "center,title:^(Open File)(.*)$"
       "center,title:^(Select a File)(.*)$"

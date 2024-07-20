@@ -12,7 +12,7 @@
 
   # yazi file manager
   programs.yazi = {
-    enable = true;
+    enable = false;
     package = inputs.yazi.packages.${pkgs.system}.default;
 
     enableBashIntegration = true;

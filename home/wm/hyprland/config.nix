@@ -14,13 +14,13 @@
       "$mod" = "SUPER";
 
       general = {
-        gaps_in = 3;
+        gaps_in = 2;
         gaps_out = 1;
         border_size = 1;
-        "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-        "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
+        "col.active_border" = "0xffcba6f7";
+        "col.inactive_border" = "0xff313244";
         resize_on_border = true;
-        "layout" = "dwindle";
+        layout = "dwindle";
         no_border_on_floating = false;
 
         sensitivity = 0.9;
@@ -30,20 +30,17 @@
         rounding = 8;
         blur = {
           enabled = true;
-          size = 6;
+          size = 10;
           passes = 3;
           new_optimizations = true;
-          ignore_opacity = true;
-          xray = false;
         };
 
         drop_shadow = true;
 
         shadow_ignore_window = true;
-        shadow_offset = "0 2";
-        shadow_range = 20;
+        shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(00000055)";
+        "col.shadow" = "0x66000000";
       };
 
       animations = {
@@ -85,7 +82,6 @@
 
         # enable variable refresh rate (effective depending on hardware)
         vrr = 1;
-
         mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
         key_press_enables_dpms = true; # enable dpms on keyboard action
 

@@ -6,14 +6,15 @@
   ...
 }:
 {
+  environment.systemPackages = [ ];
   documentation = {
-    dev.enable = false;
+    enable = false;
+    dev.enable = true;
     doc.enable = false;
     nixos.enable = false;
     info.enable = false;
     man = {
       enable = lib.mkDefault false;
-      generateCaches = lib.mkDefault false;
     };
   };
 
@@ -56,13 +57,13 @@
       allowed-users = [
         "root"
         "@wheel"
-	"wasd"
+        "nix-builder"
       ];
       # only allow sudo users to manage the nix store
       trusted-users = [
         "root"
         "@wheel"
-        "wasd"
+        "nix-builder"
       ];
 
       system-features = [
@@ -72,7 +73,7 @@
         "big-parallel"
       ];
 
-      #keep-going = true;
+      keep-going = true;
 
       # If set to true, Nix will fall back to building from source if a binary substitute
       # fails. This is equivalent to the –fallback flag. The default is false.

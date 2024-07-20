@@ -31,5 +31,8 @@
     "squashfs" # compressed read-only file system (used by live CDs)
     "sysv" # implements all of Xenix FS, SystemV/386 FS and Coherent FS.
     "udf" # https://docs.kernel.org/5.15/filesystems/udf.html
+
+    "iTCO_wdt"
+    "sp5100_tco"
   ];
 }

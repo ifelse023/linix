@@ -20,17 +20,23 @@
         withGtkWrapper = cfg.wrapperFeatures.gtk;
       };
     wrapperFeatures.gtk = true;
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+    };
+
     config = {
       output = {
+        "*".scale = "1";
         HDMI-A-1 = {
-          pos = "1920 0 res 1920x1080";
+          position = "1920,0";
+          mode = "1920x1080@60Hz";
           adaptive_sync = "off";
         };
         eDP-1 = {
-          pos = "0 0 res 1920x1080";
-
+          position = "0,0";
+          mode = "1920x1080@60Hz";
           adaptive_sync = "off";
-
         };
       };
       assigns = {

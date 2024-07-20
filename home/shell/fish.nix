@@ -13,22 +13,8 @@ in
 {
   programs.fish = {
     enable = true;
-    loginShellInit = ''
-      set TTY1 (tty)
-      [ "$TTY1" = "/dev/tty1" ] && exec Hyprland
-    '';
     interactiveShellInit = ''
       set fish_greeting ""
-      if not set -q ZELLIJ; and pgrep -x .Hyprland-wrapp >/dev/null; and not pgrep -x zellij >/dev/null
-          if set -q ZELLIJ_AUTO_ATTACH; and test "$ZELLIJ_AUTO_ATTACH" = true
-              zellij attach -c
-          else
-              zellij
-          end
-
-          # Auto exit the shell session when Zellij exits
-          set -q ZELLIJ_AUTO_EXIT; and test "$ZELLIJ_AUTO_EXIT" = true; and exit
-      end
     '';
     plugins = [
       {

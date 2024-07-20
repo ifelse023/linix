@@ -5,16 +5,20 @@
   services.xserver.videoDrivers = lib.mkDefault [ "intel" ];
   boot = {
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "i915.enable_guc=3" ];
+    kernelParams = [
+      "i915.enable_guc=3"
+      "enable_fbc=1"
+      "i915.enable_dc=0"
+    ];
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
   };
-  chaotic.mesa-git = {
+  hardware.graphics = {
     enable = true;
-    method = "replaceRuntimeDependencies";
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
