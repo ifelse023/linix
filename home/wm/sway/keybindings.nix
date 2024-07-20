@@ -65,7 +65,6 @@ in
 
             Print = "exec ${getExe pkgs.flameshot} gui";
 
-            "F3" = "exec yazi";
           }
 
           // {
