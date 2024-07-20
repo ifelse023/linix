@@ -21,24 +21,37 @@
                 mountOptions = [ "noatime" ];
               };
             };
-            home = {
-              size = "150G";
+	     nix = {
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                mountpoint = "/home";
+                mountpoint = "/nix";
                 mountOptions = [
                   "noatime"
                   "commit=60"
                 ];
               };
             };
+
             persist = {
               size = "50G";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/persist";
+                mountOptions = [
+                  "noatime"
+                  "commit=60"
+                ];
+              };
+            };
+            home = {
+              size = "150G";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/home";
                 mountOptions = [
                   "noatime"
                   "commit=60"
@@ -53,18 +66,7 @@
                 resumeDevice = true;
               };
             };
-            nix = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/nix";
-                mountOptions = [
-                  "noatime"
-                  "commit=60"
-                ];
-              };
-            };
+
           };
         };
       };

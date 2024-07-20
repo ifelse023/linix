@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs,lib, ... }:
 {
   imports = [
     ./power.nix
@@ -7,7 +7,6 @@
   ];
 
   services = {
-
     keyd = {
       enable = false;
       keyboards.default.extraConfig = ''
