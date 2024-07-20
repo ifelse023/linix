@@ -7,13 +7,6 @@
   ];
 
   services = {
-    xserver.xkb.extraLayouts = {
-      custom = {
-        description = "My custom xkb layout.";
-        languages = [ "eng" ];
-        symbolsFile = /home/wasd/.config/xkb/mylayout;
-      };
-    };
 
     keyd = {
       enable = false;

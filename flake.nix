@@ -43,7 +43,7 @@
       inputs.systems.follows = "hyprland/systems";
     };
 
-    yazi.url = "github:sxyazi/yazi";
+    # yazi.url = "github:sxyazi/yazi";
 
     catppuccin.url = "github:catppuccin/nix";
 
