@@ -11,7 +11,7 @@
     ./nix.nix
     ./env.nix
     ./xdg.nix
-    #./impermanence.nix
+    ./impermanence.nix
     inputs.catppuccin.nixosModules.catppuccin
   ];
 
