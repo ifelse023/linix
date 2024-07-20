@@ -45,8 +45,16 @@
                 ];
               };
             };
+            swap = {
+              size = "50G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
+              };
+            };
             nix = {
-              end = "-50G";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
@@ -55,14 +63,6 @@
                   "noatime"
                   "commit=60"
                 ];
-              };
-            };
-            swap = {
-              size = "100%";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true;
               };
             };
           };
