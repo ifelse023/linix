@@ -8,8 +8,7 @@ in
   environment.persistence."/persist" = {
     hideMounts = true;
     directories =
-      [ "/var/log" ]
-      ++ forEach [
+      forEach [
         "nix"
         "ssh"
       ] (x: "/etc/${x}")

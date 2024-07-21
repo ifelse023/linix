@@ -24,6 +24,65 @@
     extraModulePackages = [ ];
   };
 
+  fileSystems."/" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [
+      "size=6G"
+      "mode=755"
+    ];
+  };
+
+  fileSystems."/persist" = {
+    neededForBoot = true;
+    device = "";
+    fsType = "btrfs";
+    options = [
+      "noatime"
+      "subvol=persist"
+      "compress=zstd:1"
+    ];
+  };
+
+  fileSystems."/home" = {
+    device = "";
+    fsType = "btrfs";
+    options = [
+      "noatime"
+      "subvol=home"
+      "compress=zstd:1"
+    ];
+  };
+
+  fileSystems."/nix" = {
+    neededForBoot = true;
+    device = "";
+    fsType = "btrfs";
+    options = [
+      "noatime"
+      "subvol=nix"
+      "compress=zstd:1"
+    ];
+  };
+
+  filesystems."/var/log" = {
+    device = "";
+    fsType = "btrfs";
+    options = [
+      "noatime"
+      "subvol=log"
+      "compress=zstd:1"
+    ];
+  };
+
+  fileSystems."/boot" = {
+    device = "";
+    fsType = "vfat";
+    options = [ "noatime" ];
+  };
+
+  swapDevices = [ { device = ""; } ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
