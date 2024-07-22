@@ -23,6 +23,7 @@ in
       { networking.hostName = "light"; }
       ./dell
       system
+      inputs.xremap-flake.nixosModules.default
       inputs.chaotic.nixosModules.default
       hmModule
       { inherit home-manager; }

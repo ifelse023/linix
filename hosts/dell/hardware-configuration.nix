@@ -28,14 +28,14 @@
     device = "none";
     fsType = "tmpfs";
     options = [
-      "size=6G"
+      "size=10G"
       "mode=755"
     ];
   };
 
   fileSystems."/persist" = {
     neededForBoot = true;
-    device = "";
+    device = "/dev/disk/by-uuid/1054e25f-beb0-48c1-8335-aa52097ac6ab";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -45,7 +45,7 @@
   };
 
   fileSystems."/home" = {
-    device = "";
+    device = "/dev/disk/by-uuid/1054e25f-beb0-48c1-8335-aa52097ac6ab";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -56,7 +56,7 @@
 
   fileSystems."/nix" = {
     neededForBoot = true;
-    device = "";
+    device = "/dev/disk/by-uuid/1054e25f-beb0-48c1-8335-aa52097ac6ab";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -65,9 +65,10 @@
     ];
   };
 
-  filesystems."/var/log" = {
-    device = "";
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/1054e25f-beb0-48c1-8335-aa52097ac6ab";
     fsType = "btrfs";
+    neededForBoot = true;
     options = [
       "noatime"
       "subvol=log"
@@ -76,12 +77,11 @@
   };
 
   fileSystems."/boot" = {
-    device = "";
+    device = "/dev/disk/by-uuid/D8D1-19E2";
     fsType = "vfat";
     options = [ "noatime" ];
   };
-
-  swapDevices = [ { device = ""; } ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/f2b6a587-efb5-4139-a9b0-3d4fa31be9e2"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

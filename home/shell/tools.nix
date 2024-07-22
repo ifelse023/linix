@@ -3,8 +3,6 @@
   home.packages = with pkgs; [
     pkg-config
 
-    neovide
-
     nix-tree
 
     dust
@@ -49,10 +47,10 @@
       ];
     };
 
-    atuin = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    # atuin = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    # };
 
     direnv = {
       enable = true;

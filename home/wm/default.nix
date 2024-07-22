@@ -18,6 +18,10 @@
     libnotify
     cliphist
     xdg-utils
+
+    # (pkgs.writeScriptBin "wezterm" ''
+    #   /home/wasd/dev/wezterm/target/release/wezterm-gui
+    # '')
   ];
 
   systemd.user = {

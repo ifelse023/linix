@@ -24,6 +24,7 @@
     cleanOnBoot = true;
     useTmpfs = false;
   };
+
   i18n =
     let
       defaultLocale = "en_US.UTF-8";

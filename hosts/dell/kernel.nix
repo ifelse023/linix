@@ -14,7 +14,7 @@
       systemd.enable = true;
       supportedFilesystems = [
         "ext4"
-	"tmpfs"
+        "tmpfs"
         "btrfs"
         "vfat"
       ];

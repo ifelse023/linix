@@ -56,7 +56,6 @@
       input = {
         kb_layout = "de";
         kb_variant = "us";
-        kb_options = "ctrl:nocaps";
 
         touchpad.natural_scroll = "no";
       };

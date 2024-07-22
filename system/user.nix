@@ -14,7 +14,7 @@
         hashedPasswordFile = "/persist/passwd";
         shell = pkgs.fish;
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICDiH2GdTFm3E7thrg5V2jjV78Xii9FdYHtosAtr9box light"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJecn9dXDBMm6szBRwpCdpgNzLaBcjkEz2lMjjfTbfIZ light"
         ];
         extraGroups = [
           "input"
@@ -32,9 +32,7 @@
     };
   };
 
-  services.getty.autologinUser = "wasd";
   security = {
-    # userland niceness
     rtkit.enable = true;
     polkit.enable = true;
 
@@ -46,7 +44,5 @@
       execWheelOnly = lib.mkForce true;
     };
   };
-  environment = {
-    shells = with pkgs; [ fish ];
-  };
+
 }
