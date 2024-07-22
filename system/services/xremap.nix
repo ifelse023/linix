@@ -21,6 +21,8 @@
             ];
           };
           remap = {
+            "KEY_0" = "Shift-KEY_0";
+            "Shift-KEY_0" = "KEY_0";
             "KEY_1" = "Shift-KEY_1";
             "Shift-KEY_1" = "KEY_1";
             "KEY_2" = "Shift-KEY_2";
@@ -33,6 +35,12 @@
             "Shift-KEY_5" = "KEY_5";
             "KEY_6" = "Shift-KEY_6";
             "Shift-KEY_6" = "KEY_6";
+            "KEY_7" = "Shift-KEY_7";
+            "Shift-KEY_7" = "KEY_7";
+            "KEY_8" = "Shift-KEY_8";
+            "Shift-KEY_8" = "KEY_8";
+            "KEY_9" = "Shift-KEY_9";
+            "Shift-KEY_9" = "KEY_9";
             "SUPER-KEY_1" = "SUPER-KEY_1";
             "SUPER-KEY_2" = "SUPER-KEY_2";
             "SUPER-KEY_3" = "SUPER-KEY_3";

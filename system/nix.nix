@@ -6,7 +6,7 @@
   ...
 }:
 {
-  environment.systemPackages = [ ];
+  environment.systemPackages = [ pkgs.qemu ];
   documentation = {
     enable = false;
     dev.enable = true;

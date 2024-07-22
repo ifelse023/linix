@@ -2,8 +2,6 @@
   description = "nix config";
   inputs = {
 
-    systems.url = "github:nix-systems/default-linux";
-
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -56,11 +54,7 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-        {
-          config._module.args._inputs = inputs // {
-            inherit (inputs) self;
-          };
-        }
+
         ./shell.nix
         inputs.flake-parts.flakeModules.easyOverlay
       ];
