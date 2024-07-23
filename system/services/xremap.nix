@@ -16,8 +16,7 @@
           application = {
             only = [
               "/vim/"
-              "/foot/"
-              "/wez/"
+              "foot"
             ];
           };
           remap = {

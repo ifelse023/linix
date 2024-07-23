@@ -45,7 +45,7 @@ in
 
       # utility
       # terminal
-      "$mod, Return, exec, wezterm"
+      "$mod, Return, exec, foot"
 
       "$mod, D, exec, fuzzel"
       # logout menu
