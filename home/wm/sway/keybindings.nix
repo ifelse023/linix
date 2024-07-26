@@ -21,6 +21,9 @@ in
       default_border pixel 1
       default_floating_border pixel 1
 
+      for_window [app_id=foot] focus
+      for_window [app_id=neovide] focus
+
       # Move your focus around
       #
       set $left h
