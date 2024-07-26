@@ -1,54 +1,55 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 {
   imports = [ ./keybindings.nix ];
 
   wayland.windowManager.sway = {
     enable = true;
     systemd.enable = true;
-    package =
-      let
-        cfg = config.wayland.windowManager.sway;
-      in
-      pkgs.sway_git.override {
-        inherit (cfg) extraSessionCommands extraOptions;
-        withBaseWrapper = cfg.wrapperFeatures.base;
-        withGtkWrapper = cfg.wrapperFeatures.gtk;
-      };
+    checkConfig = false;
+    # package = pkgs.sway_git;
+
     wrapperFeatures.gtk = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
 
     config = {
       output = {
-        "*".scale = "1";
+        "*" = {
+          scale = "1";
+          adaptive_sync = "off";
+          max_render_time = "5";
+        };
         HDMI-A-1 = {
           position = "1920,0";
           mode = "1920x1080@60Hz";
-          adaptive_sync = "off";
         };
         eDP-1 = {
           position = "0,0";
           mode = "1920x1080@60Hz";
-          adaptive_sync = "off";
         };
       };
       assigns = {
         "number 4" = [ { app_id = "firefox"; } ];
         "number 8" = [ { app_id = "discord"; } ];
+        "number 1" = [ { app_id = "neovide"; } ];
       };
 
       floating.criteria = [
+        {
+          app_id = "firefox-nightly";
+          title = "^moz-extension:";
+        }
+        {
+          app_id = "firefox-nightly";
+          title = "^Password Required";
+        }
         { app_id = "pwvucontrol"; }
         { app_id = "flameshot"; }
-        { app_id = "^(.*) Indicator"; }
-        { app_id = "Picture-in-Picture"; }
+        { app_id = "menu"; }
+        { app_id = "dialog"; }
+        { app_id = "Preferences"; }
+        { app_id = "task_dialog"; }
+        { app_id = "bubble"; }
+        { app_id = "pop-up"; }
+        { app_id = "webconsole"; }
       ];
 
       input = {

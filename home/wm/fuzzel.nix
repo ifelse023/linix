@@ -4,7 +4,7 @@
     settings = {
       main = {
         font = "JetBrains Mono";
-        terminal = "foot";
+        terminal = "kitty";
         layer = "overlay";
         prompt = "'>>  '";
       };

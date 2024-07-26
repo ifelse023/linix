@@ -2,6 +2,7 @@
 
   programs.kitty = {
     enable = true;
+    shellIntegration.enableFishIntegration = true;
     font = {
       size = 14;
       name = "JetBrains Mono";
@@ -14,11 +15,11 @@
       disable_ligatures = "never";
       enable_audio_bell = false;
       visual_bell_duration = "0.1";
-
       copy_on_select = "clipboard";
-
       selection_foreground = "none";
       selection_background = "none";
+      window_padding_width = 10;
+      window_margin_width = 5;
 
       kitty_mod = "alt";
 
@@ -37,6 +38,9 @@
       "kitty_mod+v" = "goto_layout vertical";
       "kitty_mod+g" = "goto_layout grid";
       "kitty_mod+s" = "goto_layout split";
+      "ctrl+shift+up" = "increase_font_size";
+      "ctrl+shift+down" = "decrease_font_size";
+      "ctrl+shift+backspace" = "restore_font_size";
     };
   };
 

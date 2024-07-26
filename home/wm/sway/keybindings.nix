@@ -8,6 +8,8 @@ in
   wayland.windowManager.sway = {
     extraConfig = ''
 
+      focus_on_window_activation focus
+
       workspace 1 output eDP-1
       workspace 2 output eDP-1
       workspace 3 output eDP-1
@@ -46,6 +48,12 @@ in
       bindsym ${mod}+Shift+Up move up
       bindsym ${mod}+Shift+Right move right
 
+      client.focused           $lavender $base $text  $rosewater $lavender
+      client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+      client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+      client.urgent            $peach    $base $peach $overlay0  $peach
+      client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+      client.background        $base
     '';
 
     config =
@@ -86,7 +94,7 @@ in
 
             "${mod}+Shift+p" = "move workspace to output right";
 
-            # Layout stuff:
+            # Layout stuff
             "${mod}+Tab" = "exec ${pkgs.i3-cycle-focus}/bin/i3-cycle-focus cycle";
             "${mod}+e" = "layout toggle split";
 

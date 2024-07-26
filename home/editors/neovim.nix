@@ -2,6 +2,7 @@
 {
   programs.neovim = {
     enable = true;
+    withRuby = false;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     vimAlias = true;
     viAlias = true;
@@ -13,7 +14,7 @@
     extraPackages = with pkgs; [
       ripgrep
       fd
-      gcc
+      pkgsx86_64_v3-core.gcc
       nil
       nixfmt-rfc-style
     ];

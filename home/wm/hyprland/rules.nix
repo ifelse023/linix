@@ -3,13 +3,13 @@
     # layer rules
     layerrule =
       let
-        layers = "^(notifications|system-menu|kitty|foot|gtk-layer-shell)$";
+        layers = "^(notifications|kitty|foot|gtk-layer-shell)$";
       in
       [
         "blur, ${layers}"
         "xray 1, ^(bar|gtk-layer-shell)$"
         "ignorealpha 0.2, ${layers}"
-        "ignorealpha 0.5, ^(system-menu|fuzzel)$"
+        "ignorealpha 0.5, ^(fuzzel)$"
       ];
 
     windowrule = [
@@ -19,24 +19,15 @@
       "float,float,title:^(Save As)(.*)$"
       "float,title:^(Save As)(.*)$"
       "float,title:^(File Upload)(.*)$"
-      "float, title:^(.*Bitwarden Password Manager.*)$"
-
-      "center,title:^(Open File)(.*)$"
-      "center,title:^(Select a File)(.*)$"
-      "center,title:^(Open Folder)(.*)$"
-      "center,float,title:^(Save As)(.*)$"
-      "center,title:^(Save As)(.*)$"
-      "center,title:^(File Upload)(.*)$"
-
+      "float, title:^(.*Bitwarden.*)$"
     ];
 
     # window rules
     windowrulev2 = [
-      "noanim, class:(.*(eovide.*)$"
       "idleinhibit focus,class:kitty"
       "idleinhibit focus,class:foot"
       "idleinhibit focus,class:wezterm"
-      "idleinhibit fullscreen, class:^(firefox)$"
+      "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
       "float,class:udiskie"
 
@@ -49,17 +40,10 @@
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
 
-      "workspace 4, title:^(.*(Disc|WebC)ord.*)$"
-      "workspace 2, class:^(firefox)$"
-      "workspace 4 , title:^(.*Firefox.*)$"
+      "workspace 4 , class:^(firefox-nightly)$"
       "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
-      "workspace 1 , class:^(.*neovide.*)$
-"
+      "workspace 1 , class:^(neovide)$"
 
-      # fix xwayland apps
-      "rounding 0, xwayland:1"
-      "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
-      "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
     ];
     workspace = [
       "1, monitor:eDP-1, default:true"

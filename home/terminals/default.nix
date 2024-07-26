@@ -1,7 +1,5 @@
 {
   home.sessionVariables.TERMINAL = "foot";
 
-  imports = [
-    ./foot.nix
-  ];
+  imports = [ ./foot.nix ];
 }

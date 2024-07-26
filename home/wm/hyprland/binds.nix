@@ -45,7 +45,7 @@ in
 
       # utility
       # terminal
-      "$mod, Return, exec, foot"
+      "$mod, Return, exec, kitty"
 
       "$mod, D, exec, fuzzel"
       # logout menu

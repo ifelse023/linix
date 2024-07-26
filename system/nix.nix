@@ -24,7 +24,7 @@
 
   nix = {
 
-    package = pkgs.nixVersions.nix_2_22;
+    package = pkgs.lix;
     # Register each flake input
     registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
       (lib.filterAttrs (_: lib.isType "flake")) inputs
@@ -35,6 +35,7 @@
 
     # Set Nix daemon settings
     settings = {
+      sandbox = false;
       extra-platforms = [ "aarch64-linux" ];
       use-xdg-base-directories = true;
       flake-registry = "/etc/nix/registry.json";
@@ -64,9 +65,11 @@
         "root"
         "@wheel"
         "nix-builder"
+        "wasd"
       ];
 
       system-features = [
+        "gccarch-x86-64-v3"
         "nixos-test"
         "kvm"
         "recursive-nix"
@@ -94,14 +97,14 @@
 
       trusted-substituters = [
         "https://cache.nixos.org"
-        "https://hyprland.cachix.org"
+        # "https://hyprland.cachix.org"
         "https://nix-community.cachix.org"
         # "https://yazi.cachix.org"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         # "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];

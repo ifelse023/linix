@@ -4,7 +4,7 @@
   users.groups.uinput.members = [ "wasd" ];
   users.groups.input.members = [ "wasd" ];
   services.xremap = {
-    withHypr = true;
+    withWlroots = true;
     userName = "wasd";
     serviceMode = "user";
     debug = false;
@@ -15,7 +15,7 @@
           name = "yep";
           application = {
             only = [
-              "/vim/"
+              "/vi/"
               "foot"
             ];
           };

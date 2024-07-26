@@ -93,7 +93,7 @@
         workspace_swipe_forever = true;
       };
 
-      debug.disable_logs = true;
+      debug.disable_logs = false;
     };
   };
 }

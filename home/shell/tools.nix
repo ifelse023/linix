@@ -10,12 +10,15 @@ let
     file
     less
     which
+    gcc
   ];
 in
 {
   home.packages =
     with pkgs;
     [
+      neovide
+
       pkg-config
       pwvucontrol_git
 
@@ -60,7 +63,7 @@ in
       arguments = [
         "--smart-case"
         "--hidden"
-        "--glob=!{/proc,*.lock}"
+        "--glob=!{/proc,*.lock,.git}"
 
       ];
     };

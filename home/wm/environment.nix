@@ -11,15 +11,15 @@
     ANKI_WAYLAND = "1";
     DIRENV_LOG_FORMAT = "";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORM = "wayland-egl";
     DISABLE_QT_COMPAT = "0";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     MOZ_ENABLE_WAYLAND = "1";
-    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_CURRENT_DESKTOP = "sway";
     XDG_SESSION_TYPE = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "sway";
 
     XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
     XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";

@@ -1,4 +1,7 @@
 {
+  environment.variables.SDL_AUDIODRIVER = "pipewire";
+  environment.variables.ALSOFT_DRIVERS = "pipewire";
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa = {
@@ -11,8 +14,4 @@
     jack.enable = true;
   };
 
-  systemd.user.services = {
-    pipewire.wantedBy = [ "default.target" ];
-    pipewire-pulse.wantedBy = [ "default.target" ];
-  };
 }

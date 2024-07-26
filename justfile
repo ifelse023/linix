@@ -23,6 +23,7 @@ curgen:
 # update all the flake inputs
 up:
   nix flake update
+  nh os switch -- --impure
 
 # List all generations of the system profile
 history:
