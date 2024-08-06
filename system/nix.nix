@@ -18,10 +18,13 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = lib.mkForce true;
+  nixpkgs = {
+    overlays = [ inputs.nixpkgs-wayland.overlay ];
+    config = {
+      allowUnfree = lib.mkForce true;
+      allowBroken = true;
+    };
   };
-
   nix = {
 
     package = pkgs.lix;
@@ -43,7 +46,7 @@
       max-jobs = "auto";
       http-connections = 128;
       max-substitution-jobs = 128;
-      builders-use-substitutes = true;
+      builders-use-substitutes = lib.mkForce true;
 
       keep-derivations = true;
       keep-outputs = true;
@@ -59,6 +62,7 @@
         "root"
         "@wheel"
         "nix-builder"
+        "wasd"
       ];
       # only allow sudo users to manage the nix store
       trusted-users = [
@@ -95,16 +99,16 @@
         "cgroups" # allow nix to execute builds inside cgroups
       ];
 
-      trusted-substituters = [
+      substituters = [
         "https://cache.nixos.org"
-        # "https://hyprland.cachix.org"
+        "https://nixpkgs-wayland.cachix.org"
         "https://nix-community.cachix.org"
         # "https://yazi.cachix.org"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        # "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         # "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       ];

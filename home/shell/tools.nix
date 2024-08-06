@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   v3 = with pkgs.pkgsx86_64_v3-core; [
@@ -10,7 +10,6 @@ let
     file
     less
     which
-    gcc
   ];
 in
 {
@@ -19,6 +18,7 @@ in
     [
       neovide
 
+      inputs.tealdeer-git.packages.${system}.default
       pkg-config
       pwvucontrol_git
 
@@ -33,11 +33,9 @@ in
 
       # profiling tool
       hyperfine
-
-      # ping, but with cool graph
+      bintools
       gping
 
-      # faster find
       fd
 
       ffmpeg-full
@@ -47,8 +45,8 @@ in
 
       fzf
 
-      lsof # list open files
-      psmisc # killall/pstree/prtstat/fuser/...
+      lsof
+      psmisc
     ]
     ++ v3;
 
@@ -76,6 +74,9 @@ in
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      config = {
+        whitelist.prefix = [ "~/dev" ];
+      };
     };
 
     eza = {
@@ -106,18 +107,5 @@ in
       enableFishIntegration = true;
     };
 
-    # man pages for tiktok attention span mfs
-    tealdeer = {
-      enable = true;
-      settings = {
-        display = {
-          compact = false;
-          use_pager = true;
-        };
-        updates = {
-          auto_update = true;
-        };
-      };
-    };
   };
 }

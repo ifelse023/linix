@@ -94,6 +94,8 @@
             "${setWallpaper}";
           always = true;
         }
+        { command = "firefox-nightly"; }
+
       ];
     };
   };

@@ -1,6 +1,22 @@
+{ pkgs, ... }:
+
+let
+  foot' = pkgs.foot.overrideAttrs (attrs: {
+    NIX_CFLAGS_COMPILE = "-march=native -O3";
+    NIX_LDFLAGS = "-fuse-ld=mold";
+    hardeningDisable = [ "all" ];
+    nativeBuildInputs = attrs.nativeBuildInputs ++ [
+      pkgs.mold-wrapped
+      pkgs.pkgsx86_64_v3-core.gcc
+    ];
+  });
+
+in
+
 {
   programs.foot = {
     enable = true;
+    package = foot';
     server.enable = false;
     settings = {
       main = {
@@ -14,7 +30,6 @@
         term = "xterm-256color";
         font = "JetBrains Mono:size=14";
         pad = "10x5 center";
-        notify = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
         selection-target = "primary";
       };
       cursor = {

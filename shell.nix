@@ -1,6 +1,6 @@
 {
   perSystem =
-    { config, pkgs, ... }:
+    { pkgs, ... }:
     {
       devShells.default = pkgs.mkShell {
         name = "linix";

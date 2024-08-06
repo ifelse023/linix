@@ -40,11 +40,6 @@ in
       ls = "${getExe eza} -h --git --icons --color=auto --group-directories-first -s extension";
       l = "ls -lF --time-style=long-iso --icons";
 
-      # system aliases
-      sc = "sudo systemctl";
-      jc = "sudo journalctl";
-      scu = "systemctl --user ";
-      jcu = "journalctl --user";
       errors = "journalctl -p err..alert";
       la = "${getExe eza} -ah --git --icons --color=auto --group-directories-first -s extension";
       tree = "${getExe eza} --tree --icons=always";

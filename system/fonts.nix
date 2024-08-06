@@ -27,7 +27,7 @@
     # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig.defaultFonts =
       let
-        addAll = builtins.mapAttrs (k: v: [ "Symbols Nerd Font" ] ++ v ++ [ "Noto Color Emoji" ]);
+        addAll = builtins.mapAttrs (_k: v: [ "Symbols Nerd Font" ] ++ v ++ [ "Noto Color Emoji" ]);
       in
       addAll {
         serif = [ "Noto Serif" ];
