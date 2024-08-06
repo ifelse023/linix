@@ -30,8 +30,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    tealdeer-git.url = "path:/home/wasd/pkgs/tealdeer";
-
     catppuccin.url = "github:catppuccin/nix";
 
   };

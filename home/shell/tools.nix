@@ -18,12 +18,10 @@ in
     [
       neovide
 
-      inputs.tealdeer-git.packages.${system}.default
       pkg-config
       pwvucontrol_git
 
       nix-tree
-      hydra-check # check hydra(nix's build farm) for the build status of a package
 
       obsidian
 

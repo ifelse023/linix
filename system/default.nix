@@ -5,7 +5,6 @@
     ./network
     ./services
     ./sound.nix
-    ./virt.nix
     ./ld.nix
     ./user.nix
     ./fonts.nix
