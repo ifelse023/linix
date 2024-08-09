@@ -35,7 +35,7 @@
 
   fileSystems."/persist" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/ebde88aa-2afc-4978-84f7-672f0b5a38c7";
+    device = "/dev/disk/by-uuid/5dad3416-e69e-458d-be7a-628ab98f8912";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -45,7 +45,7 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/ebde88aa-2afc-4978-84f7-672f0b5a38c7";
+    device = "/dev/disk/by-uuid/5dad3416-e69e-458d-be7a-628ab98f8912";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -56,7 +56,7 @@
 
   fileSystems."/nix" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/ebde88aa-2afc-4978-84f7-672f0b5a38c7";
+    device = "/dev/disk/by-uuid/5dad3416-e69e-458d-be7a-628ab98f8912";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -66,7 +66,7 @@
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/ebde88aa-2afc-4978-84f7-672f0b5a38c7";
+    device = "/dev/disk/by-uuid/5dad3416-e69e-458d-be7a-628ab98f8912";
     fsType = "btrfs";
     neededForBoot = true;
     options = [
@@ -77,15 +77,14 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0297-4E9A";
+    device = "/dev/disk/by-uuid/CA1E-F655";
     fsType = "vfat";
     options = [ "noatime" ];
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/e64b586e-5bfc-41ed-9cb3-d644bde4b312"; }
+    [ { device = "/dev/disk/by-uuid/67d0ed71-4e1a-49b3-8f70-053b8cb6bdb3"; }
     ];
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
