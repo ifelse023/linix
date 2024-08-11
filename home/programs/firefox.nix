@@ -13,6 +13,7 @@
         "browser.toolbars.bookmarks.visibility" = "always";
         "media.ffmpeg.vaapi.enabled" = true;
       };
+    };
       profiles.default = {
         settings = {
           "signon.rememberSignons" = false;
@@ -71,7 +72,6 @@
           "extensions.formautofill.creditCards.enabled" = false;
           "extensions.formautofill.heuristics.enabled" = false;
         };
-      };
     };
   };
 }

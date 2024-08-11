@@ -76,6 +76,7 @@
         "gccarch-x86-64-v3"
         "nixos-test"
         "kvm"
+        "ca-derivations"
         "recursive-nix"
         "big-parallel"
       ];

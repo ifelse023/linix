@@ -6,7 +6,7 @@
     enable = true;
     systemd.enable = true;
     checkConfig = false;
-    # package = pkgs.sway_git;
+    package = pkgs.sway_git;
 
     wrapperFeatures.gtk = true;
 

@@ -7,7 +7,6 @@ let
     hardeningDisable = [ "all" ];
     nativeBuildInputs = attrs.nativeBuildInputs ++ [
       pkgs.mold-wrapped
-      pkgs.pkgsx86_64_v3-core.gcc
     ];
   });
 
