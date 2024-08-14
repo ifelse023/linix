@@ -16,7 +16,7 @@
           application = {
             only = [
               "/vi/"
-              "foot"
+              "wezterm"
             ];
           };
           remap = {
