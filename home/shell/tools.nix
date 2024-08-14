@@ -8,6 +8,7 @@ let
     diffutils
     debugedit
     file
+    wezterm
     less
     which
   ];

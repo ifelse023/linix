@@ -1,5 +1,5 @@
 {
   home.sessionVariables.TERMINAL = "wezterm";
 
-  imports = [ ./wezterm.nix ];
+  imports = [ ./foot.nix ];
 }
