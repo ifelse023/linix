@@ -21,7 +21,7 @@ in
       default_border pixel 1
       default_floating_border pixel 1
 
-      for_window [app_id=wezterm] focus
+      for_window [app_id=foot] focus
       for_window [app_id=neovide] focus
 
       # Move your focus around
@@ -70,7 +70,7 @@ in
           }
 
           // {
-            "${mod}+Return" = "exec wezterm";
+            "${mod}+Return" = "exec foot";
 
             "${mod}+d" = "exec fuzzel";
 
