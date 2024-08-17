@@ -8,6 +8,7 @@
 
         packages = with pkgs; [
           nh
+          cachix
           nil # nix ls
           nixfmt-rfc-style
           statix # lints and suggestions

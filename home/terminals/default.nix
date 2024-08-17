@@ -1,5 +1,8 @@
 {
-  home.sessionVariables.TERMINAL = "foot";
+  home.sessionVariables.TERMINAL = "kitty";
 
-  imports = [ ./foot.nix ];
+  imports = [
+    ./foot.nix
+    ./kitty.nix
+  ];
 }

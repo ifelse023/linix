@@ -80,14 +80,11 @@ in
     eza = {
       enable = true;
       icons = true;
+      enableNushellIntegration = false;
       extraOptions = [
         "--group-directories-first"
         "--header"
       ];
-    };
-    dircolors = {
-      enable = true;
-      enableFishIntegration = true;
     };
 
     skim = {
@@ -103,6 +100,7 @@ in
     zoxide = {
       enable = true;
       enableFishIntegration = true;
+      enableNushellIntegration = true;
     };
 
   };

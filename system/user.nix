@@ -3,7 +3,6 @@
   programs = {
     fuse.userAllowOther = true;
     dconf.enable = true;
-    fish.enable = true;
   };
 
   users = {
@@ -12,7 +11,7 @@
       wasd = {
         isNormalUser = true;
         hashedPasswordFile = "/persist/passwd";
-        shell = pkgs.fish;
+        shell = pkgs.nushell;
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJecn9dXDBMm6szBRwpCdpgNzLaBcjkEz2lMjjfTbfIZ light"
         ];

@@ -19,12 +19,17 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+  };
+
+  chaotic.mesa-git = {
+    enable = true;
     extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
-      mesa
       vaapiIntel
       vaapiVdpau
     ];
+    fallbackSpecialisation = false;
+    method = "replaceRuntimeDependencies";
   };
 }

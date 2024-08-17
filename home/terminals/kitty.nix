@@ -2,13 +2,14 @@
 
   programs.kitty = {
     enable = true;
-    shellIntegration.enableFishIntegration = true;
+    # shellIntegration.enableFishIntegration = true;
     font = {
       size = 14;
       name = "JetBrains Mono";
     };
 
     settings = {
+      update_check_interval = 0;
       scrollback_lines = 10000;
       placement_strategy = "center";
       allow_remote_control = false;

@@ -79,6 +79,7 @@
         "ca-derivations"
         "recursive-nix"
         "big-parallel"
+        "ca-derivations"
       ];
 
       keep-going = true;
