@@ -13,7 +13,7 @@
         hashedPasswordFile = "/persist/passwd";
         shell = pkgs.nushell;
         openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJecn9dXDBMm6szBRwpCdpgNzLaBcjkEz2lMjjfTbfIZ light"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqPLz1VVjaPGsWaeAUnajDs/1awhmQLluvf+J+O9BOa light"
         ];
         extraGroups = [
           "input"
