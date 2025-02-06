@@ -27,6 +27,6 @@
   home = {
     username = "wasd";
     homeDirectory = "/home/wasd";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
   };
 }

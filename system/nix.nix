@@ -27,7 +27,7 @@
   };
   nix = {
 
-    package = pkgs.lix;
+    # package = pkgs.lix;
     # Register each flake input
     registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
       (lib.filterAttrs (_: lib.isType "flake")) inputs
@@ -125,5 +125,5 @@
     value.source = value.flake;
   }) config.nix.registry;
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

@@ -1,21 +1,7 @@
-{ pkgs, ... }:
-
-let
-  foot' = pkgs.foot.overrideAttrs (attrs: {
-    NIX_CFLAGS_COMPILE = "-march=native -O3";
-    NIX_LDFLAGS = "-fuse-ld=mold";
-    hardeningDisable = [ "all" ];
-    nativeBuildInputs = attrs.nativeBuildInputs ++ [
-      pkgs.mold-wrapped
-    ];
-  });
-
-in
 
 {
   programs.foot = {
     enable = true;
-    package = foot';
     server.enable = false;
     settings = {
       main = {
