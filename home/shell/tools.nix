@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 let
-  v3 = with pkgs.pkgsx86_64_v3-core; [
+  v3 = with pkgs.pkgsx86_64_v4; [
     curl
     bash
     elfutils
@@ -45,8 +45,8 @@ in
 
       lsof
       psmisc
-    ]
-    ++ v3;
+    ];
+   # ++ v3;
 
   programs = {
     fzf = {

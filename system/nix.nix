@@ -73,7 +73,7 @@
       ];
 
       system-features = [
-        "gccarch-x86-64-v3"
+         "gccarch-x86-64-v4"
         "nixos-test"
         "kvm"
         "ca-derivations"
