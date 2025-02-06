@@ -1,7 +1,10 @@
 { pkgs, inputs, ... }:
 
-let
-  v3 = with pkgs.pkgsx86_64_v4; [
+{
+  home.packages =
+    with pkgs;
+    [
+      neovide
     curl
     bash
     elfutils
@@ -10,14 +13,6 @@ let
     file
     less
     which
-  ];
-in
-{
-  home.packages =
-    with pkgs;
-    [
-      neovide
-
       pkg-config
       pwvucontrol_git
 
@@ -46,7 +41,6 @@ in
       lsof
       psmisc
     ];
-   # ++ v3;
 
   programs = {
     fzf = {

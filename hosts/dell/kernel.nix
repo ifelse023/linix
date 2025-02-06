@@ -26,8 +26,8 @@
       "kernel.unprivileged_userns_clone" = 1;
     };
 
-    #kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -36,5 +36,5 @@
 
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
-services.scx.enable = true;
+#services.scx.enable = true;
 }
