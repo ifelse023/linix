@@ -1,10 +1,8 @@
 { pkgs, inputs, ... }:
 
 {
-  home.packages =
-    with pkgs;
-    [
-      neovide
+  home.packages = with pkgs; [
+    neovide
     curl
     bash
     elfutils
@@ -13,34 +11,34 @@
     file
     less
     which
-      pkg-config
-      pwvucontrol_git
+    pkg-config
+    pwvucontrol_git
 
-      nix-tree
+    nix-tree
 
-      obsidian
+    obsidian
 
-      dust
+    dust
 
-      telescope
+    telescope
 
-      # profiling tool
-      hyperfine
-      bintools
-      gping
+    # profiling tool
+    hyperfine
+    bintools
+    gping
 
-      fd
+    fd
 
-      ffmpeg-full
+    ffmpeg-full
 
-      # syncthnig for acoustic people
-      rsync
+    # syncthnig for acoustic people
+    rsync
 
-      fzf
+    fzf
 
-      lsof
-      psmisc
-    ];
+    lsof
+    psmisc
+  ];
 
   programs = {
     fzf = {
@@ -73,7 +71,7 @@
 
     eza = {
       enable = true;
-      icons = true;
+      icons = "auto";
       enableNushellIntegration = false;
       extraOptions = [
         "--group-directories-first"

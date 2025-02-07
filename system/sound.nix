@@ -1,7 +1,6 @@
 {
   environment.variables.SDL_AUDIODRIVER = "pipewire";
   environment.variables.ALSOFT_DRIVERS = "pipewire";
-  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa = {

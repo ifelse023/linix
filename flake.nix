@@ -29,7 +29,11 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/hyprland";
 
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+    };
     catppuccin.url = "github:catppuccin/nix";
 
   };

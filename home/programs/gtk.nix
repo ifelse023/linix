@@ -12,25 +12,18 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
-    pointerCursor = {
+    cursors = {
       enable = true;
       accent = "dark";
       flavor = "mocha";
     };
-  };
-  programs.neovim.catppuccin.enable = lib.mkForce false;
+    gtk.enable = true;
+    nvim.enable = lib.mkForce false;
 
+  };
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = false;
 
-    };
-
-    theme = {
-      package = pkgs.dracula-theme;
-      name = "Dracula";
-    };
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
