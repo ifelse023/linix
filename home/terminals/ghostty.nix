@@ -1,7 +1,5 @@
 {
-  config,
-  pkgs,
-  inputs,
+  lib,
   ...
 }:
 {
@@ -12,38 +10,26 @@
     enable = true;
     clearDefaultKeybinds = true;
 
-    settings = with config.theme; {
+    settings = {
       font-size = 16;
 
-      package = inputs.ghostty.packages.${pkgs.system}.default;
       #font-family = ;
 
       window-padding-x = 8;
       window-padding-y = 8;
 
-      confirm-close-surface = false;
-
       window-decoration = false;
 
-      config-file = toString (pkgs.writeText "base16-config" ghosttyConfig);
-
       keybind =
-        (mapAttrsToList (name: value: "ctrl+shift+${name}=${value}") {
+        (lib.mapAttrsToList (name: value: "ctrl+shift+${name}=${value}") {
           c = "copy_to_clipboard";
           v = "paste_from_clipboard";
 
           z = "jump_to_prompt:-2";
           x = "jump_to_prompt:2";
 
-          h = "write_scrollback_file";
-          i = "inspector:toggle";
-
-          page_down = "scroll_page_fractional:0.33";
-          down = "scroll_page_lines:1";
           j = "scroll_page_lines:1";
 
-          page_up = "scroll_page_fractional:-0.33";
-          up = "scroll_page_lines:-1";
           k = "scroll_page_lines:-1";
 
           home = "scroll_to_top";
@@ -67,7 +53,7 @@
           "physical:nine" = "goto_tab:9";
           "physical:zero" = "goto_tab:10";
         })
-        ++ (mapAttrsToList (name: value: "ctrl+${name}=${value}") {
+        ++ (lib.mapAttrsToList (name: value: "ctrl+${name}=${value}") {
           "physical:tab" = "next_tab";
           "shift+physical:tab" = "previous_tab";
         });

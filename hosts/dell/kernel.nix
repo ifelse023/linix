@@ -38,6 +38,6 @@
   };
 
   services.scx.enable = true;
-    services.scx.scheduler = "scx_rusty";
+  services.scx.scheduler = "scx_rusty";
   services.scx.package = pkgs.scx_git.full;
 }

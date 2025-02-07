@@ -29,5 +29,7 @@
       vaapiIntel
       vaapiVdpau
     ];
+    fallbackSpecialisation = false;
+    method = "replaceRuntimeDependencies";
   };
 }

@@ -17,13 +17,21 @@
       accent = "dark";
       flavor = "mocha";
     };
-    gtk.enable = true;
     nvim.enable = lib.mkForce false;
+
+    hyprland = {
+      enable = true;
+      accent = "pink";
+      flavor = "mocha";
+    };
 
   };
   gtk = {
     enable = true;
-
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };

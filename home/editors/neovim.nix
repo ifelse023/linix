@@ -14,7 +14,7 @@
       fd
       nil
       nixfmt-rfc-style
-      #pkgs.pkgsx86_64_v4.gcc
+      gcc
     ];
   };
 }

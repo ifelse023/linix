@@ -41,7 +41,7 @@ in
 
       settings = {
         scan_timeout = 2;
-        command_timeout = 2000;
+        command_timeout = 100;
         add_newline = false;
         line_break.disabled = false;
 

@@ -13,7 +13,8 @@
     which
     pkg-config
     pwvucontrol_git
-
+    newt
+    util-linux
     nix-tree
 
     obsidian

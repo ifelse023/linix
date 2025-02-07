@@ -4,7 +4,7 @@
   users.groups.uinput.members = [ "wasd" ];
   users.groups.input.members = [ "wasd" ];
   services.xremap = {
-    withWlroots = true;
+    withHypr = true;
     userName = "wasd";
     serviceMode = "user";
     debug = false;
@@ -16,7 +16,7 @@
           application = {
             only = [
               "/vi/"
-              "wezterm"
+              "ghostty"
             ];
           };
           remap = {

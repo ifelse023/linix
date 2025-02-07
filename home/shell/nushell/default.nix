@@ -7,6 +7,10 @@
       ${lib.getExe pkgs.zoxide} init nushell --cmd cd > $out
     '';
 
+    "nushell/starship.nu".source = pkgs.runCommand "starship.nu" { } ''
+      ${lib.getExe pkgs.starship} init nu > $out
+    '';
+
     "nushell/ls_colors.txt".source = pkgs.runCommand "ls_colors.txt" { } ''
       ${lib.getExe pkgs.vivid} generate catppuccin-mocha > $out
     '';
@@ -22,6 +26,8 @@
       vim = "neovide";
       ll = "ls --long";
       la = "ls --all";
+
+      cp = "cp --recursive --verbose --progress";
     };
 
   };

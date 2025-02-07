@@ -19,4 +19,5 @@ def --env mcg [path: path] {
   cd $path
   git init
 }
-source ~/.config/nushell/zoxide.nu
+
+

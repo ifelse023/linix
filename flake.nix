@@ -27,6 +27,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/hyprland";
@@ -36,11 +41,16 @@
     };
     catppuccin.url = "github:catppuccin/nix";
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
   };
 
   outputs =
     {
       flake-parts,
+      lix-module,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {

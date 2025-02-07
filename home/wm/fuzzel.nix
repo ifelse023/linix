@@ -3,8 +3,9 @@
     enable = true;
     settings = {
       main = {
+        launch-prefix = "uwsm app --";
         font = "JetBrains Mono";
-        terminal = "kitty";
+        terminal = "ghostty";
         layer = "overlay";
         prompt = "'>>  '";
       };

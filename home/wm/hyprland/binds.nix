@@ -45,7 +45,7 @@ in
 
       # utility
       # terminal
-      "$mod, Return, exec, kitty"
+      "$mod, Return, exec, uwsm app -- ghostty"
 
       "$mod, D, exec, fuzzel"
       # logout menu

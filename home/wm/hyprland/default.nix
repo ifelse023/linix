@@ -8,13 +8,12 @@
     ./config.nix
     ./hyprpaper.nix
   ];
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   # home.packages = [ inputs.hyprland-contrib.packages.${pkgs.system}.grimblast ];
   wayland.windowManager.hyprland = {
     enable = true;
     # xwayland.enable = true;
     systemd = {
-      enable = true;
+      enable = false;
       variables = [ "--all" ];
       extraCommands = [
         "systemctl --user stop graphical-session.target"

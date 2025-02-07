@@ -1,16 +1,14 @@
 {
   wayland.windowManager.hyprland = {
-    catppuccin = {
-      enable = true;
-      accent = "pink";
-      flavor = "mocha";
-    };
+
     settings = {
+      exec-once = [
+        "uwsm finalize"
+      ];
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
         "HDMI-A-1, 1920x1080, 1920x0, 1"
       ];
-
       "$mod" = "SUPER";
 
       general = {
@@ -23,24 +21,35 @@
         layout = "dwindle";
         no_border_on_floating = false;
 
-        sensitivity = 0.9;
       };
 
       decoration = {
         rounding = 8;
+        rounding_power = 3;
         blur = {
           enabled = true;
-          size = 10;
-          passes = 3;
-          new_optimizations = true;
+          brightness = 1.0;
+          contrast = 1.0;
+          noise = 0.01;
+
+          vibrancy = 0.2;
+          vibrancy_darkness = 0.5;
+
+          passes = 4;
+          size = 7;
+
+          popups = true;
+          popups_ignorealpha = 0.2;
         };
-
-        drop_shadow = true;
-
-        shadow_ignore_window = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = "0x66000000";
+        shadow = {
+          enabled = true;
+          color = "rgba(00000055)";
+          ignore_window = true;
+          offset = "0 15";
+          range = 100;
+          render_power = 2;
+          scale = 0.97;
+        };
       };
 
       animations = {
@@ -57,12 +66,13 @@
         kb_layout = "de";
         kb_variant = "us";
 
+        sensitivity = 0.8;
+
         touchpad.natural_scroll = "no";
       };
 
       dwindle = {
         # keep floating dimentions while tiling
-        no_gaps_when_only = 1;
         pseudotile = true;
         preserve_split = true;
       };
@@ -84,7 +94,6 @@
         mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
         key_press_enables_dpms = true; # enable dpms on keyboard action
 
-        no_direct_scanout = false;
       };
 
       # touchpad gestures

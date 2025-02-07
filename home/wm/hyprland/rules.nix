@@ -3,7 +3,7 @@
     # layer rules
     layerrule =
       let
-        layers = "^(notifications|kitty|foot|gtk-layer-shell)$";
+        layers = "^(notifications|ghostty|foot|gtk-layer-shell)$";
       in
       [
         "blur, ${layers}"
@@ -24,9 +24,8 @@
 
     # window rules
     windowrulev2 = [
-      "idleinhibit focus,class:kitty"
+      "idleinhibit focus,class:ghostty"
       "idleinhibit focus,class:foot"
-      "idleinhibit focus,class:wezterm"
       "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
       "float,class:udiskie"
