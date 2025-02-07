@@ -35,7 +35,7 @@
 
   fileSystems."/persist" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/7f547eba-2ca3-4776-8490-91b73f1e48d9";
+    device = "/dev/disk/by-uuid/14a3b613-101c-48fa-a009-7980d79e940c";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -45,7 +45,7 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/7f547eba-2ca3-4776-8490-91b73f1e48d9";
+    device = "/dev/disk/by-uuid/14a3b613-101c-48fa-a009-7980d79e940c";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -56,7 +56,7 @@
 
   fileSystems."/nix" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/7f547eba-2ca3-4776-8490-91b73f1e48d9";
+    device = "/dev/disk/by-uuid/14a3b613-101c-48fa-a009-7980d79e940c";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -66,7 +66,7 @@
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/7f547eba-2ca3-4776-8490-91b73f1e48d9";
+    device = "/dev/disk/by-uuid/14a3b613-101c-48fa-a009-7980d79e940c";
     fsType = "btrfs";
     neededForBoot = true;
     options = [
@@ -77,13 +77,13 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/795A-8155";
+    device = "/dev/disk/by-uuid/EC40-126D";
     fsType = "vfat";
     options = [ "noatime" ];
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/85f972b2-7bae-4028-8686-c74f60d3f376"; }
+    [ { device = "/dev/disk/by-uuid/7f2cadaf-451d-45ec-a795-28e813a203dd"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

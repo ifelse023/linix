@@ -4,8 +4,8 @@
     ./mako.nix
     ./environment.nix
     ./fuzzel.nix
-    # ./hyprland
-    ./sway
+    ./hyprland
+    # ./sway
   ];
 
   home.packages = with pkgs; [
