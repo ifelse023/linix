@@ -4,6 +4,7 @@
     settings = {
       exec-once = [
         "uwsm finalize"
+        "clipse -listen"
       ];
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
@@ -53,7 +54,7 @@
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
         animation = [
           "border, 1, 2, default"
           "fade, 1, 4, default"
@@ -66,7 +67,7 @@
         kb_layout = "de";
         kb_variant = "us";
 
-        sensitivity = 0.8;
+        sensitivity = 0.5;
 
         touchpad.natural_scroll = "no";
       };
@@ -75,6 +76,9 @@
         # keep floating dimentions while tiling
         pseudotile = true;
         preserve_split = true;
+      };
+
+      render = {
       };
 
       misc = {

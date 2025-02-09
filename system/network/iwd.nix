@@ -24,7 +24,6 @@
             # RoamRetryInterval = 15;
           };
           Network = {
-            RoutePriorityOffset = 300;
             EnableIPv6 = true;
           };
           Scan.DisablePeriodicScan = true;

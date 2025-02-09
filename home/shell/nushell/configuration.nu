@@ -32,7 +32,7 @@ $env.config.rm.always_trash = false
 $env.config.table = {
   header_on_separator: false
   index_mode: always
-  mode:       rounded
+  mode:       none
   padding:    { left: 1 right: 1 }
   show_empty: true
   trim: {
@@ -92,10 +92,7 @@ $env.config.completions = {
   }
 }
 
-$env.config.filesize = {
-  format: auto
-  metric: true
-}
+$env.config.filesize.unit = "metric"
 
 $env.config.cursor_shape = {
   vi_insert: line

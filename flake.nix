@@ -8,7 +8,6 @@
     };
 
     chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
-    xremap-flake.url = "github:xremap/nix-flake";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     impermanence.url = "github:nix-community/impermanence";
@@ -35,7 +34,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/hyprland";
-
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "hyprland/nixpkgs";
+    };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
     };

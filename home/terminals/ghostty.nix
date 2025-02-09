@@ -12,11 +12,12 @@
 
     settings = {
       font-size = 16;
+      gtk-single-instance = true;
 
       #font-family = ;
 
-      window-padding-x = 8;
-      window-padding-y = 8;
+      window-padding-x = 12;
+      window-padding-y = 12;
 
       window-decoration = false;
 

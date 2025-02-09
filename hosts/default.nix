@@ -24,7 +24,6 @@ in
       ./dell
       system
       inputs.lix-module.nixosModules.default
-      inputs.xremap-flake.nixosModules.default
       inputs.chaotic.nixosModules.default
       hmModule
       { inherit home-manager; }

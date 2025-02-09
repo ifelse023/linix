@@ -6,7 +6,6 @@
     ./openssh.nix
     ./location.nix
     ./tty.nix
-    ./xremap.nix
   ];
 
   services = {

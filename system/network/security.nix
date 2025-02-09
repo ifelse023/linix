@@ -27,8 +27,6 @@ _: {
       "net.ipv6.conf.default.accept_redirects" = 0;
       # Protects against SYN flood attacks
       "net.ipv4.tcp_syncookies" = 1;
-      # Incomplete protection again TIME-WAIT assassination
-      "net.ipv4.tcp_rfc1337" = 1;
       # And other stuff
       "net.ipv4.conf.all.log_martians" = true;
       "net.ipv4.conf.default.log_martians" = true;
@@ -36,6 +34,20 @@ _: {
       "net.ipv6.conf.default.accept_ra" = 0;
       "net.ipv6.conf.all.accept_ra" = 0;
       "net.ipv4.tcp_timestamps" = 0;
+
+      # TCP Enable ECN Negotiation for both outgoing and incoming connections
+      "net.ipv4.tcp_ecn" = 1;
+
+      # Increase netdev receive queue
+      # May help prevent losing packets
+      "net.core.netdev_max_backlo" = 4096;
+
+      # Disable TCP slow start after idle
+      # Helps kill persistent single connection performance
+      "net.ipv4.tcp_slow_start_after_idle" = 0;
+
+      # Protect against tcp time-wait assassination hazards, drop RST packets for sockets in the time-wait state. Not widely supported outside of Linux, but conforms to RFC:
+      "net.ipv4.tcp_rfc1337" = 1;
 
       # TCP optimization
       # TCP Fast Open is a TCP extension that reduces network latency by packing
@@ -58,7 +70,6 @@ _: {
       "net.ipv4.tcp_max_tw_buckets" = 2000000;
       "net.ipv4.tcp_mtu_probing" = 1;
       "net.ipv4.tcp_rmem" = "4096 1048576 2097152";
-      "net.ipv4.tcp_slow_start_after_idle" = 0;
       "net.ipv4.tcp_tw_reuse" = 1;
       "net.ipv4.tcp_wmem" = "4096 65536 16777216";
       "net.ipv4.udp_rmem_min" = 8192;

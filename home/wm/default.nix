@@ -5,7 +5,6 @@
     ./environment.nix
     ./fuzzel.nix
     ./hyprland
-    # ./sway
   ];
 
   home.packages = with pkgs; [
@@ -14,13 +13,10 @@
     brightnessctl
     wl-clipboard
     wl-screenrec
+    clipse
     wlr-randr
     libnotify
-    cliphist
     xdg-utils
   ];
 
-  services.cliphist = {
-    enable = true;
-  };
 }

@@ -8,7 +8,7 @@
     ./config.nix
     ./hyprpaper.nix
   ];
-  # home.packages = [ inputs.hyprland-contrib.packages.${pkgs.system}.grimblast ];
+  home.packages = [ inputs.hyprland-contrib.packages.${pkgs.system}.grimblast ];
   wayland.windowManager.hyprland = {
     enable = true;
     # xwayland.enable = true;

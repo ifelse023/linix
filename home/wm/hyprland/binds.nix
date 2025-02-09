@@ -47,7 +47,8 @@ in
       # terminal
       "$mod, Return, exec, uwsm app -- ghostty"
 
-      "$mod, D, exec, fuzzel"
+      "$mod, D, exec, fuzzel launch-prefix='uwsm app -- '"
+      "SUPER, V, exec, uwsm app --  ghostty --class='ghostty.clipse' -e clipse"
       # logout menu
       "$mod, Escape, exec, wlogout -p layer-shell"
       # lock screen

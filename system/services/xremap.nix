@@ -2,9 +2,9 @@
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = [ "wasd" ];
-  users.groups.input.members = [ "wasd" ];
   services.xremap = {
-    withHypr = true;
+    enable = true;
+    # withHypr = true;
     userName = "wasd";
     serviceMode = "user";
     debug = false;

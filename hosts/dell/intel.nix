@@ -10,6 +10,7 @@
       "enable_fbc=1"
       "i915.enable_dc=0"
     ];
+
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
@@ -30,6 +31,6 @@
       vaapiVdpau
     ];
     fallbackSpecialisation = false;
-    method = "replaceRuntimeDependencies";
   };
+
 }
