@@ -23,7 +23,6 @@ in
       { networking.hostName = "light"; }
       ./dell
       system
-      inputs.lix-module.nixosModules.default
       inputs.chaotic.nixosModules.default
       hmModule
       { inherit home-manager; }
