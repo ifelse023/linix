@@ -6,6 +6,7 @@
     ./openssh.nix
     ./location.nix
     ./tty.nix
+    ./greetd.nix
   ];
 
   services = {

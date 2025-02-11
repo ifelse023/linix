@@ -11,7 +11,7 @@
     clearDefaultKeybinds = true;
 
     settings = {
-      font-size = 16;
+      font-size = 15;
       gtk-single-instance = true;
 
       #font-family = ;

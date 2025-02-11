@@ -3,14 +3,6 @@
   programs = {
     fuse.userAllowOther = true;
     dconf.enable = true;
-    uwsm = {
-      enable = true;
-      # waylandCompositors.hyprland = {
-      #   binPath = "/run/current-system/sw/bin/Hyprland";
-      #   prettyName = "Hyprland";
-      #   comment = "Hyprland managed by UWSM";
-      # };
-    };
 
     hyprland = {
       enable = true;

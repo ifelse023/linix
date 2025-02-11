@@ -65,22 +65,22 @@ in
         keybindings =
           {
 
-            XF86MonBrightnessUp = "exec ${getExe pkgs.brightnessctl} set 10%-";
-            XF86MonBrightnessDown = "exec ${getExe pkgs.brightnessctl} set +10%";
+            XF86MonBrightnessUp = "exec uwsm app -- ${getExe pkgs.brightnessctl} set 10%-";
+            XF86MonBrightnessDown = "exec uwsm app -- ${getExe pkgs.brightnessctl} set +10%";
           }
 
           // {
-            "${mod}+Return" = "exec ghostty";
+            "${mod}+Return" = "exec uwsm app -- ghostty";
 
-            "${mod}+d" = "exec fuzzel";
+            "${mod}+d" = "exec uwsm app -- fuzzel";
 
-            Print = "exec ${getExe pkgs.flameshot} gui";
+            Print = "exec uwsm app -- ${getExe pkgs.flameshot} gui";
 
           }
 
           // {
             # quit/restart sway
-            "${mod}+Shift+e" = "exec ${pkgs.sway_git}/bin/swaymsg exit";
+            "${mod}+Shift+m" = "exec uwsm stop";
             "${mod}+Shift+r" = "reload";
 
             # kill window

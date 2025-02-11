@@ -16,7 +16,8 @@
     newt
     util-linux
     nix-tree
-
+    sccache
+    mold-wrapped
     obsidian
 
     dust

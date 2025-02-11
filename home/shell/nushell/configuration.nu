@@ -343,12 +343,6 @@ $env.config.keybindings = [
     event:    { send: enter }
   }
 ]
-if (tty) == "/dev/tty1" {
-    do -i {
-        uwsm check may-start
-        uwsm select
-        exec systemd-cat -t uwsm_start uwsm start default
-    }
-}
+
 source ~/.config/nushell/zoxide.nu
 source ~/.config/nushell/starship.nu
