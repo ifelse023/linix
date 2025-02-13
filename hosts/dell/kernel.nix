@@ -25,7 +25,7 @@
       # system console of a Linux kernel to perform some low-level commands.
       # Disable it, since we don't need it, and is a potential security concern.
       "kernel.sysrq" = 0;
-
+      "vm.swappiness" = 200;
       # The value controls the tendency of the kernel to reclaim the memory which is used for caching of directory and inode objects (VFS cache).
       # Lowering it from the default value of 100 makes the kernel less inclined to reclaim VFS cache (do not set it to 0, this may produce out-of-memory conditions)
       "vm.vfs_cache_pressure" = 50;
@@ -72,6 +72,7 @@
       systemd-boot.enable = false;
       grub = {
         enable = true;
+        configurationLimit = 5;
         efiSupport = true;
         #efiInstallAsRemovable = true;
         device = "nodev";

@@ -21,7 +21,7 @@
   nixpkgs = {
     overlays = [ inputs.nixpkgs-wayland.overlay ];
     config = {
-      allowUnfree = lib.mkForce true;
+      allowUnfree = true;
       allowBroken = true;
     };
   };

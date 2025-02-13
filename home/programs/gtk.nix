@@ -54,6 +54,10 @@
   };
 
   home = {
+    pointerCursor = {
+      gtk.enable = true;
+      size = 24;
+    };
     packages = with pkgs; [
       qt5.qttools
       qt6Packages.qtstyleplugin-kvantum
