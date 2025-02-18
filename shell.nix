@@ -11,6 +11,7 @@
           cachix
           nil # nix ls
           nixfmt-rfc-style
+          nixd
           statix # lints and suggestions
           deadnix # clean up unused nix code
           just

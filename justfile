@@ -2,7 +2,7 @@
 set shell := ["bash", "-uc"]
 
 switch:
-  nh os switch . -- --impure
+  NIXPKGS_ALLOW_UNFREE=1 nh os switch . -- --impure
 
 boot:
   nh os boot -- --impure

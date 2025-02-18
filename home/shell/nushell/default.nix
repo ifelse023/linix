@@ -22,11 +22,9 @@
     envFile.source = ./environment.nu;
 
     shellAliases = {
-      vi = "neovide";
-      vim = "neovide";
       ll = "ls --long";
       la = "ls --all";
-
+      x = "hx";
       cp = "cp --recursive --verbose --progress";
     };
 

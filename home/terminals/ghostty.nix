@@ -11,10 +11,8 @@
     clearDefaultKeybinds = true;
 
     settings = {
-      font-size = 15;
+      font-size = 16;
       gtk-single-instance = true;
-
-      #font-family = ;
 
       window-padding-x = 12;
       window-padding-y = 12;
@@ -48,11 +46,6 @@
           "physical:three" = "goto_tab:3";
           "physical:four" = "goto_tab:4";
           "physical:five" = "goto_tab:5";
-          "physical:six" = "goto_tab:6";
-          "physical:seven" = "goto_tab:7";
-          "physical:eight" = "goto_tab:8";
-          "physical:nine" = "goto_tab:9";
-          "physical:zero" = "goto_tab:10";
         })
         ++ (lib.mapAttrsToList (name: value: "ctrl+${name}=${value}") {
           "physical:tab" = "next_tab";
