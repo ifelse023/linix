@@ -4,6 +4,7 @@
   programs = {
     neovim = {
       enable = true;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       withRuby = false;
       vimAlias = true;
       viAlias = true;
