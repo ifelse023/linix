@@ -1,15 +1,11 @@
 _: {
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
     dns = "systemd-resolved";
-
-    wifi = { };
+    wifi = {
+      powersave = true;
+      };
   };
   services.resolved.enable = true;
 
-  # wifi = {
-  #   macAddress = "random";
-  #   powersave = true;
-  # };
 }

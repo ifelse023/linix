@@ -3,7 +3,7 @@
 {
   imports = [
     ./security.nix
-    ./iwd.nix
+    ./networkmanager.nix
   ];
 
   hardware.wirelessRegulatoryDatabase = true;

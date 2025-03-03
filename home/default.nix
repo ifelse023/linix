@@ -18,6 +18,11 @@
 
   news.display = "silent";
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
+
   manual = {
     manpages.enable = false;
     html.enable = false;
