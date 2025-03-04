@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    neovide
     curl
     bash
     elfutils

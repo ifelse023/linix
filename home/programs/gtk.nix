@@ -21,7 +21,7 @@
 
     hyprland = {
       enable = true;
-      accent = "pink";
+      accent = "lavender";
       flavor = "mocha";
     };
 
@@ -29,8 +29,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "WhiteSur-Dark";
-      package = pkgs.whitesur-gtk-theme;
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
     };
     font = {
       name = "Inter";
@@ -49,7 +49,7 @@
   home = {
     pointerCursor = {
       gtk.enable = true;
-      size = 24;
+      size = 32;
     };
     packages = [
       pkgs.qt6Packages.qtstyleplugin-kvantum

@@ -19,5 +19,21 @@
       ];
     };
 
+    neovide = {
+      enable = true;
+      settings = {
+        maximized = true;
+        tabs = true;
+        theme = "auto";
+        title-hidden = true;
+        vsync = false;
+        wsl = false;
+        font = {
+          normal = [ "JetBrains Mono" ];
+          size = 16.0;
+        };
+      };
+
+    };
   };
 }
