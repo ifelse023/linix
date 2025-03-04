@@ -28,8 +28,6 @@
       STOP_CHARGE_THRESH_BAT0 = 70;
     };
 
-    acpid.enable = true;
-
     # battery info
     upower = {
       enable = true;
@@ -40,9 +38,7 @@
     };
   };
   boot = {
-    kernelModules = [ "acpi_call" ];
     extraModulePackages = with config.boot.kernelPackages; [
-      acpi_call
       cpupower
     ];
   };

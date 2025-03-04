@@ -27,10 +27,10 @@
 
     lvm.enable = false;
 
-    psd = {
-      enable = true;
-      resyncTimer = "60m";
-    };
+    # psd = {
+    #   enable = true;
+    #   resyncTimer = "60m";
+    # };
 
   };
 }

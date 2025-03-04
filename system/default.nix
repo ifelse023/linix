@@ -18,6 +18,8 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
+    gitea.enable = false;
+    forgejo.enable = false;
   };
 
   boot = {

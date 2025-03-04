@@ -27,18 +27,18 @@
         };
       };
       assigns = {
-        "number 4" = [ { app_id = "firefox"; } ];
+        "number 4" = [ { app_id = "floorp"; } ];
         "number 8" = [ { app_id = "discord"; } ];
         "number 1" = [ { app_id = "neovide"; } ];
       };
 
       floating.criteria = [
         {
-          app_id = "firefox-nightly";
+          app_id = "floorp";
           title = "^moz-extension:";
         }
         {
-          app_id = "firefox-nightly";
+          app_id = "floorp";
           title = "^Password Required";
         }
         { app_id = "pwvucontrol"; }
@@ -94,7 +94,7 @@
             "${setWallpaper}";
           always = true;
         }
-        { command = "uwsm app -- firefox-nightly"; }
+        { command = "uwsm app -- floorp"; }
 
       ];
     };

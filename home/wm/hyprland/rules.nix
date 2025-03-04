@@ -26,7 +26,7 @@
     windowrulev2 = [
       "idleinhibit focus,class:ghostty"
       "idleinhibit focus,class:foot"
-      "idleinhibit fullscreen, class:^(firefox-nightly)$"
+      "idleinhibit fullscreen, class:^(floorp)$"
 
       "float, class:(clipse)"
       "size 622 652, class:(clipse)"
@@ -42,7 +42,7 @@
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
 
-      "workspace 4 , class:^(firefox-nightly)$"
+      "workspace 4 , class:^(floorp)$"
       "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
       "workspace 1 , class:^(neovide)$"
 

@@ -9,13 +9,14 @@
 
     enable = true;
     clearDefaultKeybinds = true;
-
     settings = {
+      theme = "tokyonight_night";
       font-size = 16;
       gtk-single-instance = true;
+      auto-update = "off";
 
-      window-padding-x = 12;
-      window-padding-y = 12;
+      window-padding-x = 6;
+      window-padding-y = 8;
 
       window-decoration = false;
 

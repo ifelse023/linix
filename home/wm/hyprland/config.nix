@@ -16,8 +16,6 @@
         gaps_in = 2;
         gaps_out = 1;
         border_size = 1;
-        "col.active_border" = "0xffcba6f7";
-        "col.inactive_border" = "0xff313244";
         resize_on_border = true;
         layout = "dwindle";
         no_border_on_floating = false;
@@ -64,9 +62,10 @@
       };
 
       input = {
+        follow_mouse = 1;
         kb_layout = "de";
         kb_variant = "us";
-
+        kb_options = "caps:escape";
         sensitivity = 0.5;
 
         touchpad.natural_scroll = "no";
@@ -93,8 +92,6 @@
         # disable dragging animation
         animate_mouse_windowdragging = false;
 
-        # enable variable refresh rate (effective depending on hardware)
-        vrr = 1;
         mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
         key_press_enables_dpms = true; # enable dpms on keyboard action
 

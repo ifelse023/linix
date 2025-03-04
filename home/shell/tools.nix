@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -35,9 +35,7 @@
 
     # syncthnig for acoustic people
     rsync
-
-    fzf
-
+    claude-code
     lsof
     psmisc
   ];
@@ -45,7 +43,7 @@
   programs = {
     fzf = {
       enable = true;
-      colors = { };
+      defaultCommand = "fd --follow --hidden";
     };
 
     ripgrep = {

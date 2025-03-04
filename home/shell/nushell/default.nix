@@ -12,7 +12,7 @@
     '';
 
     "nushell/ls_colors.txt".source = pkgs.runCommand "ls_colors.txt" { } ''
-      ${lib.getExe pkgs.vivid} generate catppuccin-mocha > $out
+      ${lib.getExe pkgs.vivid} generate tokyonight-night > $out
     '';
   };
 
@@ -24,8 +24,9 @@
     shellAliases = {
       ll = "ls --long";
       la = "ls --all";
-      x = "hx";
+      open-task = "floorp --new-tab (open aufgabe.txt)";
       cp = "cp --recursive --verbose --progress";
+      errors = "journalctl -p err..alert -b";
     };
 
   };
