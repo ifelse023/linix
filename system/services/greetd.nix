@@ -7,7 +7,7 @@
   services.greetd =
     let
       session = {
-        command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+        command = "${lib.getExe config.programs.uwsm.package} start default";
         user = "wasd";
       };
     in

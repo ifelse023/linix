@@ -17,7 +17,7 @@ let
     "application/x-extension-xht" = browser;
 
     "audio/*" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.dekstop" ];
+    "video/*" = [ "mpv.desktop" ];
     "image/*" = [ "imv.desktop" ];
     "application/json" = browser;
 
@@ -52,7 +52,6 @@ in
     };
     mimeApps = {
       enable = true;
-      associations.added = associations;
       defaultApplications = associations;
     };
   };
