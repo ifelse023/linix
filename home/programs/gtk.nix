@@ -29,8 +29,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "Dracula";
+      package = pkgs.dracula-theme;
     };
     font = {
       name = "Inter";
@@ -49,7 +49,10 @@
   home = {
     pointerCursor = {
       gtk.enable = true;
-      size = 32;
+      size = 24;
+      hyprcursor = {
+        enable = true;
+      };
     };
     packages = [
       pkgs.qt6Packages.qtstyleplugin-kvantum

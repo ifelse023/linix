@@ -4,6 +4,7 @@
 
   services.xserver.videoDrivers = lib.mkDefault [ "intel" ];
   boot = {
+    initrd.kernelModules = [ "i915" ];
     kernelModules = [ "kvm-intel" ];
     kernelParams = [
       "i915.enable_guc=3"

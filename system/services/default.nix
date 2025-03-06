@@ -11,7 +11,6 @@
 
   services = {
     dbus = {
-      enable = true;
       implementation = "broker";
       packages = with pkgs; [
         dconf
@@ -24,8 +23,6 @@
       SystemMaxUse=50M
       RuntimeMaxUse=10M
     '';
-
-    lvm.enable = false;
 
     # psd = {
     #   enable = true;

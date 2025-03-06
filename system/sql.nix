@@ -5,7 +5,7 @@
     package = pkgs.mariadb;
     initialDatabases = [
       {
-        name = "memsql";
+        name = "hey";
         # schema = pkgs.writeText "init.sql" ''
         #   CREATE TABLE entries (text TEXT);
         # '';

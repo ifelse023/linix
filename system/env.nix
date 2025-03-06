@@ -9,12 +9,12 @@
     variables = {
       FLAKE = "/home/wasd/linix";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
-      EDITOR = "hx";
-      VISUAL = "hx";
-      SUDO_EDITOR = "hx";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      SUDO_EDITOR = "nvim";
       SYSTEMD_PAGERSECURE = "true";
       PAGER = "less -FR";
-      MANPAGER = "hx +Man!";
+      MANPAGER = "nvim +Man!";
     };
   };
 }

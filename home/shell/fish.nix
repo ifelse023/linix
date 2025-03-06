@@ -16,13 +16,10 @@ in
     interactiveShellInit = ''
       set fish_greeting ""
     '';
-    plugins = [
-      {
-        name = "fifc";
-        inherit (pkgs.fishPlugins.fifc) src;
-      }
-    ];
-
+    # plugins = [
+    #
+    # ];
+    #
     shellAliases = {
       gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\w+-system|\{memory|/proc)\"";
       run = "nix run";
@@ -30,7 +27,6 @@ in
       shell = "nix shell";
       nsp = "nix-shell -p";
 
-      # quality of life aliases
       cat = "${getExe bat} --style=plain";
       grep = "${getExe ripgrep}";
       du = "${getExe dust}";
@@ -52,7 +48,6 @@ in
 
       vim = "neovide";
 
-      # faster navigation
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";

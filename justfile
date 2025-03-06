@@ -29,13 +29,12 @@ up:
 history:
   nix profile history --profile /nix/var/nix/profiles/system
 
-# remove all generations older than 7 days
+# remove all generations
 clean:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system
 
 # Garbage collect all unused nix store entries
 gc:
-  # garbage collect all unused nix store entries
   sudo nix store gc --debug
   sudo nix-collect-garbage -d
   nix-collect-garbage -d

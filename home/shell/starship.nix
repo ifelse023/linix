@@ -37,7 +37,6 @@ in
     {
       enable = true;
       enableFishIntegration = true;
-      enableNushellIntegration = true;
 
       settings = {
         scan_timeout = 2;
