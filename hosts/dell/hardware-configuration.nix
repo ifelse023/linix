@@ -8,7 +8,7 @@
   ...
 }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ./disko.nix ];
 
   boot = {
     initrd.availableKernelModules = [
@@ -23,68 +23,6 @@
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [
-      "size=10G"
-      "mode=755"
-    ];
-  };
-
-  fileSystems."/persist" = {
-    neededForBoot = true;
-    device = "/dev/disk/by-uuid/62f2c40d-ef8b-4b6b-8c96-d4f1a837dcb4";
-    fsType = "btrfs";
-    options = [
-      "noatime"
-      "subvol=persist"
-      "compress=zstd:1"
-    ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/62f2c40d-ef8b-4b6b-8c96-d4f1a837dcb4";
-    fsType = "btrfs";
-    options = [
-      "noatime"
-      "subvol=home"
-      "compress=zstd:1"
-    ];
-  };
-
-  fileSystems."/nix" = {
-    neededForBoot = true;
-    device = "/dev/disk/by-uuid/62f2c40d-ef8b-4b6b-8c96-d4f1a837dcb4";
-    fsType = "btrfs";
-    options = [
-      "noatime"
-      "subvol=nix"
-      "compress=zstd:1"
-    ];
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/62f2c40d-ef8b-4b6b-8c96-d4f1a837dcb4";
-    fsType = "btrfs";
-    neededForBoot = true;
-    options = [
-      "noatime"
-      "subvol=log"
-      "compress=zstd:1"
-    ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/1265-6AB3";
-    fsType = "vfat";
-    options = [ "noatime" ];
-  };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/631ad605-dd89-45b3-bb4e-7ca465c6fcf9"; }
-    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

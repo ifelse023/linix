@@ -7,6 +7,9 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 

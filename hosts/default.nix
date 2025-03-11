@@ -23,6 +23,7 @@ in
       ./dell
       system
       inputs.chaotic.nixosModules.default
+      inputs.disko.nixosModules.disko
       hmModule
       { inherit home-manager; }
     ];
