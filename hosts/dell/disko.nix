@@ -78,7 +78,8 @@
       };
     };
   };
-
+  fileSystems."/persist".neededForBoot = true;
+# fileSystems."/nix".neededForBoot = true
   zramSwap.enable = true;
   swapDevices = [];
 }
