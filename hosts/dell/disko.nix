@@ -5,22 +5,34 @@
         device = "/dev/nvme0n1";
         type = "disk";
         content = {
-          type = "table";
-          format = "gpt";
-          partitions = [
-            {
-              name = "ESP";
+          type = "gpt";
+          partitions = {
+            ESP = {
               size = "1G";
-              bootable = true;
+              type = "EF00";  # EFI System Partition type
+              priority = 1;
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
               };
-            }
-            {
-              name = "persist";
-              size = "10G";
+            };
+            nix = {
+              size = "200G";
+              priority = 2;
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/nix";
+                mountOptions = [
+                  "noatime"
+                  "discard"
+                                  ];
+              };
+            };
+            persist = {
+              size = "50G";
+              priority = 3;
               content = {
                 type = "filesystem";
                 format = "ext4";
@@ -32,10 +44,10 @@
                   "commit=45"
                 ];
               };
-            }
-            {
-              name = "home";
-              size = "200G";
+            };
+            home = {
+              size = "100%";
+              priority = 4;
               content = {
                 type = "filesystem";
                 format = "ext4";
@@ -47,23 +59,8 @@
                   "commit=45"
                 ];
               };
-            }
-
-            {
-              name = "nix";
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/nix";
-                mountOptions = [
-                  "noatime"
-                  "discard"       
-                  "data=writeback" 
-                ];
-              };
-            }
-          ];
+            };
+          };
         };
       };
     };
@@ -79,7 +76,7 @@
     };
   };
   fileSystems."/persist".neededForBoot = true;
-# fileSystems."/nix".neededForBoot = true
+  # fileSystems."/nix".neededForBoot = true
   zramSwap.enable = true;
   swapDevices = [];
 }

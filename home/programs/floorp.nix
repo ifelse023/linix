@@ -8,8 +8,8 @@
     };
     profiles.default = {
       settings = {
-        "browser.aboutConfig.showWarning" = false
-      }
+        "browser.aboutConfig.showWarning" = false;
+      };
   };
 
   };
