@@ -26,7 +26,6 @@
                 mountpoint = "/nix";
                 mountOptions = [
                   "noatime"
-                  "discard"
                                   ];
               };
             };

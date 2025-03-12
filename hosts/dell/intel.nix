@@ -9,6 +9,7 @@
     kernelParams = [
       "i915.enable_guc=3"
       "i915.enable_dc=0"
+"printk.devkmsg=on" "loglevel=7"
     ];
 
   };

@@ -5,28 +5,7 @@
   ...
 }:
 
-{
-
-  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
-
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    cursors = {
-      enable = true;
-      accent = "dark";
-      flavor = "mocha";
-    };
-    nvim.enable = lib.mkForce false;
-
-    hyprland = {
-      enable = true;
-      accent = "lavender";
-      flavor = "mocha";
-    };
-
-  };
-  gtk = {
+{  gtk = {
     enable = true;
     theme = {
       name = "Dracula";
@@ -48,6 +27,8 @@
 
   home = {
     pointerCursor = {
+name = "catppuccin-mocha-dark-cursors";
+      package = pkgs.catppuccin-cursors;
       gtk.enable = true;
       size = 24;
       hyprcursor = {
