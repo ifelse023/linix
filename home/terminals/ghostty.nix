@@ -1,5 +1,6 @@
 {
   lib,
+  inputs,
   ...
 }:
 {
@@ -8,6 +9,8 @@
     enable = true;
     clearDefaultKeybinds = true;
     settings = {
+
+      theme = (inputs.tokyonight + "/extras/ghostty/tokyonight_night");
       font-size = 16;
       gtk-single-instance = true;
       auto-update = "off";

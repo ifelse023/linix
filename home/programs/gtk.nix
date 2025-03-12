@@ -1,11 +1,14 @@
 {
   pkgs,
-  inputs,
-  lib,
   ...
 }:
 
-{  gtk = {
+{
+  # environment.variables.XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+  # environment.variables.XCURSOR_SIZE = "24";
+  # environment.variables.HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+  # environment.variables.HYPRCURSOR_SIZE = "24";
+  gtk = {
     enable = true;
     theme = {
       name = "Dracula";
@@ -27,7 +30,7 @@
 
   home = {
     pointerCursor = {
-name = "Catppuccin-Mocha-Dark-Cursors";
+      name = "catppuccin-mocha-dark-cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
       gtk.enable = true;
       size = 24;

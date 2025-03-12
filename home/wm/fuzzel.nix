@@ -9,15 +9,17 @@
         layer = "overlay";
         prompt = "'>>  '";
       };
+
       colors = {
-        background = "1e1e2edd";
-        text = "cdd6f4ff";
-        match = "f38ba8ff";
-        selection = "585b70ff";
-        selection-text = "cdd6f4ff";
-        selection-match = "f38ba8ff";
-        border = "b4befeff";
+        background = "1f2335ff";
+        text = "c0caf5ff";
+        match = "2ac3deff";
+        selection = "363d59ff";
+        selection-match = "2ac3deff";
+        selection-text = "c0caf5ff";
+        border = "29a4bdff";
       };
+
       dmenu = {
         exit-immediately-if-empty = "yes";
       };

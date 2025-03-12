@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   inherit (lib.meta) getExe;
   inherit (pkgs)
@@ -13,9 +18,12 @@ in
 {
   programs.fish = {
     enable = true;
-    interactiveShellInit = ''
-      set fish_greeting ""
-    '';
+    interactiveShellInit = builtins.concatStringsSep "\n" [
+      (builtins.readFile "${inputs.tokyonight}/extras/fish/tokyonight_moon.fish")
+      ''
+        set fish_greeting ""
+      ''
+    ];
     # plugins = [
     #
     # ];

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -78,19 +78,11 @@
       ];
     };
 
-    skim = {
-      enable = true;
-      enableFishIntegration = true;
-      defaultCommand = "rg --files --hidden";
-      changeDirWidgetOptions = [
-        "--preview 'eza --icons --git --color always -T -L 3 {} | head -200'"
-        "--exact"
-      ];
-    };
-
     zoxide = {
       enable = true;
     };
 
   };
+
+  xdg.configFile."eza/theme.yml".source = "${inputs.tokyonight}/extras/eza/tokyonight.yml";
 }

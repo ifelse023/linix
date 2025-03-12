@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  browser = [ "floorp.desktop" ];
+  browser = [ "firefox-nightly.desktop" ];
 
   associations = {
     "text/html" = browser;

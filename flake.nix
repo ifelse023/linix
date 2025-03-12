@@ -7,7 +7,6 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-
     chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -26,7 +25,7 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-    
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/hyprland";
@@ -40,6 +39,13 @@
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
+    };
+
+    tokyonight = {
+      type = "github";
+      owner = "folke";
+      repo = "tokyonight.nvim";
+      flake = false;
     };
 
   };

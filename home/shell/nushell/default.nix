@@ -24,7 +24,7 @@
     shellAliases = {
       ll = "ls --long";
       la = "ls --all";
-      open-task = "floorp --new-tab (open aufgabe.txt)";
+      open-task = "firefox-nightly --new-tab (open aufgabe.txt)";
       cp = "cp --recursive --verbose --progress";
       errors = "journalctl -p err..alert -b";
     };

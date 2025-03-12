@@ -1,7 +1,7 @@
 {
   imports = [
     ./vscode.nix
-    ./floorp.nix
+    ./firefox.nix
     ./scripts
     ./xdg.nix
     ./gtk.nix

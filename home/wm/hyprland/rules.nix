@@ -24,9 +24,9 @@
 
     # window rules
     windowrulev2 = [
-      "idleinhibit focus,class:ghostty"
+      "idleinhibit focus,class:com.mitchellh.ghostty"
       "idleinhibit focus,class:foot"
-      "idleinhibit fullscreen, class:^(floorp)$"
+      "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
       "float, class:(clipse)"
       "size 622 652, class:(clipse)"
@@ -42,14 +42,9 @@
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
 
-      "workspace 4 , class:^(floorp)$"
+      "workspace 4 , class:^(firefox-nightly)$"
       "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
       "workspace 1 , class:^(neovide)$"
-
-      "bordersize 0, floating:0, onworkspace:w[tv1]"
-      "rounding 0, floating:0, onworkspace:w[tv1]"
-      "bordersize 0, floating:0, onworkspace:f[1]"
-      "rounding 0, floating:0, onworkspace:f[1]"
 
     ];
     workspace = [
@@ -58,9 +53,6 @@
       "3, monitor:eDP-1, default:true"
       "4, monitor:HDMI-A-1, default:true"
       "5, monitor:HDMI-A-1, default:true"
-
-      "w[tv1], gapsout:0, gapsin:0"
-      "f[1], gapsout:0, gapsin:0"
     ];
   };
 }
