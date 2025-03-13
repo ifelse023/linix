@@ -73,6 +73,13 @@
         enable = true;
         configurationLimit = 5;
         efiSupport = true;
+        splashImage = null;
+        theme = pkgs.fetchFromGitHub {
+          owner = "shvchk";
+          repo = "fallout-grub-theme";
+          rev = "2c51d28701c03c389309e34585ca8ff2b68c23e9";
+          sha256 = "05yiqm84gb6gc98s7fd6cxlmh60fn6wp7zc5n1fi3l6hzr33a1c9";
+        };
         #efiInstallAsRemovable = true;
         device = "nodev";
       };
