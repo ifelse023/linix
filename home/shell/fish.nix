@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   ...
 }:
 let
@@ -16,14 +15,13 @@ let
 
 in
 {
+
   programs.fish = {
     enable = true;
-    interactiveShellInit = builtins.concatStringsSep "\n" [
-      (builtins.readFile "${inputs.tokyonight}/extras/fish/tokyonight_moon.fish")
-      ''
-        set fish_greeting ""
-      ''
-    ];
+    interactiveShellInit = ''
+      set fish_greeting ""
+
+    '';
     # plugins = [
     #
     # ];
@@ -51,6 +49,8 @@ in
       diff = "diff --color=auto";
       cpu = ''watch -n.1 "grep \"^[c]pu MHz\" /proc/cpuinfo"'';
       killall = "pkill";
+      baty = "sudo tlp-stat -b";
+      print-status = "printf '%s\n' $status";
 
       py = "python";
 

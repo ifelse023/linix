@@ -1,7 +1,9 @@
+{ lib', ... }:
 {
-  home.sessionVariables.TERMINAL = "ghostty";
+  home.sessionVariables.TERMINAL = lib'.terminal;
 
   imports = [
-    ./ghostty.nix
+    ./foot.nix
+    ./kitty.nix
   ];
 }

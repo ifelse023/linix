@@ -3,7 +3,7 @@
     { pkgs, ... }:
     {
       devShells.default = pkgs.mkShell {
-        name = "linix";
+        name = "hey";
         meta.description = "The default development shell for my NixOS configuration";
 
         packages = with pkgs; [

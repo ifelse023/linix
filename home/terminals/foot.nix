@@ -1,5 +1,5 @@
-
 {
+
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -13,8 +13,7 @@
         locked-title = "no";
         shell = "fish";
         term = "xterm-256color";
-        font = "JetBrains Mono:size=14";
-        pad = "10x5 center";
+        font = "JetBrains Mono:size=13";
         selection-target = "primary";
       };
       cursor = {
@@ -30,7 +29,7 @@
         launch = "xdg-open \${url}";
         label-letters = "sadfjklewcmpgh";
         osc8-underline = "url-mode";
-        protocols = "http, https, ftp, ftps, file, gemini, gopher, irc, ircs";
+        protocols = "http, https, ftp, ftps, file, gopher, irc, ircs";
 
         uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
       };

@@ -1,23 +1,36 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 
 {
-  # environment.variables.XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
-  # environment.variables.XCURSOR_SIZE = "24";
-  # environment.variables.HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
-  # environment.variables.HYPRCURSOR_SIZE = "24";
+
+  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    hyprland.enable = false;
+    btop.enable = false;
+    gtk.enable = false;
+    nvim.enable = false;
+    cava.enable = false;
+    gh-dash.enable = false;
+    imv.enable = false;
+    swaylock.enable = false;
+    mako.enable = false;
+  };
   gtk = {
     enable = true;
     theme = {
       name = "Dracula";
       package = pkgs.dracula-theme;
     };
+
     font = {
-      name = "Inter";
+      name = "Geist";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
-      size = 11;
+      size = 12;
     };
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
@@ -27,23 +40,25 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
   home = {
     pointerCursor = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
       gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+
       size = 24;
       hyprcursor = {
         enable = true;
+        size = 24;
       };
     };
-    packages = [
-      pkgs.qt6Packages.qtstyleplugin-kvantum
-      pkgs.qt6Packages.qt6ct
-      pkgs.libsForQt5.qtstyleplugin-kvantum
-      pkgs.libsForQt5.qt5ct
-    ];
+    # packages = [
+    #   pkgs.qt6Packages.qtstyleplugin-kvantum
+    #   pkgs.qt6Packages.qt6ct
+    #   pkgs.libsForQt5.qtstyleplugin-kvantum
+    #   pkgs.libsForQt5.qt5ct
+    # ];
   };
   qt = {
     enable = true;

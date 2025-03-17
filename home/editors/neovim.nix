@@ -23,6 +23,7 @@
       enable = true;
       settings = {
         maximized = true;
+        fork = true;
         tabs = true;
         theme = "auto";
         title-hidden = true;

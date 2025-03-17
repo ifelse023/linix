@@ -1,3 +1,4 @@
+{ lib', ... }:
 {
   programs.fuzzel = {
     enable = true;
@@ -5,7 +6,7 @@
       main = {
         launch-prefix = "uwsm app --";
         font = "JetBrains Mono";
-        terminal = "ghostty";
+        terminal = lib'.terminal + " -e";
         layer = "overlay";
         prompt = "'>>  '";
       };

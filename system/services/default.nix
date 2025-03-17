@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-
 {
   imports = [
+    ./udev
     ./power.nix
+    ./openvpn.nix
     ./openssh.nix
     ./location.nix
     ./tty.nix
@@ -12,11 +12,9 @@
   services = {
     dbus = {
       implementation = "broker";
-      packages = with pkgs; [
-        dconf
-        gcr
-        udisks2
-      ];
+      # packages = with pkgs; [
+      #   udisks2
+      # ];
     };
 
     journald.extraConfig = ''

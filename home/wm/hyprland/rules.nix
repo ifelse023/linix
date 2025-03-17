@@ -1,17 +1,9 @@
 {
   wayland.windowManager.hyprland.settings = {
-    # layer rules
-    layerrule =
-      let
-        layers = "^(notifications|ghostty|foot|gtk-layer-shell)$";
-      in
-      [
-        "blur, ${layers}"
-        "xray 1, ^(bar|gtk-layer-shell)$"
-        "ignorealpha 0.2, ${layers}"
-        "ignorealpha 0.5, ^(fuzzel)$"
-      ];
-
+    layerrule = [
+      "blur, dunst"
+      "blur, fuzzel"
+    ];
     windowrule = [
       "float,title:^(Open File)(.*)$"
       "float,title:^(Select a File)(.*)$"
@@ -25,13 +17,12 @@
     # window rules
     windowrulev2 = [
       "idleinhibit focus,class:com.mitchellh.ghostty"
-      "idleinhibit focus,class:foot"
+      "idleinhibit focus,class:kitty"
       "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
+      "float, class:(foot)"
       "float, class:(clipse)"
       "size 622 652, class:(clipse)"
-
-      "float,class:udiskie"
 
       "float,class:pwvucontrol"
       "float,title:^(Volume Control)$"
@@ -45,6 +36,8 @@
       "workspace 4 , class:^(firefox-nightly)$"
       "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
       "workspace 1 , class:^(neovide)$"
+
+      "noanim, class:^(fuzzel)$"
 
     ];
     workspace = [

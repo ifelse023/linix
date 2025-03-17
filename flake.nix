@@ -36,18 +36,11 @@
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
     };
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
+    nixcord = {
+      url = "github:kaylorben/nixcord";
     };
 
-    tokyonight = {
-      type = "github";
-      owner = "folke";
-      repo = "tokyonight.nvim";
-      flake = false;
-    };
-
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =

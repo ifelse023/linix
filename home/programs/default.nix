@@ -1,6 +1,7 @@
 {
   imports = [
     ./vscode.nix
+    ./nixcord.nix
     ./firefox.nix
     ./scripts
     ./xdg.nix

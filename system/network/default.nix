@@ -1,21 +1,10 @@
-{ pkgs, ... }:
-# networking configuration
 {
   imports = [
     ./security.nix
     ./networkmanager.nix
   ];
 
-  hardware.wirelessRegulatoryDatabase = true;
-  # Disable the firewall.
+  # hardware.wirelessRegulatoryDatabase = true;
   networking.firewall.enable = false;
 
-  environment.systemPackages = with pkgs; [
-    ethtool
-    # dns client
-    dogdns
-
-    wget
-    curl
-  ];
 }

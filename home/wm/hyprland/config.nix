@@ -4,7 +4,8 @@
     settings = {
       exec-once = [
         "uwsm finalize"
-        "clipse -listen"
+        "uwsm app -- clipse -listen"
+        # "uwsm app -- ghostty --gtk-single-instance=true --quit-after-last-window-closed=false"
       ];
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
@@ -13,11 +14,11 @@
       "$mod" = "SUPER";
 
       general = {
-        gaps_in = 2;
-        gaps_out = 4;
+        gaps_in = 3;
+        gaps_out = 5;
         border_size = 2;
-        "col.active_border" = "rgba(07b5efff) rgba(bb9af7ff) 45deg";
-        "col.inactive_border" = "rgba(565f89cc) rgba(9aa5cecc) 45deg";
+        "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
+        "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
         resize_on_border = true;
         layout = "dwindle";
         no_border_on_floating = false;
@@ -29,20 +30,18 @@
         rounding_power = 3;
         blur = {
           enabled = true;
-          passes = 4;
-          size = 7;
+          passes = 3;
+          size = 6;
           new_optimizations = true;
-          ignore_opacity = false;
-          xray = false;
 
         };
         shadow = {
           enabled = true;
-          color = "0x66000000";
+          range = 15;
+          render_power = 3;
           ignore_window = true;
-          offset = "2 2";
-          range = 8;
-          render_power = 2;
+          offset = "2, 4";
+          color = "rgba(2e2e2e2e)";
         };
       };
 

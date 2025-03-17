@@ -4,11 +4,13 @@ let
   system = ../system;
   hmModule = inputs.home-manager.nixosModules.home-manager;
 
+  lib' = import ../lib;
   home-manager = {
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs;
       inherit self;
+      inherit lib';
     };
     users.wasd = {
       imports = [ ../home ];

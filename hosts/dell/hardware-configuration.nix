@@ -10,8 +10,7 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-
-    fileSystems."/" = {
+  fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
     options = [
@@ -69,9 +68,9 @@
     options = [ "noatime" ];
   };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/be358932-1e80-4d53-aee0-85421349748b"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/be358932-1e80-4d53-aee0-85421349748b"; }
+  ];
 
   boot = {
     initrd.availableKernelModules = [

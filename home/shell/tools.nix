@@ -1,9 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     curl
-    bash
     elfutils
     diffutils
     debugedit
@@ -13,17 +12,15 @@
     pkg-config
     pwvucontrol_git
     newt
+    picotool
     util-linux
     nix-tree
     sccache
-    mold-wrapped
     obsidian
+    ethtool
+    dogdns
 
-    dust
-
-    telescope
-
-    # profiling tool
+    wget
     hyperfine
     bintools
     gping
@@ -32,7 +29,6 @@
 
     ffmpeg-full
 
-    # syncthnig for acoustic people
     rsync
     claude-code
     lsof
@@ -81,8 +77,5 @@
     zoxide = {
       enable = true;
     };
-
   };
-
-  xdg.configFile."eza/theme.yml".source = "${inputs.tokyonight}/extras/eza/tokyonight.yml";
 }

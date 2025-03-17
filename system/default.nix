@@ -12,9 +12,15 @@
     ./env.nix
     ./xdg.nix
     ./impermanence.nix
+    inputs.catppuccin.nixosModules.catppuccin
   ];
-
- boot = {
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    grub.enable = false;
+    forgejo.enable = false;
+  };
+  boot = {
     enableContainers = false;
     tmp = {
       cleanOnBoot = true;

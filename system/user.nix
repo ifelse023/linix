@@ -12,6 +12,7 @@
 
   users = {
     mutableUsers = false;
+    groups.plugdev = { };
     users = {
       wasd = {
         isNormalUser = true;
@@ -30,7 +31,6 @@
           "wheel"
           "systemd-journal"
           "power"
-          "nix"
         ];
       };
     };
@@ -40,7 +40,6 @@
     rtkit.enable = true;
     polkit.enable = true;
 
-    # don't ask for password for wheel group
     sudo = {
       wheelNeedsPassword = false;
       # only allow members of the wheel group to execute sudo
