@@ -8,14 +8,8 @@ boot:
   nh os boot -- --impure
 
 
-# Run eval tests
-test:
-  nix eval .#evalTests --show-trace --print-build-logs --verbose
-
-
 repair:
   nix-store --verify --check-contents --repair
-
 
 curgen:
   sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
@@ -35,9 +29,8 @@ clean:
 
 # Garbage collect all unused nix store entries
 gc:
-  sudo nix store gc --debug
-  sudo nix-collect-garbage -d
-  nix-collect-garbage -d
+  sudo nix-collect-garbage
+  nix-collect-garbage
 
 # Remove all reflog entries and prune unreachable objects
 gitgc:

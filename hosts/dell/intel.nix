@@ -1,10 +1,19 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
 
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   services.xserver.videoDrivers = lib.mkDefault [ "intel" ];
   boot = {
-    initrd.kernelModules = [ "i915" ];
+    initrd.kernelModules = [
+      "i915"
+      "kvm-intel"
+    ];
     kernelModules = [ "kvm-intel" ];
     kernelParams = [
       "i915.enable_guc=3"
@@ -19,17 +28,13 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  };
-
-  chaotic.mesa-git = {
-    enable = true;
     extraPackages = with pkgs; [
       intel-compute-runtime
       intel-media-driver
       vaapiIntel
       vaapiVdpau
+      vpl-gpu-rt
+      libvdpau-va-gl
     ];
-    fallbackSpecialisation = false;
   };
-
 }

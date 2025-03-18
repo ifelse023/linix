@@ -2,7 +2,6 @@
   imports = [
     ./udev
     ./power.nix
-    ./openvpn.nix
     ./openssh.nix
     ./location.nix
     ./tty.nix

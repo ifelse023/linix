@@ -8,12 +8,10 @@
 
         packages = with pkgs; [
           nh
-          cachix
-          nil # nix ls
+          nil
           nixfmt-rfc-style
-          nixd
-          statix # lints and suggestions
-          deadnix # clean up unused nix code
+          statix
+          deadnix
           just
         ];
       };

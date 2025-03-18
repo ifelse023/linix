@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }:
 let
   wallpaper = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/ifelse023/architect/main/wallpapers/wave.png";
-    hash = "sha256-VxfOERITyt+8Ayjbu4PyTyNh6YXVeANV1StYyM0uCUg=";
+    url = "https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/voyager-14.jpg";
+    hash = "sha256-oxZO7V740YPbs91cGeb3yAKW0slpYZAz8ulpalHMWFc=";
   };
 in
 {

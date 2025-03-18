@@ -54,7 +54,7 @@ in
 
       py = "python";
 
-      vim = "neovide";
+      vim = "hx";
 
       ".." = "cd ..";
       "..." = "cd ../../";

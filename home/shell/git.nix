@@ -21,19 +21,15 @@ in
     };
 
     git = {
-      package = pkgs.gitAndTools.gitFull;
       enable = true;
       userEmail = "ifelse023@gmail.com";
       userName = "ifelse023";
+      delta = {
+        enable = true;
+        options.dark = true;
+      };
 
       extraConfig = {
-        delta = {
-          enable = true;
-          options.dark = true;
-          line-numbers = true;
-          options.navigate = true;
-          features = "decorations side-by-side navigate";
-        };
 
         init.defaultBranch = "main";
         diff.colorMoved = "default";
@@ -62,8 +58,6 @@ in
 
       ignores = [
         ".cache/"
-        ".ccls-cache/"
-        ".idea/"
         "*.swp"
         "*.elc"
         ".~lock*"

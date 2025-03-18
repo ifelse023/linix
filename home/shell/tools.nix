@@ -10,6 +10,7 @@
     less
     which
     pkg-config
+    just
     pwvucontrol_git
     newt
     picotool
@@ -19,13 +20,12 @@
     obsidian
     ethtool
     dogdns
-
+    procs
     wget
     hyperfine
     bintools
     gping
-
-    fd
+    sad
 
     ffmpeg-full
 
@@ -36,6 +36,11 @@
   ];
 
   programs = {
+
+    fd = {
+      enable = true;
+    };
+
     fzf = {
       enable = true;
       defaultCommand = "fd --follow --hidden";
@@ -51,17 +56,14 @@
       ];
     };
 
-    # atuin = {
-    #   enable = true;
-    #   enableFishIntegration = true;
-    # };
+    atuin = {
+      enable = true;
+      # enableFishIntegration = false;
+    };
 
     direnv = {
       enable = true;
       nix-direnv.enable = true;
-      config = {
-        whitelist.prefix = [ "~/dev" ];
-      };
     };
 
     eza = {

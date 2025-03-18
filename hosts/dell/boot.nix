@@ -88,7 +88,9 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
-  services.scx.enable = true;
-  services.scx.scheduler = "scx_rusty";
-  services.scx.package = pkgs.scx_git.full;
+  services.scx = {
+    enable = true;
+    scheduler = "scx_rusty";
+    package = pkgs.scx_git.full;
+  };
 }
