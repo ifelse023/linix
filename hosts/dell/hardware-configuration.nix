@@ -17,7 +17,7 @@
 
   fileSystems."/persist" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/80041144-6104-4355-8188-8c2c47f02c13";
+    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -27,7 +27,7 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/80041144-6104-4355-8188-8c2c47f02c13";
+    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -38,7 +38,7 @@
 
   fileSystems."/nix" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/80041144-6104-4355-8188-8c2c47f02c13";
+    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -48,7 +48,7 @@
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/80041144-6104-4355-8188-8c2c47f02c13";
+    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
     fsType = "btrfs";
     neededForBoot = true;
     options = [
@@ -59,14 +59,15 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/62B8-57BD";
+    device = "/dev/disk/by-uuid/C005-C73F";
     fsType = "vfat";
     options = [ "noatime" ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/be358932-1e80-4d53-aee0-85421349748b"; }
-  ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/aaf83dad-9431-425c-be62-8f53a7ad1288"; }
+    ];
+
   # The priority should be a number higher than the swapfile disk-based swap devices
   zramSwap = {
     enable = true;
