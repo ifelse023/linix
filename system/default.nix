@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware
+    ./virt.nix
     ./network
     ./services
     ./sound.nix

@@ -24,6 +24,7 @@
     wget
     hyperfine
     bintools
+    zed-editor
     gping
     sad
 

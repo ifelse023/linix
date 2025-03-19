@@ -5,14 +5,10 @@
   ...
 }:
 {
-  imports = [ ];
-
-  # general file info
   home.packages = [ pkgs.exiftool ];
 
-  # yazi file manager
   programs.yazi = {
-    enable = false;
+    enable = true;
     package = inputs.yazi.packages.${pkgs.system}.default;
 
     enableBashIntegration = true;
@@ -34,12 +30,11 @@
         show_symlink = true;
       };
 
-      preview = {
-        tab_size = 2;
-        max_width = 600;
-        max_height = 900;
-        cache_dir = config.xdg.cacheHome;
-      };
+      # preview = {
+      #   tab_size = 2;
+      #   max_width = 600;
+      #   max_height = 900;
+      # };
     };
   };
 }
