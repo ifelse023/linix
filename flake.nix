@@ -21,7 +21,9 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
     helix.url = "github:helix-editor/helix";
     yazi.url = "github:sxyazi/yazi";
 
