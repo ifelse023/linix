@@ -24,8 +24,6 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
-    helix.url = "github:helix-editor/helix";
-    yazi.url = "github:sxyazi/yazi";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

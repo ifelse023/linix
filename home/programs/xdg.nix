@@ -22,7 +22,7 @@ let
     "application/json" = browser;
 
     "text/plain" = [ "hx" ];
-    "inode/directory" = [ "yazi" ];
+    # "inode/directory" = [ "yazi" ];
   };
 in
 {
