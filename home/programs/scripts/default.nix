@@ -10,9 +10,13 @@ let
     ];
   } ./template.py;
 
+  replace = pkgs.writers.writeBashBin "replace" ./replace.sh;
 in
 {
-  imports = [ ./arm.nix ];
 
-  home.packages = [ template ];
+  home.packages = [
+    template
+    replace
+  ];
+
 }

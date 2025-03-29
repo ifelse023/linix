@@ -9,6 +9,7 @@
         packages = with pkgs; [
           nh
           nil
+          nixd
           nixfmt-rfc-style
           statix
           deadnix

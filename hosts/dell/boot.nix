@@ -73,7 +73,7 @@
         enable = true;
         configurationLimit = 5;
         efiSupport = true;
-        # splashImage = /boot/theme/background.png;
+        splashImage = /boot/theme/background.png;
         theme = pkgs.fetchFromGitHub {
           owner = "shvchk";
           repo = "fallout-grub-theme";
