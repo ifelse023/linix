@@ -1,1 +1,1 @@
-{ imports = [ ./default.nix.nix ]; }
+{ imports = [ ./helix.nix ]; }

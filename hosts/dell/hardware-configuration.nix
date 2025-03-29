@@ -17,7 +17,7 @@
 
   fileSystems."/persist" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
+    device = "/dev/disk/by-uuid/e9ee02b6-3791-43ca-aafb-36a1dfa31765";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -27,7 +27,7 @@
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
+    device = "/dev/disk/by-uuid/e9ee02b6-3791-43ca-aafb-36a1dfa31765";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -38,7 +38,7 @@
 
   fileSystems."/nix" = {
     neededForBoot = true;
-    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
+    device = "/dev/disk/by-uuid/e9ee02b6-3791-43ca-aafb-36a1dfa31765";
     fsType = "btrfs";
     options = [
       "noatime"
@@ -48,7 +48,7 @@
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/5957a13b-7442-4cbb-96bf-2e581fa031de";
+    device = "/dev/disk/by-uuid/e9ee02b6-3791-43ca-aafb-36a1dfa31765";
     fsType = "btrfs";
     neededForBoot = true;
     options = [
@@ -59,13 +59,13 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C005-C73F";
+    device = "/dev/disk/by-uuid/E8CE-3B97";
     fsType = "vfat";
     options = [ "noatime" ];
   };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/aaf83dad-9431-425c-be62-8f53a7ad1288"; }
+    [ { device = "/dev/disk/by-uuid/52bd5843-11a5-436f-8557-8c5cf3abc61b"; }
     ];
 
   # The priority should be a number higher than the swapfile disk-based swap devices
