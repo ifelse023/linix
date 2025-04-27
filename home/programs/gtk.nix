@@ -28,7 +28,7 @@
     };
 
     font = {
-      name = "Geist";
+      name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
       size = 12;
     };
