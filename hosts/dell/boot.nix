@@ -8,6 +8,9 @@
       "nopti"
       "tsx=on"
       "nowatchdog"
+      "video=eDP-1:d"
+      "video=HDMI-A-1:1920x1080@60"
+      "video=DP-1:2560x1440@59.95"
     ];
 
     initrd = {
@@ -24,10 +27,6 @@
       "dev.i915.perf_stream_paranoid" = 0;
       # Swappiness: Set to 100 to treat IO cost as equal for anonymous pages and page cache
       "vm.swappiness" = 100;
-
-      # VFS cache pressure: Lowered to 50 to reduce reclaiming of VFS cache
-      "vm.vfs_cache_pressure" = 50;
-
       # Dirty bytes: Number of bytes at which a process starts writing out dirty data (256MB)
       "vm.dirty_bytes" = 268435456;
 
@@ -66,11 +65,11 @@
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;
 
     loader = {
-      timeout = 5;
+      timeout = 30;
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = false;
       grub = {
-        enable = true;
+        enable = false;
         configurationLimit = 5;
         efiSupport = true;
         # splashImage = /boot/theme/background.png;
@@ -83,6 +82,11 @@
         #efiInstallAsRemovable = true;
         device = "nodev";
       };
+      limine = {
+        enable = true;
+        maxGenerations = 5;
+      };
+
     };
 
     binfmt.emulatedSystems = [ "aarch64-linux" ];

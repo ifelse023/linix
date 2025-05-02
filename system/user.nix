@@ -4,13 +4,6 @@
     fuse.userAllowOther = true;
     dconf.enable = true;
     fish.enable = true;
-    hyprland = {
-      enable = true;
-package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
-
-      withUWSM = true;
-    };
   };
 
   users = {

@@ -23,6 +23,11 @@
 
   programs.uwsm = {
     enable = true;
+      waylandCompositors.sway = {
+        prettyName = "Sway";
+        comment = "Sway";
+        binPath = "/etc/profiles/per-user/wasd/bin/sway";
+      };
 
   };
 

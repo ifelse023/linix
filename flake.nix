@@ -24,19 +24,11 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
-
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/hyprland";
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
-    };
-    nixcord = {
-      url = "github:kaylorben/nixcord";
     };
 
     catppuccin.url = "github:catppuccin/nix";

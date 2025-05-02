@@ -53,7 +53,7 @@ in
 
       py = "python";
 
-      vim = "hx";
+      vim = "nvim";
 
       ".." = "cd ..";
       "..." = "cd ../../";

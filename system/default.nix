@@ -19,6 +19,7 @@
     flavor = "mocha";
     grub.enable = false;
     forgejo.enable = false;
+    gitea.enable = false;
   };
   boot = {
     enableContainers = false;

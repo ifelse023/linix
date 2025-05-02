@@ -1,1 +1,5 @@
-{ imports = [ ./helix.nix ]; }
+{
+  imports = [
+    ./neovim.nix
+  ];
+}

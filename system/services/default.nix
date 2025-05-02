@@ -1,6 +1,7 @@
 {
   imports = [
     ./udev
+    ./keyd.nix
     ./power.nix
     ./openssh.nix
     ./location.nix

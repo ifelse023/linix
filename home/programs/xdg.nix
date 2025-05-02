@@ -21,7 +21,7 @@ let
     "image/*" = [ "imv.desktop" ];
     "application/json" = browser;
 
-    "text/plain" = [ "hx" ];
+    "text/plain" = [ "nvim" ];
     # "inode/directory" = [ "yazi" ];
   };
 in

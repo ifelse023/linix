@@ -4,7 +4,6 @@
     packages = with pkgs; [
       material-symbols
 
-      geist-font
       libertinus
       noto-fonts
       noto-fonts-cjk-sans
