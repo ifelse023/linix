@@ -10,12 +10,12 @@
       vimAlias = true;
       viAlias = true;
       vimdiffAlias = true;
-      extraPackages = with pkgs; [
-        ripgrep
-        fd
-        nil
-        nixfmt-rfc-style
-        gcc
+      extraPackages = [
+        pkgs.ripgrep
+        pkgs.fd
+        pkgs.nil
+        pkgs.nixfmt-rfc-style
+        pkgs.gcc
       ];
     };
 

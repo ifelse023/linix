@@ -4,7 +4,7 @@ let
   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqPLz1VVjaPGsWaeAUnajDs/1awhmQLluvf+J+O9BOa light";
 in
 {
-  home.packages = with pkgs; [ lazygit ];
+  home.packages = [ pkgs.lazygit ];
   programs = {
     gh = {
       enable = true;

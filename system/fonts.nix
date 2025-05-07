@@ -1,19 +1,19 @@
 { pkgs, ... }:
 {
   fonts = {
-    packages = with pkgs; [
-      material-symbols
+    packages = [
+      pkgs.material-symbols
+      pkgs.libertinus
+      pkgs.noto-fonts
 
-      libertinus
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      roboto
-      (google-fonts.override { fonts = [ "Inter" ]; })
-      jetbrains-mono
+      pkgs.noto-fonts-cjk-sans
+      pkgs.noto-fonts-emoji
+      pkgs.roboto
+      (pkgs.google-fonts.override { fonts = [ "Inter" ]; })
+      pkgs.jetbrains-mono
 
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.symbols-only
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.symbols-only
     ];
 
     enableDefaultPackages = false;

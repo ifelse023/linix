@@ -21,15 +21,9 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-    };
 
     catppuccin.url = "github:catppuccin/nix";
   };

@@ -1,43 +1,36 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    curl
-    elfutils
-    diffutils
-    debugedit
-    file
-    less
-    which
-    pkg-config
-    just
-    pwvucontrol_git
-    newt
-    picotool
-    util-linux
-    nix-tree
-    sccache
-    obsidian
-    ethtool
-    dogdns
-    procs
-    wget
-    hyperfine
-    bintools
-    zed-editor
-    gping
-    sad
-
-    ffmpeg-full
-
-    rsync
-    claude-code
-    lsof
-    psmisc
+  home.packages = [
+    pkgs.curl
+    pkgs.elfutils
+    pkgs.diffutils
+    pkgs.debugedit
+    pkgs.file
+    pkgs.less
+    pkgs.which
+    pkgs.pkg-config
+    pkgs.just
+    pkgs.newt
+    pkgs.picotool
+    pkgs.util-linux
+    pkgs.sccache
+    pkgs.dogdns
+    pkgs.procs
+    pkgs.wget
+    pkgs.hyperfine
+    pkgs.bintools
+    pkgs.sad
+    pkgs.ffmpeg
+    pkgs.rsync
+    pkgs.lsof
+    pkgs.psmisc
+    pkgs.sysstat
+    pkgs.pciutils
+    pkgs.usbutils
   ];
 
   programs = {
-
     fd = {
       enable = true;
     };
@@ -53,12 +46,16 @@
         "--smart-case"
         "--hidden"
         "--glob=!{/proc,*.lock,.git}"
-
       ];
     };
 
     atuin = {
       enable = true;
+      settings = {
+        ui = {
+          invert = true;
+        };
+      };
       # enableFishIntegration = false;
     };
 

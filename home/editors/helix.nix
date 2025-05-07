@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -9,10 +8,10 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    # package = inputs.helix.packages.${pkgs.system}.default;
-    extraPackages = with pkgs; [
-      shellcheck
-      nil
+    package = pkgs.helix_git;
+    extraPackages = [
+      pkgs.shellcheck
+      pkgs.nil
     ];
     ignores = [
       "build/"

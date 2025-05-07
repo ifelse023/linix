@@ -40,7 +40,8 @@
       # Bufferbloat mitigations + slight improvement in throughput & latency
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
-      "net.ipv4.ip_forward" = 1;
+      # Increase netdev receive queue backlog to prevent packet loss
+      "net.core.netdev_max_backlog" = 4096;
     };
   };
 

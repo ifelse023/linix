@@ -1,6 +1,7 @@
 {
   imports = [
     ./udev
+    ./sound.nix
     ./keyd.nix
     ./power.nix
     ./openssh.nix
@@ -17,15 +18,11 @@
       # ];
     };
 
+    fstrim.enable = true;
     journald.extraConfig = ''
       SystemMaxUse=50M
       RuntimeMaxUse=10M
     '';
-
-    # psd = {
-    #   enable = true;
-    #   resyncTimer = "60m";
-    # };
 
   };
 }

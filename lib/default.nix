@@ -1,4 +1,3 @@
 {
   terminal = "ghostty";
-
 }

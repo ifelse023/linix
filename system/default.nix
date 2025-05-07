@@ -4,12 +4,11 @@
     ./hardware
     ./network
     ./services
-    ./sound.nix
     ./ld.nix
     ./user.nix
     ./fonts.nix
     ./nix.nix
-    ./env.nix
+    ./environment.nix
     ./xdg.nix
     ./impermanence.nix
     inputs.catppuccin.nixosModules.catppuccin

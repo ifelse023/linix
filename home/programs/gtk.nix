@@ -18,6 +18,7 @@
     gh-dash.enable = false;
     imv.enable = false;
     swaylock.enable = false;
+    sway.enable = false;
     mako.enable = false;
   };
   gtk = {
@@ -46,12 +47,7 @@
       x11.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-
       size = 24;
-      hyprcursor = {
-        enable = true;
-        size = 24;
-      };
     };
     # packages = [
     #   pkgs.qt6Packages.qtstyleplugin-kvantum

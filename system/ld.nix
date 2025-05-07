@@ -5,5 +5,4 @@
     package = pkgs.nix-ld-rs;
     libraries = [ ];
   };
-
 }

@@ -1,9 +1,14 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  lib',
+  pkgs,
+  multiMonitorSetup ? false,
+  ...
+}:
 let
   mod = "Mod4";
 in
 {
-
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.sway_git;
@@ -11,23 +16,32 @@ in
     checkConfig = false;
     wrapperFeatures.gtk = true;
     config = {
-      output = {
-        "*" = {
-          scale = "1";
-          adaptive_sync = "off";
-          max_render_time = "5";
-        };
-        "HDMI-A-1" = {
-          mode = "1920x1080@60Hz";
-          position = "2560,0";
-          scale = "1";
-        };
-        "DP-1" = {
-          mode = "2560x1440@59.95Hz";
-          position = "0,0";
-          scale = "1";
-        };
-      };
+      output =
+        {
+          "*" = {
+            scale = "1";
+            adaptive_sync = "off";
+            max_render_time = "5";
+          };
+        }
+        // (
+          if multiMonitorSetup then
+            {
+              "HDMI-A-1" = {
+                mode = "1920x1080@60Hz";
+                position = "2560,0";
+                scale = "1";
+              };
+              "DP-1" = {
+                mode = "2560x1440@59.95Hz";
+                position = "0,0";
+                scale = "1";
+              };
+            }
+          else
+            { }
+        );
+
       assigns = {
         "number 4" = [ { app_id = "firefox-nightly"; } ];
         "number 6" = [ { app_id = "discord"; } ];
@@ -52,7 +66,12 @@ in
         { app_id = "bubble"; }
         { app_id = "pop-up"; }
         { app_id = "webconsole"; }
-
+        {
+          title = "^Library$";
+          app_id = "firefox-nightly";
+        }
+        { title = "Picture in picture"; }
+        { title = "File Operation Progress"; }
       ];
 
       input = {
@@ -61,11 +80,9 @@ in
           xkb_variant = "us";
           xkb_options = "caps:escape";
         };
-
         # "type:touchpad" = {
         #   tap = "enabled";
         # };
-
       };
       bars = [ ];
       defaultWorkspace = "workspace number 1";
@@ -81,22 +98,25 @@ in
       startup = [
         { command = "uwsm finalize"; }
         {
+          command = "uwsm app -- ${pkgs.swayr}/bin/swayrd";
+          always = true;
+        }
+        {
 
           command =
             let
               wallpaper = pkgs.fetchurl {
-                url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nixos-wallpaper-catppuccin-mocha.png";
-                sha256 = "7e6285630da06006058cebf896bf089173ed65f135fbcf32290e2f8c471ac75b";
+                url = "https://w.wallhaven.cc/full/1p/wallhaven-1p5z71.jpg";
+                sha256 = "sha256-y+SjxTg9VfhfcZoIm7qdgJyDkOFJ1Gau6A4luXIifxY=";
               };
               setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
-               ${lib.getExe pkgs.killall} swaybg
-                uwsm app -- ${lib.getExe pkgs.swaybg} -m fill -i ${wallpaper}
+                ${lib.getExe pkgs.killall} swaybg
+                 uwsm app -- ${lib.getExe pkgs.swaybg} -m fill -i ${wallpaper}
               '';
             in
             "${setWallpaper}";
           always = true;
         }
-        { command = "uwsm app -- firefox-nightly"; }
       ];
       keybindings =
         {
@@ -104,9 +124,9 @@ in
           XF86MonBrightnessDown = "exec uwsm app -- ${lib.getExe pkgs.brightnessctl} set +10%";
         }
         // {
-          "${mod}+Return" = "exec uwsm app -- ghostty";
-          "${mod}+d" = "fuzzel";
-          Print = "${lib.getExe pkgs.flameshot} gui";
+          "${mod}+Return" = "exec uwsm app -- " + lib'.terminal;
+          "${mod}+d" = "exec fuzzel";
+          Print = "exec flameshot gui";
 
         }
 
@@ -114,23 +134,17 @@ in
 
           "${mod}+Shift+m" = "exec uwsm stop";
           "${mod}+Shift+r" = "reload";
-
           "${mod}+q" = "kill";
-
           "${mod}+z" = "layout toggle splith tabbed";
-
-          "${mod}+space" = "exec ${pkgs.i3-cycle-focus}/bin/i3-cycle-focus cycle";
-
+          "${mod}+space" = "exec  ${pkgs.swayr}/bin/swayr switch-window";
+          "${mod}+Tab" = "exec  ${pkgs.swayr}/bin/swayr switch-to-urgent-or-lru-window";
+          "${mod}+c" = "exec ${pkgs.swayr}/bin/swayr execute-swaymsg-command";
           "${mod}+b" = "workspace back_and_forth";
-
           "${mod}+Shift+p" = "move workspace to output right";
-          "${mod}+Tab" = "exec ${pkgs.i3-cycle-focus}/bin/i3-cycle-focus cycle";
+
           "${mod}+e" = "layout toggle split";
-
           "${mod}+a" = "focus parent";
-
           "${mod}+f" = "fullscreen toggle";
-
           "${mod}+s" = "layout stacking";
           "${mod}+Shift+space" = "floating toggle";
           "${mod}+v" = "layout toggle splitv splith";
@@ -175,9 +189,9 @@ in
       workspace 6 output HDMI-A-1
       default_border pixel 1
       default_floating_border pixel 1
-      for_window [app_id=ghostty] focus
+      for_window [app_id=com.mitchellh.ghostty] focus
       for_window [app_id=neovide] focus
-
+      floating_modifier ${mod} normal
       set $left h
       set $down j
       set $up k
@@ -187,22 +201,26 @@ in
       bindsym ${mod}+$down focus down
       bindsym ${mod}+$up focus up
       bindsym ${mod}+$right focus right
-      # Or use ${mod}+[up|down|left|right]
       bindsym ${mod}+Left focus left
       bindsym ${mod}+Down focus down
       bindsym ${mod}+Up focus up
       bindsym ${mod}+Right focus right
-      # Move the focused window with the same, but add Shift
       bindsym ${mod}+Shift+$left move left
       bindsym ${mod}+Shift+$down move down
       bindsym ${mod}+Shift+$up move up
       bindsym ${mod}+Shift+$right move right
-      # Ditto, with arrow keys
       bindsym ${mod}+Shift+Left move left
       bindsym ${mod}+Shift+Down move down
       bindsym ${mod}+Shift+Up move up
       bindsym ${mod}+Shift+Right move right
-    '';
+      for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
+      client.focused           #cba6f7    #1e1e2e #cdd6f4  #b4befe #cba6f7
+      client.focused_inactive  #181825    #1e1e2e #cdd6f4  #181825 #181825
+      client.unfocused         #181825    #1e1e2e #cdd6f4  #181825 #181825
+      client.urgent            #fab387    #1e1e2e #fab387  #6c7086 #fab387
+      client.placeholder       #1e1e2e    #1e1e2e #cdd6f4  #6c7086 #6c7086
+      client.background        #1e1e2e
+    '';
   };
 }

@@ -1,26 +1,24 @@
 { inputs, ... }:
 {
   imports = [
-    ./programs
-    ./shell
-    ./wm
-    ./editors
-    ./terminals
     inputs.chaotic.homeManagerModules.default
+    ./programs
+    ./shells
+    ./window-managers
+    ./editors
+    ./emulators
   ];
 
   programs = {
     home-manager.enable = true;
   };
 
-  # reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  news.display = "silent";
+  # news.display = "silent";
 
   nixpkgs.config = {
     allowUnfree = true;
-    allowBroken = true;
   };
 
   manual = {

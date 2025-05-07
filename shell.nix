@@ -6,14 +6,14 @@
         name = "hey";
         meta.description = "The default development shell for my NixOS configuration";
 
-        packages = with pkgs; [
-          nh
-          nil
-          nixd
-          nixfmt-rfc-style
-          statix
-          deadnix
-          just
+        packages = [
+          pkgs.nh
+          pkgs.nil
+          pkgs.nixd
+          pkgs.nixfmt-rfc-style
+          pkgs.statix
+          pkgs.deadnix
+          pkgs.just
         ];
       };
     };

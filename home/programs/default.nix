@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ./vscode.nix
@@ -5,6 +6,13 @@
     ./scripts
     ./xdg.nix
     ./gtk.nix
-    ./media.nix
+    ./flameshot.nix
+  ];
+
+  home.packages = [
+    pkgs.vesktop
+    pkgs.pwvucontrol_git
+    pkgs.obsidian
+    pkgs.jetbrains.idea-ultimate
   ];
 }

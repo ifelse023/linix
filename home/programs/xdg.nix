@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   browser = [ "firefox-nightly.desktop" ];
 
@@ -26,6 +26,15 @@ let
   };
 in
 {
+
+  home.sessionVariables = {
+    XDG_CACHE_HOME = lib.mkForce "$HOME/.cache";
+    XDG_CONFIG_HOME = lib.mkForce "$HOME/.config";
+    XDG_DATA_HOME = lib.mkForce "$HOME/.local/share";
+    XDG_BIN_HOME = lib.mkForce "$HOME/.local/bin";
+    # To prevent firefox from creating ~/Desktop.
+    XDG_DESKTOP_DIR = lib.mkForce "$HOME";
+  };
   xdg = {
 
     enable = true;

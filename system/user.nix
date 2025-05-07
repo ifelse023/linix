@@ -1,4 +1,8 @@
-{ pkgs, lib,inputs, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 {
   programs = {
     fuse.userAllowOther = true;
@@ -35,13 +39,9 @@
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-
     sudo = {
       wheelNeedsPassword = false;
-      # only allow members of the wheel group to execute sudo
-      # by setting the executable’s permissions accordingly
       execWheelOnly = lib.mkForce true;
     };
   };
-
 }

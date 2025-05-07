@@ -9,14 +9,9 @@ let
       "E121"
     ];
   } ./template.py;
-
-  replace = pkgs.writers.writeBashBin "replace" ./replace.sh;
 in
 {
-
   home.packages = [
     template
-    replace
   ];
-
 }
