@@ -138,7 +138,7 @@ in
           "${mod}+z" = "layout toggle splith tabbed";
           "${mod}+space" = "exec  ${pkgs.swayr}/bin/swayr switch-window";
           "${mod}+Tab" = "exec  ${pkgs.swayr}/bin/swayr switch-to-urgent-or-lru-window";
-          "${mod}+c" = "exec ${pkgs.swayr}/bin/swayr execute-swaymsg-command";
+          "${mod}+c" = "exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy";
           "${mod}+b" = "workspace back_and_forth";
           "${mod}+Shift+p" = "move workspace to output right";
 

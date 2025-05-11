@@ -7,6 +7,11 @@
     ./sway
   ];
 
+    services.cliphist = {
+      enable = true;
+      extraOptions = [ "-max-items" "1000" ];
+    };
+
   home.packages = [
     pkgs.grim
     pkgs.swayr
@@ -14,7 +19,6 @@
     pkgs.brightnessctl
     pkgs.wl-clipboard
     pkgs.wl-screenrec
-    pkgs.clipse
     pkgs.wlr-randr
     pkgs.libnotify
     pkgs.xdg-utils
