@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./networkmanager.nix
     ./iwd.nix
   ];
 
