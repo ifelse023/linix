@@ -20,6 +20,7 @@
     swaylock.enable = false;
     sway.enable = false;
     mako.enable = false;
+    ghostty.enable = false;
   };
   gtk = {
     enable = true;

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }:
@@ -8,7 +9,7 @@
   services.greetd =
     let
       session = {
-        command = "${lib.getExe config.programs.uwsm.package} start default";
+        command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
         user = "wasd";
       };
     in
@@ -21,12 +22,20 @@
       };
     };
 
-  programs.uwsm = {
+  programs = {
+  uwsm = {
     enable = true;
-waylandCompositors.hyprland = {
+    waylandCompositors.hyprland = {
   prettyName = "Hyprland";
   comment = "Hyprland compositor managed by UWSM";
   binPath = "/run/current-system/sw/bin/Hyprland";
-};  };
+};
 
+ };
+  hyprland = {
+    enable = true;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    withUWSM = true;
+ };
+};
 }
