@@ -16,7 +16,6 @@ let
       ]
     ) 10
   );
-  runOnce = program: "pgrep ${program} || ${program}";
 in
 {
   wayland.windowManager.hyprland.settings = {
@@ -28,7 +27,6 @@ in
 
     # binds
     bind = [
-      "CTRL, Print, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
       "$mod SHIFT, E, exec, pkill Hyprland"
       "$mod SHIFT, E, exec, pkill Hyprland"
       "$mod, Q, killactive,"

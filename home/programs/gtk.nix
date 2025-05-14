@@ -48,6 +48,10 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 24;
+      hyprcursor = {
+        enable = true;
+        size = 24;
+    };
     };
     # packages = [
     #   pkgs.qt6Packages.qtstyleplugin-kvantum
