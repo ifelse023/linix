@@ -4,7 +4,7 @@
     ./mako.nix
     ./environment.nix
     ./fuzzel.nix
-    ./sway
+    ./hyprland
   ];
 
     services.cliphist = {
@@ -14,7 +14,6 @@
 
   home.packages = [
     pkgs.grim
-    pkgs.swayr
     pkgs.slurp
     pkgs.brightnessctl
     pkgs.wl-clipboard

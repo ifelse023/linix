@@ -6,7 +6,7 @@
     ./scripts
     ./xdg.nix
     ./gtk.nix
-    ./flameshot.nix
+    # ./flameshot.nix
   ];
 
   home.packages = [

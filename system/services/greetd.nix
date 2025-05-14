@@ -23,12 +23,10 @@
 
   programs.uwsm = {
     enable = true;
-      waylandCompositors.sway = {
-        prettyName = "Sway";
-        comment = "Sway";
-        binPath = "/etc/profiles/per-user/wasd/bin/sway";
-      };
-
-  };
+hyprland = {
+  prettyName = "Hyprland";
+  comment = "Hyprland compositor managed by UWSM";
+  binPath = "/run/current-system/sw/bin/Hyprland";
+};  };
 
 }
