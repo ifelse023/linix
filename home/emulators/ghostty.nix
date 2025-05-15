@@ -12,7 +12,7 @@
       gtk-single-instance = true;
       auto-update = "off";
 
-      window-padding-x = 2;
+      window-padding-x = 4;
       window-padding-y = 2;
 
       window-decoration = false;

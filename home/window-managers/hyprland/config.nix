@@ -1,4 +1,27 @@
 {
+  lib',
+  multiMonitorSetup ? true,
+  ...
+}:
+let
+  workspaces = builtins.concatLists (
+    builtins.genList (
+      x:
+      let
+        ws =
+          let
+            c = (x + 1) / 10;
+          in
+          builtins.toString (x + 1 - (c * 10));
+      in
+      [
+        "$mod, ${ws}, workspace, ${toString (x + 1)}"
+        "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+      ]
+    ) 10
+  );
+in
+{
   wayland.windowManager.hyprland = {
 
     settings = {
@@ -7,19 +30,28 @@
         "uwsm app -- clipse -listen"
         # "uwsm app -- ghostty --gtk-single-instance=true --quit-after-last-window-closed=false"
       ];
-      monitor = [
-        "eDP-1,disable"
-        "HDMI-A-1,1920x1080@60.00,2560x0,1"
-        "DP-1,2560x1440@59.95,0x0,1"
-      ];
 
-      workspace = [
-        "1, monitor:DP-1, default:true"
-        "2, monitor:DP-1, default:true"
-        "3, monitor:DP-1, default:true"
-        "4, monitor:HDMI-A-1, default:true"
-        "5, monitor:HDMI-A-1, default:true"
-      ];
+      monitor =
+        if multiMonitorSetup then
+          [
+            "eDP-1,disable"
+            "HDMI-A-1,1920x1080@60.00,2560x0,1"
+            "DP-1,2560x1440@59.95,0x0,1"
+          ]
+        else
+          [ ];
+
+      workspace =
+        if multiMonitorSetup then
+          [
+            "1, monitor:DP-1, default:true"
+            "2, monitor:DP-1, default:true"
+            "3, monitor:DP-1, default:true"
+            "4, monitor:HDMI-A-1, default:true"
+            "5, monitor:HDMI-A-1, default:true"
+          ]
+        else
+          [ ];
       "$mod" = "SUPER";
 
       general = {
@@ -112,7 +144,6 @@
       };
 
       misc = {
-        # disable auto polling for config file changes
         disable_autoreload = true;
         disable_splash_rendering = true;
         enable_swallow = true; # hide windows that spawn other windows
@@ -123,18 +154,131 @@
         # disable dragging animation
         animate_mouse_windowdragging = false;
 
-        mouse_move_enables_dpms = true; # enable dpms on mouse/touchpad action
-        key_press_enables_dpms = true; # enable dpms on keyboard action
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
 
       };
 
-      # touchpad gestures
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
       };
 
       debug.disable_logs = false;
+
+      layerrule = [
+        "blur, dunst"
+        "blur, fuzzel"
+      ];
+      windowrule = [
+        "float,title:^(Open File)(.*)$"
+        "float,title:^(Select a File)(.*)$"
+        "float,title:^(Open Folder)(.*)$"
+        "float,float,title:^(Save As)(.*)$"
+        "float,title:^(Save As)(.*)$"
+        "float,title:^(File Upload)(.*)$"
+        "float, title:^(.*Bitwarden.*)$"
+      ];
+
+      # window rules
+      windowrulev2 = [
+        "idleinhibit focus,class:com.mitchellh.ghostty"
+        "idleinhibit focus,class:kitty"
+        "idleinhibit fullscreen, class:^(firefox-nightly)$"
+
+        "float, class:(foot)"
+        "float, class:(clipse)"
+        "size 622 652, class:(clipse)"
+
+        "float,class:pwvucontrol"
+        "float,title:^(Volume Control)$"
+        "size 800 600,title:^(Volume Control)$"
+        "move 75 44%,title:^(Volume Control)$"
+
+        # throw sharing indicators away
+        "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+        "workspace special silent, title:^(.*is sharing (your screen|a window).)$"
+
+        "workspace 4 , class:^(firefox-nightly)$"
+        "workspace 5, title:^(.*(Disc|WebC)ord.*)$"
+        "workspace 1 , class:^(neovide)$"
+
+        "noanim, class:^(fuzzel)$"
+
+      ];
+
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
+
+      bind = [
+        "$mod SHIFT, E, exec, pkill Hyprland"
+        "$mod SHIFT, E, exec, pkill Hyprland"
+        "$mod, Q, killactive,"
+        "$mod, C, cyclenext,"
+        "$mod, F, fullscreen,"
+        "$mod, Space, fullscreen,"
+        "$mod, G, togglegroup,"
+        "$mod SHIFT, N, changegroupactive, f"
+        "$mod SHIFT, P, changegroupactive, b"
+        "$mod, R, togglesplit,"
+        "$mod, T, togglefloating,"
+        "$mod, P, pseudo,"
+        "$mod ALT, ,resizeactive,"
+
+        ("$mod, Return, exec, uwsm app -- " + lib'.terminal)
+
+        "$mod, D, exec, fuzzel launch-prefix='uwsm app -- '"
+        "SUPER, E, exec, uwsm app --  foot"
+        "$mod, Escape, exec, wlogout -p layer-shell"
+        "$mod, L, exec, loginctl lock-session"
+
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+
+        "$mod, bracketleft, workspace, m-1"
+        "$mod, bracketright, workspace, m+1"
+
+        "$mod SHIFT, bracketleft, focusmonitor, l"
+        "$mod SHIFT, bracketright, focusmonitor, r"
+
+        "$mod, M, exit"
+
+        "SUPER SHIFT, 1, movetoworkspace, 1"
+        "SUPER SHIFT, 2, movetoworkspace, 2"
+        "SUPER SHIFT, 3, movetoworkspace, 3"
+        "SUPER SHIFT, 4, movetoworkspace, 4"
+        "SUPER SHIFT, 5, movetoworkspace, 5"
+
+        "SUPER_SHIFT, left,  movewindow, l"
+        "SUPER_SHIFT, right, movewindow, r"
+        "SUPER_SHIFT, up,    movewindow, u"
+        "SUPER_SHIFT, down,  movewindow, d"
+
+        "SUPER, mouse:276, fullscreen, 0 "
+        "SUPER, mouse:276, exec, $notifycmd 'Fullscreen Mode'"
+      ] ++ workspaces;
+
+      bindl = [
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      ];
+
+      bindle = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+      ];
     };
   };
 }

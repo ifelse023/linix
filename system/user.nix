@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }:
 {
@@ -8,6 +7,10 @@
     fuse.userAllowOther = true;
     dconf.enable = true;
     fish.enable = true;
+    nh = {
+      enable = true;
+      flake = "/home/wasd/linix";
+    };
   };
 
   users = {
@@ -24,13 +27,10 @@
         extraGroups = [
           "input"
           "libvirtd"
-          "networkmanager"
           "plugdev"
-          "transmission"
           "video"
           "wheel"
           "systemd-journal"
-          "power"
         ];
       };
     };
@@ -41,7 +41,7 @@
     polkit.enable = true;
     sudo = {
       wheelNeedsPassword = false;
-      execWheelOnly = lib.mkForce true;
+      execWheelOnly = true;
     };
   };
 }

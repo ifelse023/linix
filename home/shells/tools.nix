@@ -33,6 +33,7 @@
   programs = {
     fd = {
       enable = true;
+      ignores = [ ];
     };
 
     fzf = {
@@ -52,6 +53,8 @@
     atuin = {
       enable = true;
       settings = {
+        inline_height = 16;
+        update_check = false;
         ui = {
           invert = true;
         };
@@ -71,6 +74,8 @@
       extraOptions = [
         "--group-directories-first"
         "--header"
+        "--icons"
+        "--sort extension"
       ];
     };
 

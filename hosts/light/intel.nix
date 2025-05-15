@@ -6,7 +6,6 @@
 }:
 
 {
-
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   services.xserver.videoDrivers = lib.mkDefault [ "intel" ];
   boot = {

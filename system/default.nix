@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, ... }:
 {
   imports = [
     ./hardware
@@ -11,23 +11,9 @@
     ./environment.nix
     ./xdg.nix
     ./impermanence.nix
-    inputs.catppuccin.nixosModules.catppuccin
+    ./catppuccin.nix
+    ./kernel.nix
   ];
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    grub.enable = false;
-    forgejo.enable = false;
-    gitea.enable = false;
-  };
-  boot = {
-    enableContainers = false;
-    tmp = {
-      cleanOnBoot = true;
-      useTmpfs = true;
-      tmpfsSize = "80%";
-    };
-  };
   i18n =
     let
       defaultLocale = "en_US.UTF-8";

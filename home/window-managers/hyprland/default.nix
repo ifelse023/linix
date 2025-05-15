@@ -1,9 +1,7 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-    ./binds.nix
-    ./rules.nix
     ./config.nix
     ./hyprpaper.nix
   ];

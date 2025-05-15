@@ -1,16 +1,22 @@
-{ lib, ... }:
 {
+  systemd.network = {
+    networks."40-wireless" = {
+      matchConfig.Name = "wlan0";
+      networkConfig = {
+        DHCP = "yes";
+        IPv6AcceptRA = true;
+        IPv6PrivacyExtensions = "kernel";
+      };
+    };
+    wait-online.enable = false;
+  };
 
-  systemd.network.wait-online.enable = false;
   networking = {
-    useDHCP = lib.mkForce false;
-    #interfaces.wlan0.useDHCP = lib.mkForce true;
-    useNetworkd = lib.mkForce true;
-
-    usePredictableInterfaceNames = lib.mkDefault true;
+    useDHCP = true;
+    useNetworkd = true;
+    usePredictableInterfaceNames = true;
 
     wireless = {
-      userControlled.enable = true;
       iwd = {
         enable = true;
         settings = {
@@ -18,17 +24,20 @@
             AutoConnect = true;
           };
           General = {
-            AddressRandomization = "network";
-            AddressRandomizationRange = "full";
-            EnableNetworkConfiguration = true;
-            # RoamRetryInterval = 15;
+            AddressRandomization = "once";
+            EnableNetworkConfiguration = false;
           };
           Network = {
             EnableIPv6 = true;
+            NameResolvingService = "systemd";
           };
-          Scan.DisablePeriodicScan = true;
+          Scan = {
+            DisablePeriodicScan = true;
+            DisableRoamingScan = true;
+          };
         };
       };
     };
   };
+
 }

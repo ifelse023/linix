@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
   wallpaper = pkgs.fetchurl {
     url = "https://w.wallhaven.cc/full/1p/wallhaven-1p5z71.jpg";

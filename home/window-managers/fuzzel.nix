@@ -9,6 +9,7 @@
         terminal = lib'.terminal + " -e";
         layer = "overlay";
         prompt = "'>>  '";
+        icon-theme = "Tela-circle-dracula";
       };
 
       colors = {

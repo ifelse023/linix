@@ -7,7 +7,7 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     impermanence.url = "github:nix-community/impermanence";
@@ -55,8 +55,6 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-
-        ./shell.nix
         inputs.flake-parts.flakeModules.easyOverlay
       ];
 

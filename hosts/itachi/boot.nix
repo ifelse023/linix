@@ -1,14 +1,11 @@
+{ lib, ... }:
 {
   boot = {
-
     swraid.enable = false;
-    kernelParams = [
+    kernelParams = lib.mkAfter [
       "mitigations=off"
       "tsx=on"
       "nowatchdog"
-      "video=eDP-1:d"
-      "video=HDMI-A-1:1920x1080@60"
-      "video=DP-1:2560x1440@59.95"
     ];
 
     initrd = {
@@ -20,16 +17,16 @@
         "vfat"
       ];
     };
+
     loader = {
-      timeout = 20;
-      efi.canTouchEfiVariables = true;
       systemd-boot.enable = false;
+      timeout = 5;
+      efi.canTouchEfiVariables = true;
       limine = {
         enable = true;
         maxGenerations = 5;
       };
     };
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
 }

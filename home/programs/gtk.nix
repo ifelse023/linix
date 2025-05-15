@@ -28,7 +28,10 @@
       name = "Dracula";
       package = pkgs.dracula-theme;
     };
-
+    iconTheme = {
+      name = "Tela-circle-dracula";
+      package = pkgs.tela-circle-icon-theme;
+    };
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
@@ -52,7 +55,7 @@
       hyprcursor = {
         enable = true;
         size = 24;
-    };
+      };
     };
     # packages = [
     #   pkgs.qt6Packages.qtstyleplugin-kvantum

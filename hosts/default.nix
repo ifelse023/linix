@@ -1,12 +1,11 @@
-# hosts/default.nix
-{ nixpkgs, self, ... }:
+{
+  nixpkgs,
+  self,
+  ...
+}:
 let
   inherit (self) inputs;
-  system = ../system;
-  hmModule = inputs.home-manager.nixosModules.home-manager;
-
   lib' = import ../lib;
-
   mkHomeManager = multiMonitor: {
     useUserPackages = true;
     extraSpecialArgs = {
@@ -26,9 +25,9 @@ in
     modules = [
       { networking.hostName = "light"; }
       ./light
-      system
+      ../system
+      inputs.home-manager.nixosModules.home-manager
       inputs.chaotic.nixosModules.default
-      hmModule
       { home-manager = mkHomeManager true; }
     ];
     specialArgs = {
@@ -36,14 +35,14 @@ in
     };
   };
 
-  laptop2 = nixpkgs.lib.nixosSystem {
+  itachi = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      { networking.hostName = "levi"; }
-      ./levi
-      system
+      { networking.hostName = "itachi"; }
+      ./itachi
+      ../system
       inputs.chaotic.nixosModules.default
-      hmModule
+      inputs.home-manager.nixosModules.home-manager
       { home-manager = mkHomeManager false; }
     ];
     specialArgs = {

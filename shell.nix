@@ -5,15 +5,9 @@
       devShells.default = pkgs.mkShell {
         name = "hey";
         meta.description = "The default development shell for my NixOS configuration";
-
         packages = [
-          pkgs.nh
-          pkgs.nil
-          pkgs.nixd
-          pkgs.nixfmt-rfc-style
           pkgs.statix
           pkgs.deadnix
-          pkgs.just
         ];
       };
     };

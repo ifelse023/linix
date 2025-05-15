@@ -8,21 +8,14 @@
     ./location.nix
     ./tty.nix
     ./greetd.nix
+    ./scx.nix
   ];
 
   services = {
-    dbus = {
-      implementation = "broker";
-      # packages = with pkgs; [
-      #   udisks2
-      # ];
-    };
-
     fstrim.enable = true;
     journald.extraConfig = ''
       SystemMaxUse=50M
       RuntimeMaxUse=10M
     '';
-
   };
 }

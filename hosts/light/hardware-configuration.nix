@@ -60,9 +60,9 @@
       options = [ "noatime" ];
     };
   };
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/7987b2c0-8c2d-4488-97de-370f8a03cd0f"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/7987b2c0-8c2d-4488-97de-370f8a03cd0f"; }
+  ];
 
   zramSwap = {
     enable = true;
