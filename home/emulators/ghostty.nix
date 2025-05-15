@@ -2,13 +2,23 @@
   lib,
   ...
 }:
+
+let
+  fontSizes = {
+    "itachi" = 14; # First laptop font size
+  };
+
+  currentHostname = builtins.getEnv "itachi";
+
+  fontSize = fontSizes.${currentHostname} or 16;
+in
 {
   programs.ghostty = {
     enable = true;
     clearDefaultKeybinds = true;
     settings = {
       theme = "tokyonight_night";
-      font-size = 16;
+      font-size = fontSize;
       gtk-single-instance = true;
       auto-update = "off";
 
