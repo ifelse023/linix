@@ -8,7 +8,7 @@ let
     "itachi" = 14; # First laptop font size
   };
 
-  currentHostname = builtins.getEnv "itachi";
+  currentHostname = builtins.getEnv "hostname";
 
   fontSize = fontSizes.${currentHostname} or 16;
 in
