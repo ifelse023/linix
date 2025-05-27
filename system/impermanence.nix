@@ -11,7 +11,7 @@ in
       forEach [
         "nix"
         "ssh"
-        # "NetworkManager/system-connections"
+        "NetworkManager/system-connections"
       ] (x: "/etc/${x}")
       ++ forEach [
         "nixos"
