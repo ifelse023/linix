@@ -18,15 +18,18 @@
       ];
     };
 
-    loader = {
-      systemd-boot.enable = false;
-      timeout = 5;
-      efi.canTouchEfiVariables = true;
-      limine = {
-        enable = true;
-        maxGenerations = 5;
-      };
+loader = {
+    systemd-boot.enable = false;
+    timeout = 5;
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";  # For UEFI systems
+      configurationLimit = 5;  # Equivalent to your maxGenerations
     };
+  };
+
   };
 
 }
