@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./networkmanager.nix
+    ./iwd.nix
   ];
 
   boot = {

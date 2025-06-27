@@ -38,7 +38,6 @@ in
     XDG_CONFIG_HOME = XDG_CONFIG_HOME;
     XDG_DATA_HOME = XDG_DATA_HOME;
     GTK2_RC_FILES = lib.mkForce "${XDG_CONFIG_HOME}/gtk-2.0/gtkrc-2.0";
-    _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=\"${XDG_CONFIG_HOME}/java\"";
   };
 
   xdg = {
