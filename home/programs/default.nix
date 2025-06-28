@@ -12,5 +12,6 @@
     pkgs.vesktop
     pkgs.pwvucontrol_git
     pkgs.obsidian
+    pkgs.anki
   ];
 }

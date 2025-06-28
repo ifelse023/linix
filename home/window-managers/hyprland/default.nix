@@ -31,8 +31,6 @@ in
     settings = {
       exec-once = [
         "uwsm finalize"
-        "uwsm app -- clipse -listen"
-        # "uwsm app -- ghostty --gtk-single-instance=true --quit-after-last-window-closed=false"
       ];
 
       monitor =
@@ -53,9 +51,15 @@ in
             "3, monitor:DP-1, default:true"
             "4, monitor:HDMI-A-1, default:true"
             "5, monitor:HDMI-A-1, default:true"
+            "w[tv1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
           ]
         else
-          [ ];
+          [
+            "w[tv1], gapsout:0, gapsin:0"
+            "f[1], gapsout:0, gapsin:0"
+          ];
+
       "$mod" = "SUPER";
 
       general = {
@@ -187,6 +191,10 @@ in
       #
       # window rules
       windowrulev2 = [
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
         "idleinhibit focus,class:com.mitchellh.ghostty"
         "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
