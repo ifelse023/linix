@@ -3,6 +3,6 @@
   home.sessionVariables.TERMINAL = lib'.terminal;
 
   imports = [
-    ./ghostty.nix
+    ./kitty.nix
   ];
 }

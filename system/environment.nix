@@ -2,7 +2,7 @@
   environment = {
 
     variables = {
-      NH_FLAKE = "/home/wasd/linix";
+      FLAKE = "/home/wasd/linix";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
       EDITOR = "hx";
       VISUAL = "hx";

@@ -74,6 +74,15 @@ in
             uwsm app -- neovide "$file"
         end
       '';
+
+      y = ''
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        		builtin cd -- "$cwd"
+        	end
+        	rm -f -- "$tmp"
+      '';
       fcd = ''
         set dir (${getExe fd} --type d --hidden --exclude .git | ${getExe fzf} --preview '${getExe eza} --tree --level=1 --color=always {}')
         if test -n "$dir"

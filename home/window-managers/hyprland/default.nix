@@ -196,6 +196,7 @@ in
         "bordersize 0, floating:0, onworkspace:f[1]"
         "rounding 0, floating:0, onworkspace:f[1]"
         "idleinhibit focus,class:com.mitchellh.ghostty"
+        "idleinhibit focus,class:com.mitchellh.kitty"
         "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
         "float, class:^(com.saivert.pwvucontrol)$"
@@ -228,6 +229,7 @@ in
       bind = [
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, E, exec, pkill Hyprland"
+        "SUPER, C, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
         "$mod, Q, killactive,"
         "$mod, C, cyclenext,"
         "$mod, F, fullscreen,"
