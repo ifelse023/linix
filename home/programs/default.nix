@@ -1,15 +1,23 @@
-{ pkgs, ... }:
 {
-  imports = [
-    ./firefox.nix
-    ./scripts
-    ./xdg.nix
-    ./gtk.nix
-    # ./flameshot.nix
-  ];
+  pkgs,
+  lib,
+  hostname,
+  ...
+}:
+{
+  imports =
+    [
+      ./firefox.nix
+      ./scripts
+      ./xdg.nix
+      ./gtk.nix
+      # ./flameshot.nix
+    ]
+    ++ lib.optionals (hostname == "light") [
+      ./light.nix
+    ];
 
   home.packages = [
-    pkgs.vesktop
     pkgs.pwvucontrol_git
     pkgs.obsidian
     pkgs.anki

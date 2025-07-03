@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = [
     pkgs.curl
+    pkgs.gemini-cli
     pkgs.elfutils
     pkgs.diffutils
     pkgs.debugedit
@@ -11,6 +12,7 @@
     pkgs.which
     pkgs.pkg-config
     pkgs.just
+    pkgs.just-lsp
     pkgs.newt
     pkgs.picotool
     pkgs.util-linux
@@ -18,6 +20,7 @@
     pkgs.dogdns
     pkgs.procs
     pkgs.wget
+    pkgs.openrazer-daemon
     pkgs.hyperfine
     pkgs.bintools
     pkgs.sad
@@ -28,6 +31,8 @@
     pkgs.sysstat
     pkgs.pciutils
     pkgs.usbutils
+    inputs.openocd-rpi.packages.${pkgs.system}.openocd-raspberrypi
+
   ];
 
   programs = {
@@ -82,5 +87,6 @@
     zoxide = {
       enable = true;
     };
+
   };
 }

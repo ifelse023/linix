@@ -16,6 +16,7 @@
     dbus = {
       implementation = "broker";
     };
+    fwupd.enable = false;
     fstrim.enable = true;
     journald.extraConfig = ''
       SystemMaxUse=50M

@@ -16,5 +16,6 @@
     XDG_SESSION_TYPE = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
+    PICO_SDK_PATH = "~/.local/share/pico-sdk";
   };
 }

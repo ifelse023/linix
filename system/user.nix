@@ -11,6 +11,8 @@
       enable = true;
       flake = "/home/wasd/linix";
     };
+
+    nano.enable = false;
   };
 
   users = {
@@ -26,6 +28,7 @@
         ];
         extraGroups = [
           "input"
+          "openrazer"
           "libvirtd"
           "plugdev"
           "video"

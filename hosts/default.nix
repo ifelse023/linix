@@ -6,13 +6,14 @@
 let
   inherit (self) inputs;
   lib' = import ../lib;
-  mkHomeManager = multiMonitor: {
+  mkHomeManager = multiMonitor: hostname: {
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs;
       inherit self;
       inherit lib';
       multiMonitorSetup = multiMonitor;
+      inherit hostname;
     };
     users.wasd = {
       imports = [ ../home ];
@@ -28,7 +29,7 @@ in
       ../system
       inputs.home-manager.nixosModules.home-manager
       inputs.chaotic.nixosModules.default
-      { home-manager = mkHomeManager true; }
+      { home-manager = mkHomeManager true "light"; }
     ];
     specialArgs = {
       inherit inputs;
@@ -43,7 +44,7 @@ in
       ../system
       inputs.chaotic.nixosModules.default
       inputs.home-manager.nixosModules.home-manager
-      { home-manager = mkHomeManager false; }
+      { home-manager = mkHomeManager false "itachi"; }
     ];
     specialArgs = {
       inherit inputs;

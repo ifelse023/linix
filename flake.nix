@@ -20,29 +20,16 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
-
-    # hyprland.url = "github:hyprwm/hyprland";
-    #
-    # hyprland-contrib = {
-    #   url = "github:hyprwm/contrib";
-    #   inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    # };
-
-    # hyprpaper = {
-    #   url = "github:hyprwm/hyprpaper";
-    #   inputs = {
-    #     hyprgraphics.follows = "hyprland/hyprgraphics";
-    #     hyprlang.follows = "hyprland/hyprlang";
-    #     hyprutils.follows = "hyprland/hyprutils";
-    #     nixpkgs.follows = "hyprland/nixpkgs";
-    #     systems.follows = "hyprland/systems";
-    #   };
-    # };
+    openocd-rpi = {
+      url = "github:ifelse023/openocd-pico-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs =
     {
       flake-parts,

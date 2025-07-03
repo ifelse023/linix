@@ -8,7 +8,6 @@ let
   inherit (pkgs)
     eza
     bat
-    procs
     sad
     fd
     fzf
@@ -20,7 +19,6 @@ in
     enable = true;
     interactiveShellInit = ''
       set fish_greeting ""
-
     '';
     # plugins = [
     #
@@ -31,7 +29,6 @@ in
       nsp = "nix-shell -p";
 
       cat = "${getExe bat} --style=plain";
-      ps = "${getExe procs}";
       mp = "mkdir -p";
       ls = "${getExe eza} -h --git --icons=always";
       l = "ls -lF --time-style=long-iso --icons=always";
@@ -44,6 +41,7 @@ in
       killall = "pkill";
       baty = "sudo tlp-stat -b";
       sta = "printf '%s\n' $status";
+      x = "hx";
 
       ".." = "cd ..";
       "..." = "cd ../../";
@@ -71,7 +69,7 @@ in
       xx = ''
         set file (${getExe fd} --type f --hidden --exclude .git | ${getExe fzf}  --preview '${getExe bat} --color=always --style=numbers {}')
         if test -n "$file"
-            uwsm app -- neovide "$file"
+            uwsm app -- hx "$file"
         end
       '';
 
