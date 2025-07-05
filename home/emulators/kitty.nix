@@ -1,5 +1,4 @@
 {
-
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
@@ -28,21 +27,11 @@
     };
 
     keybindings = {
-      "kitty_mod+equal" = "change_font_size all 16.0";
-      "kitty_mod+left" = "neighboring_window left";
-      "kitty_mod+right" = "neighboring_window right";
-      "kitty_mod+down" = "neighboring_window down";
-      "kitty_mod+up" = "neighboring_window up";
-      "kitty_mod+e" = "goto_layout fat";
-      "kitty_mod+g" = "goto_layout grid";
-      "kitty_mod+s" = "goto_layout split";
       "ctrl+shift+up" = "increase_font_size";
       "ctrl+shift+down" = "decrease_font_size";
       "ctrl+shift+backspace" = "restore_font_size";
-
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
     };
   };
-
 }

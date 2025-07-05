@@ -1,10 +1,7 @@
 { lib, pkgs, ... }:
 {
-
   boot = {
-
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
-
     kernel.sysctl = {
       "vm.swappiness" = 100;
       "vm.dirty_bytes" = 268435456;
@@ -26,5 +23,4 @@
       tmpfsSize = "80%";
     };
   };
-
 }
