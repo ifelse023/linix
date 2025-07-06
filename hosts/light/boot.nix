@@ -29,7 +29,7 @@
         maxGenerations = 5;
       };
     };
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    # binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
 }
