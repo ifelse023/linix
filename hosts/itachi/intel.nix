@@ -8,93 +8,35 @@
 {
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   services = {
-    throttled = {
-      enable = lib.mkDefault true;
-      extraConfig = ''
-        [GENERAL]
-        # Enable or disable the script execution
-        Enabled: True
-        # SYSFS path for checking if the system is running on AC power
-        Sysfs_Power_Path: /sys/class/power_supply/AC*/online
-        # Auto reload config on changes
-        Autoreload: True
-
-        ## Settings to apply while connected to Battery power
-        [BATTERY]
-        # Update the registers every this many seconds
-        Update_Rate_s: 30
-        # Max package power for time window #1
-        PL1_Tdp_W: 29
-        # Time window #1 duration
-        PL1_Duration_s: 28
-        # Max package power for time window #2
-        PL2_Tdp_W: 44
-        # Time window #2 duration
-        PL2_Duration_S: 0.002
-        # Max allowed temperature before throttling
-        Trip_Temp_C: 85
-        # Set cTDP to normal=0, down=1 or up=2 (EXPERIMENTAL)
-        cTDP: 1
-        # Disable BDPROCHOT (EXPERIMENTAL)
-        Disable_BDPROCHOT: False
-
-        ## Settings to apply while connected to AC power
-        [AC]
-        # Update the registers every this many seconds
-        Update_Rate_s: 5
-        # Max package power for time window #1
-        PL1_Tdp_W: 44
-        # Time window #1 duration
-        PL1_Duration_s: 28
-        # Max package power for time window #2
-        PL2_Tdp_W: 44
-        # Time window #2 duration
-        PL2_Duration_S: 0.002
-        # Max allowed temperature before throttling
-        Trip_Temp_C: 95
-        # Set HWP energy performance hints to 'performance' on high load (EXPERIMENTAL)
-        # Uncomment only if you really want to use it
-        # HWP_Mode: False
-        # Set cTDP to normal=0, down=1 or up=2 (EXPERIMENTAL)
-        cTDP: 2
-        # Disable BDPROCHOT (EXPERIMENTAL)
-        Disable_BDPROCHOT: False
-
-        # All voltage values are expressed in mV and *MUST* be negative (i.e. undervolt)!
-        # XXX: Tuned for thonkcookie
-        [UNDERVOLT.BATTERY]
-        # CPU core/cache voltage offset (mV)
-        # On Skylake and newer CPUs CORE and CACHE values should match!
-        # XXX: crashes between 160-170
-        CORE: -125
-        CACHE: -125
-        # Integrated GPU voltage offset (mV)
-        GPU: -80
-        # System Agent voltage offset (mV)
-        UNCORE: -80
-        # Analog I/O voltage offset (mV)
-        ANALOGIO: 0
-
-        # [ICCMAX.AC]
-        # # CPU core max current (A)
-        # CORE:
-        # # Integrated GPU max current (A)
-        # GPU:
-        # # CPU cache max current (A)
-        # CACHE:
-
-        # [ICCMAX.BATTERY]
-        # # CPU core max current (A)
-        # CORE:
-        # # Integrated GPU max current (A)
-        # GPU:
-        # # CPU cache max current (A)
-        # CACHE:
-      '';
-    };
-
     undervolt.enable = false;
     xserver.videoDrivers = lib.mkDefault [ "intel" ];
+  };
+  services = {
+    tlp.enable = true;
+    tlp.settings = {
+      PLATFORM_PROFILE_ON_AC = "performance";
+      PLATFORM_PROFILE_ON_BAT = "balanced";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_performance";
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MAX_PERF_ON_BAT = 50;
+      CPU_DRIVER_OPMODE_ON_AC = "active";
+      CPU_DRIVER_OPMODE_ON_BAT = "active";
+      START_CHARGE_THRESH_BAT0 = 80;
+      STOP_CHARGE_THRESH_BAT0 = 90;
+    };
+
+    upower = {
+      enable = true;
+      percentageLow = 15;
+      percentageCritical = 5;
+      percentageAction = 10;
+      criticalPowerAction = "Hibernate";
+    };
   };
 
   boot = {

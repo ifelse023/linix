@@ -20,7 +20,6 @@
     pkgs.dogdns
     pkgs.procs
     pkgs.wget
-    pkgs.openrazer-daemon
     pkgs.hyperfine
     pkgs.bintools
     pkgs.sad

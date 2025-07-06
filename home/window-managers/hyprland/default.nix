@@ -197,6 +197,7 @@ in
         "rounding 0, floating:0, onworkspace:f[1]"
         "idleinhibit focus,class:com.mitchellh.ghostty"
         "idleinhibit focus,class:com.mitchellh.kitty"
+        "idleinhibit focus,class:com.mitchellh.foot"
         "idleinhibit fullscreen, class:^(firefox-nightly)$"
 
         "float, class:^(com.saivert.pwvucontrol)$"

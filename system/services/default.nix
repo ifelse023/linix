@@ -4,7 +4,7 @@
     ./udev
     ./sound.nix
     ./keyd.nix
-    ./power.nix
+    ./thermald.nix
     ./openssh.nix
     ./location.nix
     ./tty.nix

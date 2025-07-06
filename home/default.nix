@@ -3,7 +3,7 @@
   imports = [
     inputs.chaotic.homeManagerModules.default
     ./programs
-    ./shells
+    ./shell
     ./window-managers
     ./editors
     ./emulators

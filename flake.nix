@@ -29,6 +29,11 @@
       url = "github:ifelse023/openocd-pico-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zellij = {
+      url = "github:ifelse023/zellij-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {

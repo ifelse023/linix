@@ -17,7 +17,6 @@
 
   users = {
     mutableUsers = false;
-    groups.plugdev = { };
     users = {
       wasd = {
         isNormalUser = true;
@@ -28,9 +27,7 @@
         ];
         extraGroups = [
           "input"
-          "openrazer"
           "libvirtd"
-          "plugdev"
           "video"
           "wheel"
           "systemd-journal"

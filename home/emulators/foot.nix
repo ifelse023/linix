@@ -1,5 +1,5 @@
+{ pkgs, lib, ... }:
 {
-
   programs.foot = {
     enable = true;
     server.enable = false;
@@ -13,25 +13,26 @@
         locked-title = "no";
         shell = "fish";
         term = "xterm-256color";
-        font = "JetBrains Mono:size=13";
+        font = "JetBrains Mono:size=16";
         selection-target = "primary";
+        pad = "4x4 center";
       };
+      desktop-notifications = {
+        command = "${lib.getExe pkgs.libnotify} -a \${app-id} -i \${app-id} \${title} \${body}";
+      };
+
       cursor = {
         style = "beam";
-        beam-thickness = 2;
+        beam-thickness = 1;
       };
       scrollback = {
         lines = 10000;
         multiplier = 3;
+        indicator-position = "relative";
+        indicator-format = "line";
       };
-
       url = {
-        launch = "xdg-open \${url}";
-        label-letters = "sadfjklewcmpgh";
-        osc8-underline = "url-mode";
-        protocols = "http, https, ftp, ftps, file, gopher, irc, ircs";
-
-        uri-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.,~:;/?#@!$&%*+=\"'()[]";
+        launch = "${pkgs.xdg-utils}/bin/xdg-open \${url}";
       };
       key-bindings = {
         show-urls-launch = "Control+Shift+u";
