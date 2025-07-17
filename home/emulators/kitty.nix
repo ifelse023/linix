@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.kitty = {
     enable = true;
@@ -25,15 +26,6 @@
       scrollback_lines = 100000;
       scrollback_pager = "bat --chop-long-lines";
       clear_all_shortcuts = true;
-    };
-
-    keybindings = {
-      "ctrl+shift+up" = "increase_font_size";
-      "ctrl+shift+down" = "decrease_font_size";
-      "ctrl+shift+backspace" = "restore_font_size";
-      "ctrl+shift+c" = "copy_to_clipboard";
-      "ctrl+shift+v" = "paste_from_clipboard";
-    };
 
       background = "#16181a";
       foreground = "#ffffff";
@@ -60,5 +52,14 @@
       color14 = "#5ef1ff";
       color15 = "#ffffff";
     };
+
+    keybindings = {
+      "ctrl+shift+up" = "increase_font_size";
+      "ctrl+shift+down" = "decrease_font_size";
+      "ctrl+shift+backspace" = "restore_font_size";
+      "ctrl+shift+c" = "copy_to_clipboard";
+      "ctrl+shift+v" = "paste_from_clipboard";
+    };
+
   };
 }

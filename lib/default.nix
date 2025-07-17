@@ -1,3 +1,3 @@
 {
-  terminal = "foot";
+  terminal = "ghostty";
 }

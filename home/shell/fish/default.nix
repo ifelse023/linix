@@ -19,6 +19,7 @@ in
     enable = true;
     interactiveShellInit = ''
       set fish_greeting ""
+      zellij_start
     '';
     # plugins = [
     #
@@ -89,33 +90,33 @@ in
       '';
 
       zellij_start = ''
-    if not status --is-interactive; or set -q ZELLIJ; or set -q SSH_TTY; or test "$ZELLIJ_START" = 0
-        return
-    end
+        if not status --is-interactive; or set -q ZELLIJ; or set -q SSH_TTY; or test "$ZELLIJ_START" = 0
+            return
+        end
 
-    set -l sessions (zellij list-sessions --short 2>/dev/null)
+        set -l sessions (zellij list-sessions --short 2>/dev/null)
 
-    switch (count $sessions)
-        case 0
-            zellij
-        case 1
-            zellij attach $sessions[1]
-        case '*'
-            set -l choice (
-                begin
-                    printf '%s\n' $sessions
-                    printf '[NEW]\n[QUIT]\n'
-                end | fzf --prompt='zellij session> ' --height=40% --no-multi
-            )
+        switch (count $sessions)
+            case 0
+                zellij
+            case 1
+                zellij attach $sessions[1]
+            case '*'
+                set -l choice (
+                    begin
+                        printf '%s\n' $sessions
+                        printf '[NEW]\n[QUIT]\n'
+                    end | fzf --prompt='zellij session> ' --height=40% --no-multi
+                )
 
-            switch $choice
-                case '[NEW]'
-                    read -lP 'New session name: ' session_name
-                    test -z "$session_name"; and zellij; or zellij attach --create $session_name
-                case '*'
-                    zellij attach --create $choice
-            end
-    end
+                switch $choice
+                    case '[NEW]'
+                        read -lP 'New session name: ' session_name
+                        test -z "$session_name"; and zellij; or zellij attach --create $session_name
+                    case '*'
+                        zellij attach --create $choice
+                end
+        end
       '';
 
       z_kill_all = ''

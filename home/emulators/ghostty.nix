@@ -1,22 +1,19 @@
 {
   lib,
-  inputs,
-  pkgs,
   ...
 }:
 {
   programs.ghostty = {
     enable = true;
-    package = inputs.ghostty.packages.${pkgs.system}.default;
     clearDefaultKeybinds = true;
     settings = {
       font-size = 16;
       gtk-single-instance = true;
       auto-update = "off";
 
-      window-padding-x = 4;
-      window-padding-y = 2;
-
+      window-padding-x = 0;
+      window-padding-y = 0;
+      app-notifications = "no-clipboard-copy";
       window-decoration = false;
 
       keybind = lib.mapAttrsToList (name: value: "ctrl+shift+${name}=${value}") {
@@ -33,9 +30,6 @@
         "physical:kp_enter" = "reset_font_size";
         "physical:kp_add" = "increase_font_size:1";
         "physical:kp_subtract" = "decrease_font_size:1";
-
-        t = "new_tab";
-        q = "close_surface";
 
       };
     };

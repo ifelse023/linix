@@ -12,6 +12,7 @@
     flavor = "mocha";
     hyprland.enable = false;
     kitty.enable = false;
+    ghostty.enable = false;
     gtk.enable = false;
     nvim.enable = false;
     cava.enable = false;
@@ -20,7 +21,8 @@
     swaylock.enable = false;
     sway.enable = false;
     mako.enable = false;
-    firefox.profiles = {};
+    fish.enable = false;
+    firefox.profiles = { };
   };
   gtk = {
     enable = true;
