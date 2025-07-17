@@ -89,49 +89,33 @@ in
       '';
 
       zellij_start = ''
-        if set -q ZELLIJ || set -q SSH_TTY
-            return
-        end
+    if not status --is-interactive; or set -q ZELLIJ; or set -q SSH_TTY; or test "$ZELLIJ_START" = 0
+        return
+    end
 
-        set sessions (zellij list-sessions --short 2>/dev/null)
+    set -l sessions (zellij list-sessions --short 2>/dev/null)
 
-        if test (count $sessions) -eq 0
+    switch (count $sessions)
+        case 0
             zellij
-        else if test (count $sessions) -eq 1
-            echo "Attaching to existing session: $sessions[1]"
+        case 1
             zellij attach $sessions[1]
-        else
-            echo "Multiple zellij sessions found:"
-            for i in (seq (count $sessions))
-                echo "  $i) $sessions[$i]"
-            end
-            echo "  n) Create new session"
-            echo "  q) Skip zellij and continue"
-
-            read -P "Choose session (1-"(count $sessions)", n, q): " choice
+        case '*'
+            set -l choice (
+                begin
+                    printf '%s\n' $sessions
+                    printf '[NEW]\n[QUIT]\n'
+                end | fzf --prompt='zellij session> ' --height=40% --no-multi
+            )
 
             switch $choice
-                case q Q
-                    return
-                case n N
-                    read -P "Enter name for new session: " session_name
-                    if test -z "$session_name"
-                        zellij
-                    else
-                        zellij --session $session_name
-                    end
+                case '[NEW]'
+                    read -lP 'New session name: ' session_name
+                    test -z "$session_name"; and zellij; or zellij attach --create $session_name
                 case '*'
-                    if string match -qr '^\d+$' $choice
-                        and test $choice -ge 1
-                        and test $choice -le (count $sessions)
-                        echo "Attaching to session: $sessions[$choice]"
-                        zellij attach $sessions[$choice]
-                    else
-                        echo "Invalid choice. Skipping zellij."
-                        return
-                    end
+                    zellij attach --create $choice
             end
-        end
+    end
       '';
 
       z_kill_all = ''

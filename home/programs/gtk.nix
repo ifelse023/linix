@@ -11,6 +11,7 @@
     enable = true;
     flavor = "mocha";
     hyprland.enable = false;
+    kitty.enable = false;
     gtk.enable = false;
     nvim.enable = false;
     cava.enable = false;

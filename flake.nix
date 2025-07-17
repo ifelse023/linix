@@ -30,10 +30,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zellij = {
-      url = "github:ifelse023/zellij-flake";
+    neovim-nightly-overlay = {url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
   };
   outputs =
     {
