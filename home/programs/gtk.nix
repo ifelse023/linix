@@ -20,6 +20,7 @@
     swaylock.enable = false;
     sway.enable = false;
     mako.enable = false;
+    firefox.profiles = {};
   };
   gtk = {
     enable = true;

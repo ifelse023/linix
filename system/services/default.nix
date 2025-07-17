@@ -9,7 +9,7 @@
     ./location.nix
     ./tty.nix
     ./greetd.nix
-    ./scx.nix
+    # ./scx.nix
   ];
 
   services = {

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  imports = [ inputs.nix-index-db.hmModules.nix-index ];
+  imports = [ inputs.nix-index-db.homeModules.nix-index ];
 
   config = {
     home.sessionVariables = {

@@ -8,7 +8,7 @@
       DisablePocket = true;
       DisableAppUpdate = true;
     };
-    profiles.default = {
+    profiles.hey = {
       settings = {
         "general.autoScroll" = true;
 

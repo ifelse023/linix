@@ -17,7 +17,7 @@
     };
     "/persist" = {
       neededForBoot = true;
-      device = "/dev/disk/by-uuid/9bc68c7f-3e19-49e4-89cd-7ec27b932810";
+      device = "/dev/disk/by-uuid/e68be9f5-27d2-44b4-90ea-76784a38a68e";
       fsType = "btrfs";
       options = [
         "noatime"
@@ -26,7 +26,7 @@
       ];
     };
     "/home" = {
-      device = "/dev/disk/by-uuid/9bc68c7f-3e19-49e4-89cd-7ec27b932810";
+      device = "/dev/disk/by-uuid/e68be9f5-27d2-44b4-90ea-76784a38a68e";
       fsType = "btrfs";
       options = [
         "noatime"
@@ -36,7 +36,7 @@
     };
     "/nix" = {
       neededForBoot = true;
-      device = "/dev/disk/by-uuid/9bc68c7f-3e19-49e4-89cd-7ec27b932810";
+      device = "/dev/disk/by-uuid/e68be9f5-27d2-44b4-90ea-76784a38a68e";
       fsType = "btrfs";
       options = [
         "noatime"
@@ -45,7 +45,7 @@
       ];
     };
     "/var/log" = {
-      device = "/dev/disk/by-uuid/9bc68c7f-3e19-49e4-89cd-7ec27b932810";
+      device = "/dev/disk/by-uuid/e68be9f5-27d2-44b4-90ea-76784a38a68e";
       fsType = "btrfs";
       neededForBoot = true;
       options = [
@@ -55,13 +55,13 @@
       ];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/F3AB-0E0A";
+      device = "/dev/disk/by-uuid/0B5A-BBFC";
       fsType = "vfat";
       options = [ "noatime" ];
     };
   };
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/66faa060-4e2a-46ab-afcd-56b38a9fc58f"; }
+    [ { device = "/dev/disk/by-uuid/13eaad62-42c1-4718-b124-04a6323eaba9"; }
     ];
 
   zramSwap = {
