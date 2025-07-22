@@ -24,7 +24,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
     openocd-rpi = {
       url = "github:ifelse023/openocd-pico-flake";
       inputs.nixpkgs.follows = "nixpkgs";

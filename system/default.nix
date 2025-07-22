@@ -11,7 +11,6 @@
     ./environment.nix
     ./xdg.nix
     ./impermanence.nix
-    ./catppuccin.nix
     ./kernel.nix
   ];
   i18n =
