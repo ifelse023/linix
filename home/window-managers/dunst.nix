@@ -16,11 +16,8 @@
         horizontal_padding = 16;
         padding = 16;
         frame_width = 2;
-
         alignment = "center";
-        font = "Sans 10";
         min_icon_size = 64;
-
         offset = "0x16";
         origin = "top-center";
       };

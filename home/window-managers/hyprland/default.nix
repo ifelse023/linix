@@ -37,8 +37,8 @@ in
         if multiMonitorSetup then
           [
             "eDP-1,disable"
-            "HDMI-A-1,1920x1080@60.00,2560x0,1"
-            "DP-1,2560x1440@59.95,0x0,1"
+            "DP-1,2560x1440@74.92,0x0,1"
+            "HDMI-A-1,1920x1080@60.00,2560x250,1"
           ]
         else
           [ ];
@@ -66,8 +66,6 @@ in
         gaps_in = 2;
         gaps_out = 2;
         border_size = 2;
-        "col.active_border" = "rgba(ca9ee6ff) rgba(f2d5cfff) 45deg";
-        "col.inactive_border" = "rgba(b4befecc) rgba(6c7086cc) 45deg";
         resize_on_border = true;
         layout = "dwindle";
         no_border_on_floating = false;
@@ -90,7 +88,7 @@ in
           render_power = 3;
           ignore_window = true;
           offset = "2, 4";
-          color = "rgba(2e2e2e2e)";
+          # color = "rgba(2e2e2e2e)";
         };
       };
 
@@ -277,7 +275,8 @@ in
 
         "SUPER, mouse:276, fullscreen, 0 "
         "SUPER, mouse:276, exec, $notifycmd 'Fullscreen Mode'"
-      ] ++ workspaces;
+      ]
+      ++ workspaces;
 
       bindl = [
         ", XF86AudioPlay, exec, playerctl play-pause"

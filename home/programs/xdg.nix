@@ -27,16 +27,16 @@ let
     "image/*" = [ "imv.desktop" ];
     "application/json" = browser;
 
-    "text/plain" = [ "hx" ];
+    "text/plain" = [ "nvim" ];
     # "inode/directory" = [ "yazi" ];
   };
 in
 
 {
   home.sessionVariables = {
-    XDG_CACHE_HOME = XDG_CACHE_HOME;
-    XDG_CONFIG_HOME = XDG_CONFIG_HOME;
-    XDG_DATA_HOME = XDG_DATA_HOME;
+    inherit XDG_CACHE_HOME;
+    inherit XDG_CONFIG_HOME;
+    inherit XDG_DATA_HOME;
     GTK2_RC_FILES = lib.mkForce "${XDG_CONFIG_HOME}/gtk-2.0/gtkrc-2.0";
   };
 

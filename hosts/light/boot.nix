@@ -8,7 +8,7 @@
       "nowatchdog"
       "video=eDP-1:d"
       "video=HDMI-A-1:1920x1080@60"
-      "video=DP-1:2560x1440@59.95"
+      "video=DP-1:2560x1440@74.92"
     ];
 
     initrd = {

@@ -42,13 +42,18 @@ in
       killall = "pkill";
       baty = "sudo tlp-stat -b";
       sta = "printf '%s\n' $status";
-      x = "hx";
+      x = "nvim";
 
       ".." = "cd ..";
       "..." = "cd ../../";
       "...." = "cd ../../../";
       "....." = "cd ../../../../";
       "......" = "cd ../../../../../";
+    };
+    shellAbbrs = {
+      n = "nvim";
+      j = "just";
+      py = "python";
     };
 
     functions = {
@@ -70,7 +75,7 @@ in
       xx = ''
         set file (${getExe fd} --type f --hidden --exclude .git | ${getExe fzf}  --preview '${getExe bat} --color=always --style=numbers {}')
         if test -n "$file"
-            uwsm app -- hx "$file"
+            uwsm app -- nvim "$file"
         end
       '';
 
@@ -125,4 +130,5 @@ in
       '';
     };
   };
+
 }

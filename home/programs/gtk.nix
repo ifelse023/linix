@@ -5,22 +5,41 @@
 }:
 
 {
-
+  imports = [ inputs.stylix.homeModules.stylix ];
+  stylix = {
+    enable = true;
+    base16Scheme = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/scottmckendry/cyberdream.nvim/main/extras/base16/cyberdream.yaml";
+      sha256 = "1bfi479g7v5cz41d2s0lbjlqmfzaah68cj1065zzsqksx3n63znf";
+    };
+    polarity = "dark";
+    fonts = {
+      monospace = {
+        name = "JetBrains Mono";
+        package = pkgs.borg-sans-mono;
+      };
+      sansSerif = {
+        name = "Inter";
+        package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
+      };
+      serif = {
+        name = "Noto Serif";
+        package = pkgs.noto-fonts;
+      };
+      sizes = {
+        applications = 11;
+        desktop = 11;
+      };
+    };
+    targets.neovim.enable = false;
+  };
   gtk = {
     enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
     iconTheme = {
       name = "Tela-circle-dracula";
       package = pkgs.tela-circle-icon-theme;
     };
-    font = {
-      name = "Inter";
-      package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
-      size = 12;
-    };
+
     gtk3.extraConfig = {
       gtk-xft-antialias = 1;
       gtk-xft-hinting = 1;
@@ -51,9 +70,5 @@
     #   pkgs.libsForQt5.qt5ct
     # ];
   };
-  qt = {
-    enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
+
 }

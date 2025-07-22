@@ -3,6 +3,7 @@
 {
   home.packages = [
     pkgs.curl
+    pkgs.inshellisense
     pkgs.gemini-cli
     pkgs.elfutils
     pkgs.diffutils
@@ -85,6 +86,7 @@
 
     zoxide = {
       enable = true;
+      options = [ "--cmd cd" ];
     };
 
   };

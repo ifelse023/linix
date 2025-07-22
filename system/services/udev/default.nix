@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+_:
 {
   services.udev = {
     enable = true;

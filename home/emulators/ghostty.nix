@@ -7,7 +7,9 @@
     enable = true;
     clearDefaultKeybinds = true;
     settings = {
+      theme = "cyberdream";
       font-size = 16;
+      confirm-close-surface = false;
       gtk-single-instance = true;
       auto-update = "off";
 
