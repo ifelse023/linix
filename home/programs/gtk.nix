@@ -31,7 +31,10 @@
         desktop = 11;
       };
     };
-    targets.neovim.enable = false;
+    targets = {
+      neovim.enable = false;
+      firefox.profileNames = [ "hey" ];
+    };
   };
   gtk = {
     enable = true;
