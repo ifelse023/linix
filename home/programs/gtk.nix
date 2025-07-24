@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+config,
   ...
 }:
 {
@@ -55,6 +56,8 @@
   };
   home = {
     pointerCursor = {
+       name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark; 
       gtk.enable = true;
       size = 24;
       hyprcursor = {
