@@ -12,6 +12,7 @@
     ./xdg.nix
     ./impermanence.nix
     ./kernel.nix
+    ./theme.nix
   ];
   i18n =
     let

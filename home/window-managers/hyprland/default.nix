@@ -69,26 +69,34 @@ in
         resize_on_border = true;
         layout = "dwindle";
         no_border_on_floating = false;
-
       };
 
       decoration = {
-        rounding = 8;
+        rounding = 10;
         rounding_power = 3;
         blur = {
           enabled = true;
-          passes = 3;
-          size = 6;
-          new_optimizations = true;
+          brightness = 1.0;
+          contrast = 1.0;
+          noise = 0.01;
 
+          vibrancy = 0.2;
+          vibrancy_darkness = 0.5;
+
+          passes = 4;
+          size = 7;
+
+          popups = true;
+          popups_ignorealpha = 0.2;
         };
         shadow = {
           enabled = true;
-          range = 15;
-          render_power = 3;
+          color = "rgba(00000055)";
           ignore_window = true;
-          offset = "2, 4";
-          # color = "rgba(2e2e2e2e)";
+          offset = "0 15";
+          range = 100;
+          render_power = 2;
+          scale = 0.97;
         };
       };
 
