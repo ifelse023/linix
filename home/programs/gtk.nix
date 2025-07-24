@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-config,
+  config,
   ...
 }:
 {
@@ -35,7 +35,7 @@ config,
     font = {
       name = "Inter";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
-      size = 9;
+      size = 11;
     };
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
@@ -56,8 +56,8 @@ config,
   };
   home = {
     pointerCursor = {
-       name = "Catppuccin-Mocha-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.mochaDark; 
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
       gtk.enable = true;
       size = 24;
       hyprcursor = {

@@ -16,7 +16,7 @@
       enable = true;
       settings = {
         terminal.vt = 1;
-        default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd fish -l";
+        default_session.command = "${pkgs.greetd.greetd}/bin/agreety --cmd fish";
         initial_session = session;
       };
     };

@@ -1,11 +1,10 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 let
-  cfg = config.programs.git;
-  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqPLz1VVjaPGsWaeAUnajDs/1awhmQLluvf+J+O9BOa light";
+  publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqPLz1VVjaPGsWaeAUnajDs/1awhmQLluvf+J+O9BOa light";
 in
 {
-  home.packages = [ pkgs.lazygit ];
   programs = {
+
     gh = {
       enable = true;
       gitCredentialHelper.enable = false;
@@ -20,72 +19,67 @@ in
       };
     };
 
+    lazygit = {
+      enable = true;
+    };
+
     git = {
       enable = true;
       userEmail = "ifelse023@gmail.com";
       userName = "ifelse023";
+      lfs.enable = true;
+
       delta = {
         enable = true;
         options.dark = true;
       };
 
-      extraConfig = {
-
-        init.defaultBranch = "main";
-        diff.colorMoved = "default";
-        merge.conflictstyle = "diff3";
-
-        push = {
-          default = "current";
-          followTags = true;
-        };
-
-        core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
-        color.ui = "auto";
-
-        rebase = {
-          autoSquash = true;
-          autoStash = true;
-        };
-
-        rerere = {
-          autoupdate = true;
-          enabled = true;
-        };
-      };
-
-      lfs.enable = true;
-
       ignores = [
         ".cache/"
-        "*.swp"
-        "*.elc"
         ".~lock*"
-        "auto-save-list"
         ".direnv/"
         "node_modules"
         "result"
         "result-*"
       ];
 
-      signing = {
-        key = "${config.home.homeDirectory}/.ssh/id_ed25519";
-        signByDefault = true;
-      };
-
       extraConfig = {
+        init.defaultBranch = "main";
+        commit.verbose = true;
+        log.date = "iso";
+        column.ui = "auto";
+        diff.colorMoved = "default";
+        merge.conflictstyle = "zdiff3";
+        core.whitespace = "fix,-indent-with-non-tab,trailing-space,cr-at-eol";
+        color.ui = "auto";
+        pull.rebase = true;
+
+        push = {
+          default = "current";
+          followTags = true;
+        };
+
+        rebase = {
+          autoSquash = true;
+          autoStash = true;
+        };
+        rerere = {
+          autoupdate = true;
+          enabled = true;
+        };
+
+        commit.gpgsign = true;
+        user.signingkey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
         gpg = {
           format = "ssh";
           ssh.allowedSignersFile =
             config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
         };
-
-        pull.rebase = true;
       };
     };
   };
 
   xdg.configFile."git/allowed_signers".text = ''
-    ${cfg.userEmail} namespaces="git" ${key}
+    ${config.programs.git.userEmail} ${publicKey}
   '';
 }

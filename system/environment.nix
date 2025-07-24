@@ -7,9 +7,13 @@
       VISUAL = "nvim";
       SUDO_EDITOR = "nvim";
       SYSTEMD_PAGERSECURE = "true";
-      PAGER = "less -FR";
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      MANPAGER = "bat --plain";
+      PAGER = "bat --plain";
       MANROFFOPT = "-c";
+    };
+    shellAliases = {
+      cat = "bat";
+      less = "bat --plain";
     };
   };
 }

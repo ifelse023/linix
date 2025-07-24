@@ -19,7 +19,7 @@
   };
 
   nixpkgs = {
-    overlays = [ inputs.nixpkgs-wayland.overlay ];
+    # overlays = [ inputs.nixpkgs-wayland.overlay ];
     config = {
       allowUnfree = true;
     };

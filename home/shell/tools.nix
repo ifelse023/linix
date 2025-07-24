@@ -3,26 +3,22 @@
 {
   home.packages = [
     pkgs.curl
-    pkgs.inshellisense
+    pkgs.glow
+    pkgs.hexyl
+    pkgs.libqalculate
     pkgs.gemini-cli
-    pkgs.elfutils
-    pkgs.diffutils
     pkgs.debugedit
     pkgs.file
     pkgs.less
-    pkgs.which
     pkgs.pkg-config
     pkgs.just
     pkgs.just-lsp
-    pkgs.newt
     pkgs.picotool
     pkgs.util-linux
     pkgs.sccache
     pkgs.dogdns
     pkgs.procs
-    pkgs.wget
     pkgs.hyperfine
-    pkgs.bintools
     pkgs.sad
     pkgs.ffmpeg
     pkgs.rsync
@@ -32,7 +28,6 @@
     pkgs.pciutils
     pkgs.usbutils
     inputs.openocd-rpi.packages.${pkgs.system}.openocd-raspberrypi
-
   ];
 
   programs = {
@@ -60,11 +55,8 @@
       settings = {
         inline_height = 16;
         update_check = false;
-        ui = {
-          invert = true;
-        };
+        enter_accept = true;
       };
-      # enableFishIntegration = false;
     };
 
     direnv = {
@@ -86,7 +78,6 @@
 
     zoxide = {
       enable = true;
-      options = [ "--cmd cd" ];
     };
 
   };
