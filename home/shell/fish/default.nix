@@ -196,4 +196,6 @@ in
       '';
     };
   };
+  xdg.configFile."fish/completions/llvm-tools.fish".source =
+    "${pkgs.llvmPackages_21.libllvm}/share/fish/vendor_completions.d/llvm-tools.fish";
 }
