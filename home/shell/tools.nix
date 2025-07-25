@@ -3,6 +3,8 @@
 {
   home.packages = [
     pkgs.curl
+    pkgs.llvmPackages_21.libllvm
+    pkgs.gdb-dashboard
     pkgs.glow
     pkgs.hexyl
     pkgs.libqalculate
@@ -62,6 +64,7 @@
     direnv = {
       enable = true;
       nix-direnv.enable = true;
+      silent = true;
     };
 
     eza = {
@@ -72,7 +75,6 @@
         "--group-directories-first"
         "--header"
         "--icons"
-        "--sort extension"
       ];
     };
 

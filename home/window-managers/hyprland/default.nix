@@ -238,7 +238,7 @@ in
         "$mod, P, pseudo,"
         "$mod ALT, ,resizeactive,"
 
-        ", Print, exec, ${lib.getExe pkgs.hyprshot} -m region --clipboard-only"
+        "$mod, Print, exec, ${lib.getExe pkgs.flameshot} gui"
         ("$mod, Return, exec, uwsm app -- " + lib'.terminal)
 
         "$mod, D, exec, fuzzel launch-prefix='uwsm app -- '"

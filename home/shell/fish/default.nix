@@ -30,11 +30,11 @@ in
       gc-check = "nix-store --gc --print-roots | egrep -v \"^(/nix/var|/run/\w+-system|\{memory|/proc)\"";
       cat = "${getExe bat} --style=plain";
       mp = "mkdir -p";
-      ls = "${getExe eza} -h --git --icons=always";
-      l = "ls -lF --time-style=long-iso --icons=always";
-      ll = "eza -l --git --icons --color=auto --group-directories-first";
+      ls = "${getExe eza} -h --git -s extension";
+      l = "ls -lF --time-style=long-iso";
+      ll = "eza -l --git --color=auto";
       errors = "journalctl -b -p err..alert";
-      la = "${getExe eza} -ah --git --icons";
+      la = "${getExe eza} -ah --git";
       tree = "${getExe eza} --tree --icons=never";
       burn = "pkill -9";
       diff = "diff --color=auto";
@@ -42,6 +42,17 @@ in
       baty = "sudo tlp-stat -b";
       sta = "printf '%s\n' $status";
       x = "nvim";
+      gdb = "gdb-dashboard";
+
+      objdump = "llvm-objdump";
+      readelf = "llvm-readelf";
+      nm = "llvm-nm";
+      strings = "llvm-strings";
+      addr2line = "llvm-addr2line";
+      size = "llvm-size";
+      strip = "llvm-strip";
+      ar = "llvm-ar";
+      ranlib = "llvm-ranlib";
 
       ".." = "cd ..";
       "..." = "cd ../../";
@@ -196,6 +207,4 @@ in
       '';
     };
   };
-  xdg.configFile."fish/completions/llvm-tools.fish".source =
-    "${pkgs.llvmPackages_21.libllvm}/share/fish/vendor_completions.d/llvm-tools.fish";
 }
