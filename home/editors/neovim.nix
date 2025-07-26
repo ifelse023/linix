@@ -15,7 +15,7 @@
         pkgs.fd
         pkgs.nil
         pkgs.nixfmt-rfc-style
-        pkgs.gcc
+        pkgs.just-lsp
       ];
     };
   };
