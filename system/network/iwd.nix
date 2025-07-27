@@ -23,21 +23,12 @@
           Settings = {
             AutoConnect = true;
           };
-          General = {
-            AddressRandomization = "once";
-            EnableNetworkConfiguration = false;
-          };
           Network = {
             EnableIPv6 = true;
             NameResolvingService = "systemd";
-          };
-          Scan = {
-            DisablePeriodicScan = true;
-            DisableRoamingScan = true;
           };
         };
       };
     };
   };
-
 }

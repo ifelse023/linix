@@ -31,9 +31,12 @@
           "video"
           "wheel"
           "systemd-journal"
+          "plugdev"
         ];
       };
     };
+
+    groups.plugdev = { };
   };
 
   security = {

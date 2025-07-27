@@ -29,13 +29,13 @@
       package = pkgs.rose-pine-gtk-theme;
     };
     iconTheme = {
-      name = "Tela-circle-dracula";
-      package = pkgs.tela-circle-icon-theme;
+      name = "rose-pine";
+      package = pkgs.rose-pine-icon-theme;
     };
     font = {
-      name = "Inter";
+      name = "Atkinson Hyperlegible Next";
       package = pkgs.google-fonts.override { fonts = [ "Inter" ]; };
-      size = 11;
+      size = 12;
     };
     gtk2 = {
       configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
